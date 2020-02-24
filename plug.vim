@@ -1,4 +1,5 @@
-let g:plug_url_format = "git@github.com:%s.git"
+" Enable the following line if we have SSH configured with github
+" let g:plug_url_format = "git@github.com:%s.git"
 call plug#begin()
 
 " -----------------

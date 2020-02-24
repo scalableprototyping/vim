@@ -60,11 +60,9 @@ call plug#begin()
             Plug 'scrooloose/nerdtree'
             " x := explorer
             " Toggle file explorer
-            " xx : = explorer toggle
-            " xo := explorer open
-            " xc := explorer close
-            " xf := explorer find file := find current opened file in explorer
-            " xg := explorer git := Change directory to root of the repository
+            " xo := explorer open/close
+            " xl := explorer locate := find current opened file in explorer
+            " xp := explorer project := Change directory to root of the repository
             " Change the NERDTree directory to the root node
             " Remove vertical | chars
         "}}}

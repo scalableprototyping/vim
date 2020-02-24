@@ -68,6 +68,7 @@ call plug#begin()
         "}}}
 
         " Fuzzy file content explorer
+        " Make sure you have ack, ag, pt or rg installed
         "{{{
             Plug 'dyng/ctrlsf.vim'
             " Search word under cursor

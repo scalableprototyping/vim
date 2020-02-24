@@ -45,17 +45,6 @@ call plug#begin()
             " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
         "}}}
 
-        " Autocompletion with Language Server Processor
-        "{{{
-            Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-            " Use <C-l> for trigger snippet expand.
-            " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-            " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-            " Use <C-j> for both expand and jump (make expand higher priority.)
-            " Add header guards with :HeaderguardAdd
-        "}}}
-
         " Fuzzy file explorer and most recent used files
         "{{{
             Plug 'ctrlpvim/ctrlp.vim'
@@ -64,13 +53,6 @@ call plug#begin()
             " touch .ctrlp where we want to set the project's search root
             " <leader>+of:= edit file
             " <leader>+or:= edit recent
-        "}}}
-
-        " Fuzzy file content explorer
-        "{{{
-            Plug 'dyng/ctrlsf.vim'
-            " Search word under cursor
-            " Search last  searched pattern
         "}}}
 
         " Navigation bar
@@ -87,10 +69,11 @@ call plug#begin()
             " Remove vertical | chars
         "}}}
 
-        " Fzf integration.
-        " Use :Lines to fuzzy search lines of current file
+        " Fuzzy file content explorer
         "{{{
-            Plug 'junegunn/fzf.vim'
+            Plug 'dyng/ctrlsf.vim'
+            " Search word under cursor
+            " Search last  searched pattern
         "}}}
 
         " Git integration
@@ -113,6 +96,17 @@ call plug#begin()
 
         "}}}
 
+        " Autocompletion with Language Server Processor
+        "{{{
+            Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+            " Use <C-l> for trigger snippet expand.
+            " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+            " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+            " Use <C-j> for both expand and jump (make expand higher priority.)
+            " Add header guards with :HeaderguardAdd
+        "}}}
+
         " Undo history tree
         "{{{
             Plug 'mbbill/undotree'
@@ -128,6 +122,12 @@ call plug#begin()
         " Allows to visually select text in one file and them compare it to a different selection
         "{{{
             Plug 'AndrewRadev/linediff.vim'
+        "}}}
+
+        " Fzf integration.
+        " Use :Lines to fuzzy search lines of current file
+        "{{{
+            Plug 'junegunn/fzf.vim'
         "}}}
 
     "}}}

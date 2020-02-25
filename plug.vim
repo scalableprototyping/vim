@@ -111,12 +111,6 @@ call plug#begin()
             Plug 'mbbill/undotree'
         "}}}
 
-        " Repeat plugin operations
-        " Allows to repeat plugin operators with `dot`
-        "{{{
-            Plug 'tpope/vim-repeat'
-        "}}}
-
         " Infile diff
         " Allows to visually select text in one file and them compare it to a different selection
         "{{{
@@ -162,6 +156,12 @@ call plug#begin()
 
 " -----------------
 "{{{ Additional Operators
+
+    " Repeat plugin operations
+    " Allows to repeat plugin operators with `dot`
+    "{{{
+        Plug 'tpope/vim-repeat'
+    "}}}
 
     " user defined operators boiler plate.
     "{{{

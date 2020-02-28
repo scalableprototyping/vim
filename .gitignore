@@ -2,5 +2,6 @@
 .swap/
 .backup/
 .yankring/
+plug.vim.old
 plugged/
 sessions/

@@ -6,7 +6,7 @@ call arpeggio#load()
 " ------------------
 "" Arpeggio for simultaneous key bindings
 " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
-let g:arpeggio_timeoutlen=75
+let g:arpeggio_timeoutlen=95
 
 " Window Movement
 silent Arpeggio nnoremap <silent> wh :wincmd h<CR>
@@ -14,6 +14,23 @@ silent Arpeggio nnoremap <silent> wj :wincmd j<CR>
 silent Arpeggio nnoremap <silent> wk :wincmd k<CR>
 silent Arpeggio nnoremap <silent> wl :wincmd l<CR>
 silent Arpeggio nnoremap <silent> wq :wincmd q<CR>
+
+" Paragraph Movement
+map <Plug>(arpeggio-default:p) p
+silent Arpeggio nnoremap <silent> pk {
+silent Arpeggio nnoremap <silent> pj }
+
+" Folds
+silent Arpeggio nnoremap <silent> zj zj
+silent Arpeggio nnoremap <silent> zk zk
+silent Arpeggio nnoremap <silent> zo zo
+silent Arpeggio nnoremap <silent> zc zc
+silent Arpeggio xnoremap <silent> zf zf
+silent Arpeggio xnoremap <silent> zd zd
+
+" Scrolling
+silent Arpeggio nnoremap <silent> sj :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+silent Arpeggio nnoremap <silent> sk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
 
 " ------------------
 " nanotech/jellybeans.vim

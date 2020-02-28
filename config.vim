@@ -5,7 +5,7 @@
 " ---------------
 " {{{ Theme 
 set t_Co=256
-set guifont=Inconsolata\ Nerd\ Font\ Mono:h12"
+set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
 " }}}
 " ---------------
 

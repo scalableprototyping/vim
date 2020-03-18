@@ -2,11 +2,18 @@
 call arpeggio#load()
 
 " ------------------
+" lens.vim
+" ------------------
+" let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
+let g:lens#width_resize_max = 100
+let g:lens#width_resize_min = 20
+
+" ------------------
 "" kana/vim-arpeggio
 " ------------------
 "" Arpeggio for simultaneous key bindings
 " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
-let g:arpeggio_timeoutlen=95
+let g:arpeggio_timeoutlen=125
 
 " Window Movement
 silent Arpeggio nnoremap <silent> wh :wincmd h<CR>
@@ -16,9 +23,8 @@ silent Arpeggio nnoremap <silent> wl :wincmd l<CR>
 silent Arpeggio nnoremap <silent> wq :wincmd q<CR>
 
 " Paragraph Movement
-map <Plug>(arpeggio-default:p) p
-silent Arpeggio nnoremap <silent> pk {
-silent Arpeggio nnoremap <silent> pj }
+silent Arpeggio nnoremap <silent> fk {
+silent Arpeggio nnoremap <silent> fj }
 
 " Folds
 silent Arpeggio nnoremap <silent> zj zj
@@ -238,7 +244,7 @@ let g:ctrlsf_default_root = 'project'
 " Toggle file explorer
 " xo : = explorer open/close
 ""TODO: nnoremap doens't seem to be working with Arpeggio.
-let g:NERDTreeWinSize=50
+" let g:NERDTreeWinSize=40
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 silent Arpeggio nnoremap xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 " xl := explorer locate file := find current opened file in explorer

@@ -17,6 +17,12 @@ call plug#begin()
         Plug 'regedarek/ZoomWin'
     "}}}
 
+    " Zoom split animation
+    "{{{
+        " Plug 'camspiers/animate.vim'
+        Plug 'camspiers/lens.vim'
+    "}}}
+
     " Smooth scrolling
     "{{{
         "Plug 'terryma/vim-smooth-scroll'
@@ -28,7 +34,6 @@ call plug#begin()
         Plug 'vim-airline/vim-airline'
         Plug 'blasco/vim-airline-themes'
         Plug 'ryanoasis/vim-devicons'
-        " Buffer navigation top bar.
     "}}}
 
 "}}}
@@ -45,7 +50,7 @@ call plug#begin()
             " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
         "}}}
 
-        " Fuzzy file explorer and most recent used files
+        " File navigation and Most Recent Used files
         "{{{
             Plug 'ctrlpvim/ctrlp.vim'
             " Add .ctrlp to ~/.gitignore_global
@@ -55,7 +60,7 @@ call plug#begin()
             " <leader>+or:= edit recent
         "}}}
 
-        " Navigation bar
+        " File Explorer
         "{{{
             Plug 'scrooloose/nerdtree'
             " x := explorer
@@ -67,7 +72,7 @@ call plug#begin()
             " Remove vertical | chars
         "}}}
 
-        " Fuzzy file content explorer
+        " Fuzzy file content search
         " Make sure you have ack, ag, pt or rg installed
         "{{{
             Plug 'dyng/ctrlsf.vim'
@@ -110,6 +115,9 @@ call plug#begin()
         "{{{
             Plug 'mbbill/undotree'
         "}}}
+    "}}}
+
+    " {{{ Extra
 
         " Infile diff
         " Allows to visually select text in one file and them compare it to a different selection
@@ -123,7 +131,7 @@ call plug#begin()
             Plug 'junegunn/fzf.vim'
         "}}}
 
-    "}}}
+    " }}}
 
     "{{{ Language dependent extensions
 

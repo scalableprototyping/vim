@@ -39,8 +39,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " ------------------
 " Use <C-l> for trigger snippet expand.
 " Use <C-j> for select text for visual placeholder of snippet.
-imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
+" imap <C-l> <Plug>(coc-snippets-expand)
+" vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim

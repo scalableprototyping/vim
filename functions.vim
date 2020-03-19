@@ -2,6 +2,9 @@
 " Functions
 " ---------------
 
+" Launch split terminal
+command! -nargs=* T split | resize 15 | terminal <args>
+
 " ---------------
 " QFDo
 " ---------------

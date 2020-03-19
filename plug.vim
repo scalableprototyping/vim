@@ -35,12 +35,11 @@ call plug#begin()
         Plug 'blasco/vim-airline-themes'
         Plug 'ryanoasis/vim-devicons'
     "}}}
-     
-    " Minimap
-    "{{{
-        Plug 'blasco/vim-minimap'
-    "}}}
 
+    " Tag bar
+    "{{{
+        Plug 'majutsushi/tagbar'
+     "}}}
 "}}}
 " -----------------
 
@@ -134,6 +133,11 @@ call plug#begin()
         " Use :Lines to fuzzy search lines of current file
         "{{{
             Plug 'junegunn/fzf.vim'
+        "}}}
+
+        " Search definition and ocurrences 
+        "{{{
+            Plug 'pechorin/any-jump.vim'
         "}}}
 
     " }}}

@@ -1,8 +1,42 @@
 "" Arpeggio needs to be loaded before first use
 call arpeggio#load()
 
-let g:minimap_highlight='Search'
-silent Arpeggio nnoremap <silent> mo :MinimapToggle<CR>
+
+" ------------------
+" any-jump
+" ------------------
+" Normal mode: Jump to definition under cursore
+silent Arpeggio nnoremap ja :AnyJump<CR>
+" Visual mode: jump to selected text in visual mode
+silent Arpeggio xnoremap ja :AnyJumpVisual<CR>
+" Normal mode: open previous opened file (after jump)
+nnoremap <leader>jb :AnyJumpBack<CR>
+" Normal mode: open last closed search window again
+nnoremap <leader>jl :AnyJumpLastResults<CR>
+
+
+" ------------------
+" tagbar
+" ------------------
+silent Arpeggio nmap to :TagbarToggle<CR>
+let g:tagbar_type_typescript = {                                                  
+  \ 'ctagsbin' : 'tstags',                                                        
+  \ 'ctagsargs' : '-f-',                                                           
+  \ 'kinds': [                                                                     
+    \ 'e:enums:0:1',                                                               
+    \ 'f:function:0:1',                                                            
+    \ 't:typealias:0:1',                                                           
+    \ 'M:Module:0:1',                                                              
+    \ 'I:import:0:1',                                                              
+    \ 'i:interface:0:1',                                                           
+    \ 'C:class:0:1',                                                               
+    \ 'm:method:0:1',                                                              
+    \ 'p:property:0:1',                                                            
+    \ 'v:variable:0:1',                                                            
+    \ 'c:const:0:1',                                                              
+  \ ],                                                                            
+  \ 'sort' : 0                                                                    
+\ } 
 
 " ------------------
 " lens.vim
@@ -16,7 +50,7 @@ let g:lens#width_resize_min = 20
 " ------------------
 "" Arpeggio for simultaneous key bindings
 " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
-let g:arpeggio_timeoutlen=95
+let g:arpeggio_timeoutlen=125
 
 " Window Movement
 silent Arpeggio nnoremap <silent> wh :wincmd h<CR>
@@ -64,7 +98,7 @@ if has('nvim')
     let g:zoomwin_localoptlist = ["ai","ar","bh","bin","bl","bomb","bt","cfu","ci","cin","cink","cino","cinw","cms","com","cpt","diff","efm","eol","ep","et","fenc","fex","ff","flp","fo","ft","gp","imi","ims","inde","inex","indk","inf","isk","kmp","lisp","mps","ml","ma","mod","nf","ofu","pi","qe","ro","sw","si","sts","spc","spf","spl","sua","swf","smc","syn","ts","tw","udf","wfh","wfw","wm"]
 endif
 " Maximize buffer window: <c-w>o and restore
-silent Arpeggio nmap wf <c-w>o
+silent Arpeggio nmap <silent> wf :silent!ZoomWin<CR>
 
 " ------------------
 " junegunn/vim-peekaboo
@@ -375,7 +409,9 @@ omap f <Plug>(easymotion-fl)
 xmap f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
 """ unTil character
-map t <Plug>(easymotion-tl)
+map <Plug>(arpeggio-default:t) <plug>(easymotion-tl)
+omap t <Plug>(easymotion-tl)
+xmap t <Plug>(easymotion-tl)
 map T <Plug>(easymotion-Tl)
 ""
 ""let g:EasyMotion_move_highlight=0

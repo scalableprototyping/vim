@@ -13,14 +13,19 @@ set signcolumn=yes
 " Use enter to choose autocomplete option
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Remap keys for gotos
+
+" jd := jump to definition
+" jc := jump to code
+silent Arpeggio nmap <silent> jd <Plug>(coc-definition)
+silent Arpeggio nmap <silent> jc <Plug>(coc-implementation)
+
 nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+silent Arpeggio nmap <silent> rn <Plug>(coc-rename)
 
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
@@ -37,9 +42,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " ------------------
 " neoclide/coc-snippets
 " ------------------
-" Use <C-l> for trigger snippet expand.
+" Use <C-s> for trigger snippet expand.
 " Use <C-j> for select text for visual placeholder of snippet.
-" imap <C-l> <Plug>(coc-snippets-expand)
+imap <C-s> <Plug>(coc-snippets-expand)
 " vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
@@ -48,7 +53,7 @@ let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+" imap <C-s> <Plug>(coc-snippets-expand-jump)
 
 " ------------------
 " neoclide/coc-git
@@ -61,7 +66,6 @@ nmap ]g <Plug>(coc-git-nextchunk)
 nmap <leader>gs <Plug>(coc-git-chunkinfo)
 " show commit contains current position
 nmap <leader>gc <Plug>(coc-git-commit)
-
 " TODO: is this correct? it is not working
 " create text object for git chunks
 omap ig <Plug>(coc-text-object-inner)

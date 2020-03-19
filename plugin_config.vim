@@ -1,10 +1,13 @@
 "" Arpeggio needs to be loaded before first use
 call arpeggio#load()
 
+let g:minimap_highlight='Search'
+silent Arpeggio nnoremap <silent> mo :MinimapToggle<CR>
+
 " ------------------
 " lens.vim
 " ------------------
-" let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
+let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'vim-minimap']
 let g:lens#width_resize_max = 100
 let g:lens#width_resize_min = 20
 
@@ -13,7 +16,7 @@ let g:lens#width_resize_min = 20
 " ------------------
 "" Arpeggio for simultaneous key bindings
 " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
-let g:arpeggio_timeoutlen=125
+let g:arpeggio_timeoutlen=95
 
 " Window Movement
 silent Arpeggio nnoremap <silent> wh :wincmd h<CR>
@@ -22,10 +25,6 @@ silent Arpeggio nnoremap <silent> wk :wincmd k<CR>
 silent Arpeggio nnoremap <silent> wl :wincmd l<CR>
 silent Arpeggio nnoremap <silent> wq :wincmd q<CR>
 
-" Paragraph Movement
-silent Arpeggio nnoremap <silent> fk {
-silent Arpeggio nnoremap <silent> fj }
-
 " Folds
 silent Arpeggio nnoremap <silent> zj zj
 silent Arpeggio nnoremap <silent> zk zk
@@ -33,10 +32,6 @@ silent Arpeggio nnoremap <silent> zo zo
 silent Arpeggio nnoremap <silent> zc zc
 silent Arpeggio xnoremap <silent> zf zf
 silent Arpeggio xnoremap <silent> zd zd
-
-" Scrolling
-silent Arpeggio nnoremap <silent> sj :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-silent Arpeggio nnoremap <silent> sk :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
 
 " ------------------
 " nanotech/jellybeans.vim
@@ -96,8 +91,8 @@ let g:comfortable_motion_friction = 0.0
 let g:comfortable_motion_air_drag = 10.0
 nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
-nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+" nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 5)<CR>
+" nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -5)<CR>
 
 " ------------------
 " vim-airline/vim-airline
@@ -426,7 +421,8 @@ let g:sort_motion_visual_block_command = "Vissort"
 " svermeulen/vim-cutlass
 " ------------------
 " m: move (cut), d: delete
-nnoremap m d
+
+nnoremap <Plug>(arpeggio-default:m) d
 xnoremap m d
 " one line
 nnoremap mm dd

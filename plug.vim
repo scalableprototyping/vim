@@ -17,7 +17,7 @@ call plug#begin()
         Plug 'regedarek/ZoomWin'
     "}}}
 
-    " Zoom split animation
+    " Buffer autoresizing
     "{{{
         " Plug 'camspiers/animate.vim'
         Plug 'camspiers/lens.vim'
@@ -34,6 +34,11 @@ call plug#begin()
         Plug 'vim-airline/vim-airline'
         Plug 'blasco/vim-airline-themes'
         Plug 'ryanoasis/vim-devicons'
+    "}}}
+     
+    " Minimap
+    "{{{
+        Plug 'blasco/vim-minimap'
     "}}}
 
 "}}}

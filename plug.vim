@@ -140,6 +140,12 @@ call plug#begin()
             Plug 'pechorin/any-jump.vim'
         "}}}
 
+        " Color picker
+        "{{{
+            Plug 'gu-fan/colorv.vim'
+            Plug 'ap/vim-css-color'
+        "}}}
+
     " }}}
 
     "{{{ Language dependent extensions

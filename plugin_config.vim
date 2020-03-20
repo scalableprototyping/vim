@@ -1,7 +1,6 @@
 "" Arpeggio needs to be loaded before first use
 call arpeggio#load()
 
-
 " ------------------
 " any-jump
 " ------------------
@@ -13,7 +12,6 @@ silent Arpeggio xnoremap ja :AnyJumpVisual<CR>
 nnoremap <leader>jb :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
 nnoremap <leader>jl :AnyJumpLastResults<CR>
-
 
 " ------------------
 " tagbar
@@ -180,27 +178,12 @@ let g:ragtag_global_maps = 1
 " Configuration in coc_config.vim
 
 " ------------------
-" honza/vim-snippets
-" ------------------
-" Default snippets are separated from the engine.
-
-" ------------------
-" drmikehenry/vim-headerguard
-" ------------------
-" Add header guards with :HeaderguardAdd
-
-" ------------------
-" metakirby5/codi.vim
-" ------------------
-" Quick smart calculator. Launch with `:Codi python`
-
-" ------------------
-" Rykka/colorv.vim
+" gu-fan/colorv.vim
 " ------------------
 " Color picker
 " cp: Color Picker
-"Arpeggio nmap cp :ColorVEdit<CR>:ColorVPicker<CR>
-" <leader>cap color auto preview
+Arpeggio nmap cp :ColorVEdit<CR>:ColorVPicker<CR>
+" nmap <leader>ce :ColorVEdit<CR>:ColorVPicker<CR>
 " <leader>ce: color edit
 " Within the edit dialog :ColorVPicker for a picker dialog box
 " <leader>cii : color insert
@@ -292,17 +275,6 @@ let NERDTreeMapOpenVSplit='<C-v>'
 set fillchars+=vert:\
 
 " ------------------
-" junegunn/fzf.vim
-" ------------------
-" Fzf integration.
-" Use :Lines to fuzzy search lines of current file
-
-" ------------------
-" danro/rename.vim
-" ------------------
-" Provides :Rename command
-
-" ------------------
 " tpope/vim-fugitive
 " ------------------
 " Git integration
@@ -319,16 +291,6 @@ nmap <silent> <leader>gu :Git pull<CR>
 nmap <silent> <leader>gd :Gdiff<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
-
-" ------------------
-" idanarye/vim-merginal
-" ------------------
-" :Merginal to show all branches and to swich to them
-
-" ------------------
-" svermeulen/vim-yoink
-" ------------------
-" Yank registers management
 
 " Change from using system clipboard to vim clipboard, which has a special
 " formatting that allows to paste visual blocks
@@ -376,22 +338,9 @@ nmap y= <Plug>(YoinkPostPasteToggleFormat)
 " mbbill/undotree
 " ------------------
 " Undo history tree
-
 " uo: Undootree open
 silent Arpeggio nnoremap uo :UndotreeToggle<cr>
 let g:undotree_SetFocusWhenToggle = 1
-
-" ------------------
-" sudar/vim-arduino-syntax
-" ------------------
-
-" ------------------
-" leafgarland/typescript-vim
-" ------------------
-
-" ------------------
-" peterhoeg/vim-qml
-" ------------------
 
 " ------------------
 " easymotion/vim-easymotion
@@ -413,7 +362,7 @@ map <Plug>(arpeggio-default:t) <plug>(easymotion-tl)
 omap t <Plug>(easymotion-tl)
 xmap t <Plug>(easymotion-tl)
 map T <Plug>(easymotion-Tl)
-""
+
 ""let g:EasyMotion_move_highlight=0
 map ; <Plug>(easymotion-next)
 map , <Plug>(easymotion-prev)
@@ -425,28 +374,9 @@ hi link EasyMotionMoveHL IncSearch
 hi link EasyMotionIncSearch IncSearch
 
 " ------------------
-" kana/vim-operator-user
-" ------------------
-" user defined operators boiler plate.
-
-" ------------------
-" mwgkgk/vim-operator-append
-" ------------------
-" ga: go append
-
-" ------------------
-" christoomey/vim-titlecase
-" ------------------
-" gt : go title
-
-" ------------------
-" christoomey/vim-sort-motion
-" ------------------
-" go: go order
-
-" ------------------
 " yaroot/vissort
 " ------------------
+" go: go order
 let g:sort_motion = 'go'
 let g:sort_motion_lines = 'goo'
 let g:sort_motion_visual = 'go'
@@ -457,8 +387,7 @@ let g:sort_motion_visual_block_command = "Vissort"
 " svermeulen/vim-cutlass
 " ------------------
 " m: move (cut), d: delete
-
-nnoremap <Plug>(arpeggio-default:m) d
+nnoremap m d
 xnoremap m d
 " one line
 nnoremap mm dd
@@ -485,20 +414,6 @@ nmap g== <Plug>(crunch-operator-line)
 " ------------------
 " Comment operator | gc  := go comment
 autocmd Filetype c,cpp setlocal commentstring=//\ %s
-
-" ------------------
-" tpope/vim-surround
-" ------------------
-" :S for smart substitution and coercion:
-" coerce operator: = cr[
-"     s:= snake_case,
-"     m:= mixedCase,
-"     c:= camelCase,
-"     u:= UPPER_CASE ,
-"     -:= dash-case,
-"     .:= dot.case,
-"     <space>:=space case,a
-"     t:= Title Case
 
 " ------------------
 " tpope/vim-abolish
@@ -596,7 +511,6 @@ nmap gx  <Plug>(Exchange)
 nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
 
-
 " ------------------
 " tommcdo/vim-lion
 " ------------------
@@ -621,35 +535,6 @@ xmap gfal <Plug>VLionLeft
 
 nmap gfah <Plug>LionRight
 xmap gfah <Plug>VLionRight
-
-" ------------------
-" rgrinberg/vim-operator-gsearch
-" ------------------
-" g+shift+/ == g? := git search with fugitive-vim's Ggrep
-
-"map g/ <Plug>(operator-ag)
-"map g? <Plug>(operator-ggrep)
-"map gh <Plug>(operator-helpgrep)
-"map gw <Plug>(operator-ag-word)
-"let g:gsearch_ag_command = 'Ggrep'
-
-" g= := replace with expression
-" g: := subsitute regex
-
-" ------------------
-" tommcdo/vim-express
-" ------------------
-"let g:express_no_mappings=1
-
-"TODO: breaks with crunch
-" nmap g= <Plug>(Express)
-" xmap g= <Plug>(Express)
-
-" TODO: Add option to use vim-abolish :S instead of :s
-"nmap gs <Plug>(Subpress)
-"xmap gs <Plug>(Subpress)
-
-" <leader>[h,j,k,l] send to window (useful with repl or terimal)
 
 " ------------------
 " KKPMW/vim-sendtowindow
@@ -713,65 +598,6 @@ map g# <Plug>(asterisk-z#)
 
 let g:asterisk#keeppos = 1
 
-" Many additional mappings, check `:map [` for more details
-
-" ------------------
-" tpope/vim-unimpaired
-" ------------------
-
-
-" ------------------
-" tpope/vim-speeddating
-" ------------------
-
-" gz: go check grammar
-
-" ------------------
-" rhysd/vim-grammarous
-" ------------------
-
-"nmap gz <Plug>(operator-grammarous)
-
-"" Move curzor to the previous error
-"nmap gzo <Plug>(grammarous-open-info-window)
-
-"" Move the curzor to the info window
-""nmap <Plug>(grammarouz-move-to-info-window)
-
-"" Rezet the current check
-"nmap gzr <Plug>(grammarous-reset)
-"" Fix the error under the curzor automatically
-"nmap gzf <Plug>(grammarous-fixit)
-"" Fix all the errorz in a current buffer automatically
-"nmap gzF <Plug>(grammarous-fixall)
-"" Cloze the information window from checked buffer
-"nmap gzc <Plug>(grammarous-close-info-window)
-"" Remove the error under the curzor
-"" gzn := go spell not an error
-"nmap gzn <Plug>(grammarous-remove-error)
-"" Dizable the grammar rule under the cursor
-"" gzd := go spell dissable (delete) grammar rule
-"nmap gzd <Plug>(grammarous-disable-rule)
-
-"" Move cursor to the next error
-"nmap ]z <Plug>(grammarous-move-to-next-error)
-"" Move cursor to the previous error
-"nmap [z <Plug>(grammarous-move-to-previous-error)
-
-
-" d<space> delete trailing spaces in line. Also shows them
-
-" " ------------------
-" " ntpeters/vim-better-whitespace
-" " ------------------
-" let g:better_whitespace_enabled=0
-" au FileType c,cpp,python,typescript,javascript,html,vim EnableWhitespace
-" let g:better_whitespace_operator='d<space>'
-" " Set the highlight color for trailing whitespaces:
-" let g:better_whitespace_ctermcolor = 'gray'
-" let g:better_whitespace_guicolor = 'gray'
-
-
 " -----------------
 " Additional Text Objects
 " -----------------
@@ -814,16 +640,6 @@ let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'nN'
 
 " ------------------
-" kana/vim-textobj-user
-" ------------------
-" Template to create custom text objects
-
-" ------------------
-" kana/vim-textobj-entire
-" ------------------
-" e: entire document
-
-" ------------------
 " blasco/vim-textobj-line
 " ------------------
 " l: line
@@ -836,11 +652,6 @@ omap il <Plug>(textobj-line-i)
 
 xmap Il <Plug>(textobj-line-I)
 omap Il <Plug>(textobj-line-I)
-
-" ------------------
-" tpope/vim-repeat
-" ------------------
-" Repeat plugin operations
 
 " ------------------
 " kana/vim-textobj-function
@@ -857,54 +668,3 @@ autocmd Filetype vim,c,java omap Af <Plug>(textobj-function-A)
 
 autocmd Filetype vim,c,java xmap If <Plug>(textobj-function-I)
 autocmd Filetype vim,c,java omap If <Plug>(textobj-function-I)
-
-" ------------------
-" glts/vim-textobj-comment
-" ------------------
-" TODO: target single line comments
-
-" ------------------
-" thinca/vim-textobj-between
-" ------------------
-" if: in find between characters
-" af: a find between characters
-" TODO: b from targets vim needs to be remaped to br (brackets)
-
-" ------------------
-" blasco/vim-textobj-variable-segment
-" ------------------
-" ibc := in between characters
-" abc := around between characters
-" let g:textobj_between_no_default_key_mappings=1
-
-" omap ibc <Plug>(textobj-between-i)
-" xmap ibc <Plug>(textobj-between-i)
-
-" omap abc <Plug>(textobj-between-a)
-" xmap abc <Plug>(textobj-between-a)
-
-" iv: in variable segment
-" av: a variable segment
-"Plug 'Julian/vim-textobj-variable-segment'
-
-" ------------------
-" vim-hardtime
-" ------------------
-"let g:hardtime_showmsg=1
-"autocmd FileType cpp,typescript,html,scss execute "HardTimeOn"
-"let g:hardtime_default_on=0
-"let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
-"let g:hardtime_timeout=500
-"nnoremap <expr> h "h"
-"nnoremap <expr> j "j"
-"nnoremap <expr> k "k"
-"nnoremap <expr> l "l"
-
-" " ------------------
-" " glacambre/firenvim
-" " ------------------
-" function! OnUIEnter(event)
-"     exe 'AirlineToggle'
-"     set guifont=monospace:h12
-" endfunction
-" autocmd UIEnter * call OnUIEnter(deepcopy(v:event))

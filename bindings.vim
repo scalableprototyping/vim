@@ -2,13 +2,20 @@
 " Bindings
 " ----------------------------------------
 
-" Make going to beginning and end of lines easier.
-noremap H ^
-noremap L $
+" Beginning and End of line movement
+" Mnemonic: like h and l but with Ctrl, which is the same
+" modifier for moving with bigger motion brushes like up,
+" down, forward, backward. 
+noremap <c-h> ^
+noremap <c-l> $
 
 " Make Y behave like other capital commands.
 nnoremap Y y$
 
+" Paragraph movement
+" Mnemonic: like j and k but with Ctrl, which is the same
+" modifier for moving with bigger motion brushes like up,
+" down, forward, backward. 
 noremap <C-k> {
 noremap <C-j> }
 

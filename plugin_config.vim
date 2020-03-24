@@ -207,6 +207,7 @@ let g:ctrlsf_mapping = {
 " ------------------
 " Fuzzy file explorer and most recent used files
 
+let g:ctrlp_mruf_max = 1000
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode ='ra'
@@ -220,8 +221,6 @@ endif
 " git config --global core.excludesfile ~/.gitignore_global
 " touch .ctrlp where we want to set the project's search root
 let g:ctrlp_root_markers = ['.ctrlp']
-nmap <C-z> :CtrlPMRUFiles<CR>
-nmap <C-e> :CtrlP<CR>
 " ef:= expore recent
 silent Arpeggio nmap er :CtrlPMRUFiles<CR>
 " ep:= expore project
@@ -270,6 +269,8 @@ let g:NERDTreeChDirMode=2
 " Mappings
 let NERDTreeMapOpenSplit='<C-s>'
 let NERDTreeMapOpenVSplit='<C-v>'
+" '<C-e>' := edit
+let NERDTreeMapMenu='<C-e>'
 
 " Remove vertical | chars
 set fillchars+=vert:\
@@ -349,7 +350,10 @@ let g:EasyMotion_skipfoldedline = 0
 
 " Targeted f/t and search motions
 " <leader>s := search
-map <Plug>(arpeggio-default:/) <plug>(easymotion-sn)
+" map <Plug>(arpeggio-default:/) <plug>(easymotion-sn)
+silent Arpeggio map sa <plug>(easymotion-sn)
+silent Arpeggio map sk <plug>(easymotion-k)
+silent Arpeggio map sj <plug>(easymotion-j)
 silent Arpeggio noremap <leader>/ /\v
 
 "" find character

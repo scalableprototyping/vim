@@ -142,8 +142,8 @@ call plug#begin()
 
         " Color picker
         "{{{
-            Plug 'gu-fan/colorv.vim'
-            Plug 'ap/vim-css-color'
+            " Plug 'gu-fan/colorv.vim'
+            " Plug 'ap/vim-css-color'
         "}}}
 
     " }}}

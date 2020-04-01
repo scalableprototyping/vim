@@ -67,6 +67,7 @@ call plug#begin()
         " File Explorer
         "{{{
             Plug 'scrooloose/nerdtree'
+            " Plug 'tpope/vim-vinegar'
             " x := explorer
             " Toggle file explorer
             " xo := explorer open/close
@@ -279,7 +280,8 @@ call plug#begin()
     "     <space>:=space case,a
     "     t:= Title Case
     "{{{
-        Plug 'tpope/vim-abolish'
+        " Plug 'tpope/vim-abolish'
+        Plug 'arthurxavierx/vim-caser'
     "}}}
 
     " cra  := convert(cr) all(n), shows all the number representations of the number under
@@ -368,8 +370,8 @@ call plug#begin()
         " q: Any quote, wildcard for any quote text object
         " a: Argument text objects
         " na, Na: Next and last arguments text objects
-        "Plug 'wellle/targets.vim'
-        Plug 'blasco/targets.vim', { 'branch': 'feature/count_parsing' }
+        Plug 'wellle/targets.vim'
+        " Plug 'blasco/targets.vim', { 'branch': 'feature/count_parsing' }
     "}}}
 
     " l: line

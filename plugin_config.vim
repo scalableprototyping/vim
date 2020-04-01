@@ -2,6 +2,13 @@
 call arpeggio#load()
 
 " ------------------
+" vim-caser
+" ------------------
+let g:caser_prefix = 'cr'
+
+Arpeggio nnoremap wa :wa<CR>
+
+" ------------------
 " any-jump
 " ------------------
 " Normal mode: Jump to definition under cursore
@@ -255,7 +262,7 @@ let g:ctrlsf_default_root = 'project'
 " Toggle file explorer
 " xo : = explorer open/close
 ""TODO: nnoremap doens't seem to be working with Arpeggio.
-" let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=45
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 silent Arpeggio nnoremap xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 " xl := explorer locate file := find current opened file in explorer
@@ -523,6 +530,8 @@ nmap gxx <Plug>(ExchangeLine)
 " Builtin format Operator
 " gf := go format
 " gfs := go format syntax
+" jf: = jump to file (originaly gf goto file, but used by go format
+Arpeggio nnoremap jf gf
 nnoremap gf  gw
 nnoremap gfs =
 
@@ -635,13 +644,14 @@ let g:asterisk#keeppos = 1
 " a: Argument text objects
 " na, Na: Next and last arguments text objects
 
-"Plug 'wellle/targets.vim'
-
 " ------------------
-" blasco/targets.vim, { 'branch': 'feature/count_parsing' }
+" wellle/targets.vim
 " ------------------
 let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'nN'
+" TODO: breaks caw and other text objects
+" omap <expr> <plug>(arpeggio-default:a) targets#e('o', 'a', 'a')
+" xmap <expr> <plug>(arpeggio-default:a) targets#e('o', 'a', 'a')
 
 " ------------------
 " blasco/vim-textobj-line

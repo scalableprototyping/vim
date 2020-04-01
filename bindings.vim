@@ -1,6 +1,8 @@
 " ----------------------------------------
 " Bindings
 " ----------------------------------------
+" Instead of stumbling into ex mode, repeat the last macro used.
+nnoremap Q @@
 
 " Beginning and End of line movement
 " Mnemonic: like h and l but with Ctrl, which is the same

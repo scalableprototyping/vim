@@ -11,12 +11,6 @@ call plug#begin()
         Plug 'blasco/vim-corvine'
     "}}}
 
-    " w+f: window full, toggles maximazing and minimazing
-    "{{{
-    " Seems to conflict with coc nvim, the error and warning messages from tsserver become active buffers and cannot be saved
-        Plug 'regedarek/ZoomWin'
-    "}}}
-
     " Buffer autoresizing
     "{{{
         " Plug 'camspiers/animate.vim'
@@ -153,7 +147,8 @@ call plug#begin()
 
         " XML tags autocompletion
         "{{{
-            Plug 'tpope/vim-ragtag'
+            " Conficts with coc-vim
+            " Plug 'tpope/vim-ragtag'
             " The mappings apply in insert mode. Interesting are the following:
             " <C-X><Space>  <foo>^</foo>          *ragtag-CTRL-X_<Space>*
             " <C-X><CR>     <foo>\n^\n</foo>      *ragtag-CTRL-X_<CR>*
@@ -265,8 +260,9 @@ call plug#begin()
     " gi: go insert
     "{{{
         "TODO: Is not repeatable
-        Plug 'mwgkgk/vim-operator-append'
-        Plug 'deris/vim-operator-insert'
+        Plug 'bagohart/vim-operator-insert-append'
+        " Plug 'mwgkgk/vim-operator-append'
+        " Plug 'deris/vim-operator-insert'
     "}}}
 
     " :S for smart substitution and coercion:
@@ -280,7 +276,7 @@ call plug#begin()
     "     <space>:=space case,a
     "     t:= Title Case
     "{{{
-        " Plug 'tpope/vim-abolish'
+        Plug 'tpope/vim-abolish'
         Plug 'arthurxavierx/vim-caser'
     "}}}
 
@@ -307,7 +303,8 @@ call plug#begin()
 
     " gfa[l,r] := go format align [left,right]
     "{{{
-        Plug 'tommcdo/vim-lion'
+        Plug 'junegunn/vim-easy-align'
+        " Plug 'tommcdo/vim-lion'
         " TODO: LionRight("="), so it doesn't ask and a mapping like gfae (go format align equation) can be created
         " TODO: gfa{char}{motion} is more natural than gfa{motion}{char}
     "}}}
@@ -346,6 +343,11 @@ call plug#begin()
 
 " -----------------
 "{{{ Additional Text Objects
+
+    " To beginning or end of following text object modifier
+    "{{{
+        Plug 'tommcdo/vim-ninja-feet'
+    "}}}
 
     " Template to create custom text objects
     "{{{

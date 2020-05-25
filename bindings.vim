@@ -1,3 +1,6 @@
+"" Arpeggio needs to be loaded before first use
+call arpeggio#load()
+
 " ----------------------------------------
 " Bindings
 " ----------------------------------------
@@ -23,3 +26,7 @@ noremap <C-j> }
 
 " Escape terminal insert mode with Esc key
 tnoremap <Esc> <C-\><C-n>
+
+" Maximize windows
+Arpeggio nnoremap wf <c-w>_ \| <c-w>\|
+Arpeggio nnoremap wr <c-w>=

@@ -96,16 +96,6 @@ nmap <silent> <leader>-  <Plug>FontsizeDec
 nmap <silent> <leader>0  <Plug>FontsizeDefault
 
 " ------------------
-" regedarek/ZoomWin
-" ------------------
-if has('nvim')
-    " removed 'key', 'oft', 'sn', 'tx' options which do not work with nvim
-    let g:zoomwin_localoptlist = ["ai","ar","bh","bin","bl","bomb","bt","cfu","ci","cin","cink","cino","cinw","cms","com","cpt","diff","efm","eol","ep","et","fenc","fex","ff","flp","fo","ft","gp","imi","ims","inde","inex","indk","inf","isk","kmp","lisp","mps","ml","ma","mod","nf","ofu","pi","qe","ro","sw","si","sts","spc","spf","spl","sua","swf","smc","syn","ts","tw","udf","wfh","wfw","wm"]
-endif
-" Maximize buffer window: <c-w>o and restore
-silent Arpeggio nmap <silent> wf :silent!ZoomWin<CR>
-
-" ------------------
 " junegunn/vim-peekaboo
 " ------------------
 " Vim registers previewer
@@ -523,9 +513,10 @@ nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
 
 " ------------------
-" tommcdo/vim-lion
+" junegunn/vim-easy-align
 " ------------------
-" gf[l,r] := go format [left,right]
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Builtin format Operator
 " gf := go format
@@ -573,13 +564,15 @@ xmap <leader>jj vil<Plug>SendDownV
 " ------------------
 " deris/vim-operator-insert
 " ------------------
+nmap gi <Plug>(OperatorInsert-first-invocation)
+nmap ga <Plug>(OperatorAppend-first-invocation)
 " gi: go insert
 
 "xmap gi  <Plug>(operator-insert-i)
-nmap gi  <Plug>(operator-insert-i)
+" nmap gi  <Plug>(operator-insert-i)
 
 "xmap ga  <Plug>(operator-insert-a)
-nmap ga  <Plug>(operator-insert-a)
+" nmap ga  <Plug>(operator-insert-a)
 
 " TODO: remaps for ge gb go end go begin
 " TODO: visual mode is missing!

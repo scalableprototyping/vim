@@ -2,23 +2,35 @@
 
     "yank.highlight.duration": 250,
 
-    "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "args": ["--background-index"],
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        },
-        "cmake": {
-            "command": "cmake-language-server",
-            "filetypes": ["cmake"],
-            "rootPatterns": [
-                "build/"
-            ],
-            "initializationOptions": {
-                "buildDirectory": "build"
-            }
-        }
-    }
+    // Add one of the server language providers the
+    // coc-settings.json file at project .vim/ for project base configuration
+    //"languageserver": {
+    //    "clangd": {
+    //        "command": "clangd",
+    //        "args": ["--background-index"],
+    //        "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+    //        "filetypes": ["c", "cpp", "objc", "objcpp"]
+    //    },
+    //    "cmake": {
+    //        "command": "cmake-language-server",
+    //        "filetypes": ["cmake"],
+    //        "rootPatterns": [
+    //            "build/"
+    //        ],
+    //        "initializationOptions": {
+    //            "buildDirectory": "build"
+    //        }
+    //    },
+    //    "ccls": {
+    //        "command": "ccls",
+    //        "filetypes": ["c", "cpp", "objc", "objcpp"],
+    //        "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+    //        "initializationOptions": {
+    //            "cache": {
+    //                "directory": "/tmp/ccls"
+    //            }
+    //        }
+    //    }
+    //}
 
 }

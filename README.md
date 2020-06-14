@@ -1,5 +1,10 @@
 # Installation
 
+Install patched fonts from:
+```
+https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
+```
+
 Create symbolic link
 ```
 ~/.vim -> vim

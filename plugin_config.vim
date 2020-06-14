@@ -2,6 +2,13 @@
 call arpeggio#load()
 
 " ------------------
+" vim-caser
+" ------------------
+let g:caser_prefix = 'cr'
+
+Arpeggio nnoremap wa :wa<CR>
+
+" ------------------
 " any-jump
 " ------------------
 " Normal mode: Jump to definition under cursore
@@ -87,16 +94,6 @@ nmap <silent> <leader>=  <Plug>FontsizeBegin
 nmap <silent> <leader>+  <Plug>FontsizeInc
 nmap <silent> <leader>-  <Plug>FontsizeDec
 nmap <silent> <leader>0  <Plug>FontsizeDefault
-
-" ------------------
-" regedarek/ZoomWin
-" ------------------
-if has('nvim')
-    " removed 'key', 'oft', 'sn', 'tx' options which do not work with nvim
-    let g:zoomwin_localoptlist = ["ai","ar","bh","bin","bl","bomb","bt","cfu","ci","cin","cink","cino","cinw","cms","com","cpt","diff","efm","eol","ep","et","fenc","fex","ff","flp","fo","ft","gp","imi","ims","inde","inex","indk","inf","isk","kmp","lisp","mps","ml","ma","mod","nf","ofu","pi","qe","ro","sw","si","sts","spc","spf","spl","sua","swf","smc","syn","ts","tw","udf","wfh","wfw","wm"]
-endif
-" Maximize buffer window: <c-w>o and restore
-silent Arpeggio nmap <silent> wf :silent!ZoomWin<CR>
 
 " ------------------
 " junegunn/vim-peekaboo
@@ -255,7 +252,7 @@ let g:ctrlsf_default_root = 'project'
 " Toggle file explorer
 " xo : = explorer open/close
 ""TODO: nnoremap doens't seem to be working with Arpeggio.
-" let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=45
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 silent Arpeggio nnoremap xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 " xl := explorer locate file := find current opened file in explorer
@@ -516,13 +513,16 @@ nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
 
 " ------------------
-" tommcdo/vim-lion
+" junegunn/vim-easy-align
 " ------------------
-" gf[l,r] := go format [left,right]
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Builtin format Operator
 " gf := go format
 " gfs := go format syntax
+" jf: = jump to file (originaly gf goto file, but used by go format
+Arpeggio nnoremap jf gf
 nnoremap gf  gw
 nnoremap gfs =
 
@@ -564,13 +564,15 @@ xmap <leader>jj vil<Plug>SendDownV
 " ------------------
 " deris/vim-operator-insert
 " ------------------
+nmap gi <Plug>(OperatorInsert-first-invocation)
+nmap ga <Plug>(OperatorAppend-first-invocation)
 " gi: go insert
 
 "xmap gi  <Plug>(operator-insert-i)
-nmap gi  <Plug>(operator-insert-i)
+" nmap gi  <Plug>(operator-insert-i)
 
 "xmap ga  <Plug>(operator-insert-a)
-nmap ga  <Plug>(operator-insert-a)
+" nmap ga  <Plug>(operator-insert-a)
 
 " TODO: remaps for ge gb go end go begin
 " TODO: visual mode is missing!
@@ -635,13 +637,14 @@ let g:asterisk#keeppos = 1
 " a: Argument text objects
 " na, Na: Next and last arguments text objects
 
-"Plug 'wellle/targets.vim'
-
 " ------------------
-" blasco/targets.vim, { 'branch': 'feature/count_parsing' }
+" wellle/targets.vim
 " ------------------
 let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'nN'
+" TODO: breaks caw and other text objects
+" omap <expr> <plug>(arpeggio-default:a) targets#e('o', 'a', 'a')
+" xmap <expr> <plug>(arpeggio-default:a) targets#e('o', 'a', 'a')
 
 " ------------------
 " blasco/vim-textobj-line

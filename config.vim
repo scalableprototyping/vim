@@ -65,20 +65,24 @@ set mouse=a    " Mouse in all modes
 " ---------------
 " {{{ Behaviors
 syntax enable
-set autoread           " Automatically reload changes if detected
-set wildmenu           " Turn on WiLd menu. Allows completing :commands with tab
-set hidden             " Change buffer - without saving. This allows to open new files whithout having 
-                       " to save the file we are leaving every time, which is quite bothering
-set history=1000       " Number of things to remember in history.
-set timeoutlen=1000    " Time to wait for a command (after leader for example).
+set autoread            " Automatically reload changes if detected
+set wildmenu            " Turn on WiLd menu. Allows completing :commands with tab
+set hidden              " Change buffer - without saving. This allows to open new files whithout having 
+                        " to save the file we are leaving every time, which is quite bothering
+set history=1000        " Number of things to remember in history.
+set timeoutlen=1000     " Time to wait for a command (after leader for example).
 set formatoptions=crql
-set nostartofline      " Don't go to the start of the line after some commands
+set nostartofline       " Don't go to the start of the line after some commands
 "set formatoptions+=wt  " Auto format lines while typing
 set textwidth=60
+" set scrolloff=999     " Always keep cursor in the middle of the screen
+if has('nvim')
+    set inccommand=nosplit  " Preview substitue changes on the fly
+endif
 
 " Add {count}[j|k] to the jump list
-nnoremap <expr> k (v:count > 1 ? "m`" . v:count : "") . "gk"
-nnoremap <expr> j (v:count > 1 ? "m`" . v:count : "") . "gj"
+nnoremap <expr> k (v:count > 1 ? "m`" . v:count : "") . "k"
+nnoremap <expr> j (v:count > 1 ? "m`" . v:count : "") . "j"
 nnoremap <expr> h "h"
 nnoremap <expr> l "l"
 
@@ -124,12 +128,18 @@ set expandtab
 autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
 
 " Web development indentation
-autocmd Filetype html,css,scss,typescript setlocal tabstop=2
-autocmd Filetype html,css,scss,typescript setlocal shiftwidth=2
-autocmd Filetype html,css,scss,typescript setlocal softtabstop=2
+autocmd Filetype html,css,scss,typescript,json setlocal tabstop=2
+autocmd Filetype html,css,scss,typescript,json setlocal shiftwidth=2
+autocmd Filetype html,css,scss,typescript,json setlocal softtabstop=2
 
 " Latex
 let g:tex_flavor = "latex"
 autocmd FileType latex,tex,md,markdown setlocal spell
 " }}}
+" ---------------
+
+" ---------------
+" {{{ Syntax
+" Jsonc
+autocmd FileType json syntax match Comment +\/\/.\+$+
 " ---------------

@@ -13,19 +13,18 @@ set signcolumn=yes
 " Use enter to choose autocomplete option
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-
 " jd := jump to definition
 " jc := jump to code
-silent Arpeggio nmap <silent> jd <Plug>(coc-definition)
-silent Arpeggio nmap <silent> jc <Plug>(coc-implementation)
+silent nmap <leader>jd <Plug>(coc-definition)
+silent nmap <leader>jc <Plug>(coc-implementation)
 
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gt <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
+silent nmap <leader>gd <Plug>(coc-definition)
+silent nmap <leader>gt <Plug>(coc-type-definition)
+silent nmap <leader>gi <Plug>(coc-implementation)
+silent nmap <leader>gr <Plug>(coc-references)
 
 " Remap for rename current word
-silent Arpeggio nmap <silent> rn <Plug>(coc-rename)
+silent nmap <leader>rn <Plug>(coc-rename)
 
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
@@ -73,5 +72,5 @@ xmap ig <Plug>(coc-text-object-inner)
 omap ag <Plug>(coc-text-object-outer)
 xmap ag <Plug>(coc-text-object-outer)
 
-nnoremap <silent> <space>y  :<C-u>CocList -A yank<cr>
+silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
 autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"

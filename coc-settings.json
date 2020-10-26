@@ -1,6 +1,7 @@
 {
 
     "yank.highlight.duration": 250,
+    "clangd.path": "/home/blasco/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
 
     // Add one of the server language providers the
     // coc-settings.json file at project .vim/ for project base configuration

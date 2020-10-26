@@ -1,20 +1,19 @@
+"" Arpeggio is great, but the downside is that macros become unusable...
 "" Arpeggio needs to be loaded before first use
-call arpeggio#load()
+" call arpeggio#load()
 
 " ------------------
 " vim-caser
 " ------------------
 let g:caser_prefix = 'cr'
 
-Arpeggio nnoremap wa :wa<CR>
-
 " ------------------
 " any-jump
 " ------------------
 " Normal mode: Jump to definition under cursore
-silent Arpeggio nnoremap ja :AnyJump<CR>
+silent nnoremap <leader>ja :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode
-silent Arpeggio xnoremap ja :AnyJumpVisual<CR>
+silent xnoremap <leader>ja :AnyJumpVisual<CR>
 " Normal mode: open previous opened file (after jump)
 nnoremap <leader>jb :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
@@ -23,7 +22,7 @@ nnoremap <leader>jl :AnyJumpLastResults<CR>
 " ------------------
 " tagbar
 " ------------------
-silent Arpeggio nmap to :TagbarToggle<CR>
+silent nmap <leader>to :TagbarToggle<CR>
 let g:tagbar_type_typescript = {                                                  
   \ 'ctagsbin' : 'tstags',                                                        
   \ 'ctagsargs' : '-f-',                                                           
@@ -57,20 +56,22 @@ let g:lens#width_resize_min = 20
 " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
 let g:arpeggio_timeoutlen=125
 
+nnoremap <leader>wa :wa<CR>
+
 " Window Movement
-silent Arpeggio nnoremap <silent> wh :wincmd h<CR>
-silent Arpeggio nnoremap <silent> wj :wincmd j<CR>
-silent Arpeggio nnoremap <silent> wk :wincmd k<CR>
-silent Arpeggio nnoremap <silent> wl :wincmd l<CR>
-silent Arpeggio nnoremap <silent> wq :wincmd q<CR>
+silent nnoremap <leader>wh :wincmd h<CR>
+silent nnoremap <leader>wj :wincmd j<CR>
+silent nnoremap <leader>wk :wincmd k<CR>
+silent nnoremap <leader>wl :wincmd l<CR>
+silent nnoremap <leader>wq :wincmd q<CR>
 
 " Folds
-silent Arpeggio nnoremap <silent> zj zj
-silent Arpeggio nnoremap <silent> zk zk
-silent Arpeggio nnoremap <silent> zo zo
-silent Arpeggio nnoremap <silent> zc zc
-silent Arpeggio xnoremap <silent> zf zf
-silent Arpeggio xnoremap <silent> zd zd
+silent nnoremap <leader>zj zj
+silent nnoremap <leader>zk zk
+silent nnoremap <leader>zo zo
+silent nnoremap <leader>zc zc
+silent xnoremap <leader>zf zf
+silent xnoremap <leader>zd zd
 
 " ------------------
 " nanotech/jellybeans.vim
@@ -179,7 +180,7 @@ let g:ragtag_global_maps = 1
 " ------------------
 " Color picker
 " cp: Color Picker
-Arpeggio nmap cp :ColorVEdit<CR>:ColorVPicker<CR>
+nmap <leader>cp :ColorVEdit<CR>:ColorVPicker<CR>
 " nmap <leader>ce :ColorVEdit<CR>:ColorVPicker<CR>
 " <leader>ce: color edit
 " Within the edit dialog :ColorVPicker for a picker dialog box
@@ -219,9 +220,9 @@ endif
 " touch .ctrlp where we want to set the project's search root
 let g:ctrlp_root_markers = ['.ctrlp']
 " ef:= expore recent
-silent Arpeggio nmap er :CtrlPMRUFiles<CR>
+silent nmap <leader>er :CtrlPMRUFiles<CR>
 " ep:= expore project
-silent Arpeggio nmap ep :CtrlP<CR>
+silent nmap <leader>ep :CtrlP<CR>
 
 " ------------------
 " dyng/ctrlsf.vim
@@ -235,11 +236,11 @@ let g:ctrlsf_auto_focus = {
 com! -n=1 CtrlSFindInFile CtrlSF <q-args> %
 
 " sp := search in project
-silent Arpeggio nmap sp <Plug>CtrlSFPrompt
+silent nmap <leader>sp <Plug>CtrlSFPrompt
 " sf := search in file
-silent Arpeggio nnoremap sf :CtrlSFindInFile 
+silent nnoremap <leader>sf :CtrlSFindInFile 
 " st := search menu open
-silent Arpeggio nnoremap <silent> so :CtrlSFToggle<CR>
+silent nnoremap <leader>so :CtrlSFToggle<CR>
 
 let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_default_root = 'project'
@@ -254,11 +255,11 @@ let g:ctrlsf_default_root = 'project'
 ""TODO: nnoremap doens't seem to be working with Arpeggio.
 let g:NERDTreeWinSize=45
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
-silent Arpeggio nnoremap xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
+silent nnoremap <leader>xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 " xl := explorer locate file := find current opened file in explorer
-silent Arpeggio nnoremap xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
+silent nnoremap <leader>xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
 " xp := explorer project := Change directory to root of the repository
-silent Arpeggio nnoremap xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
+silent nnoremap <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
 
 let g:NERDTreeShowBookmarks=1
 " Change the NERDTree directory to the root node
@@ -337,7 +338,7 @@ nmap y= <Plug>(YoinkPostPasteToggleFormat)
 " ------------------
 " Undo history tree
 " uo: Undootree open
-silent Arpeggio nnoremap uo :UndotreeToggle<cr>
+silent nnoremap <leader>uo :UndotreeToggle<cr>
 let g:undotree_SetFocusWhenToggle = 1
 
 " ------------------
@@ -348,10 +349,12 @@ let g:EasyMotion_skipfoldedline = 0
 " Targeted f/t and search motions
 " <leader>s := search
 " map <Plug>(arpeggio-default:/) <plug>(easymotion-sn)
-silent Arpeggio map sa <plug>(easymotion-sn)
-silent Arpeggio map sk <plug>(easymotion-k)
-silent Arpeggio map sj <plug>(easymotion-j)
-silent Arpeggio noremap <leader>/ /\v
+silent map / <plug>(easymotion-sn)
+silent noremap <leader>/ /
+silent map <leader>sa <plug>(easymotion-sn)
+silent map <leader>sk <plug>(easymotion-k)
+silent map <leader>sj <plug>(easymotion-j)
+silent noremap <leader><leader>/ /\v
 
 "" find character
 map <Plug>(arpeggio-default:f) <Plug>(easymotion-fl)
@@ -464,7 +467,7 @@ xmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
 " gwww := search in google
 
 nmap gws <Plug>(operator-wwwsearch)
-let g:wwwsearch_command_to_open_uri = 'chromium {uri}'
+let g:wwwsearch_command_to_open_uri = 'google-chrome {uri}'
 
 " ------------------
 " machakann/vim-operator-jerk
@@ -522,7 +525,7 @@ nmap ga <Plug>(EasyAlign)
 " gf := go format
 " gfs := go format syntax
 " jf: = jump to file (originaly gf goto file, but used by go format
-Arpeggio nnoremap jf gf
+nnoremap <leader>jf gf
 nnoremap gf  gw
 nnoremap gfs =
 
@@ -578,8 +581,8 @@ nmap ga <Plug>(OperatorAppend-first-invocation)
 " TODO: visual mode is missing!
 "Plug 'rjayatilleka/vim-operator-goto'
 "Plug 'blasco/vim-operator-goto'
-Arpeggio map <leader>e <plug>(operator-gotoend)
-Arpeggio map <leader>b <plug>(operator-gotostart)
+map <leader>e <plug>(operator-gotoend)
+map <leader>b <plug>(operator-gotostart)
 map ge <plug>(operator-gotoend)
 map gb <plug>(operator-gotostart)
 

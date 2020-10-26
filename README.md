@@ -5,10 +5,15 @@ Install patched fonts from:
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
 ```
 
-Create symbolic link
+Create symbolic link for vim
 ```
 ~/.vim -> vim
     ln -s ~/dotfiles/vim ~/.vim
+```
+
+Create symbolic link for neovim:
+```
+    ln -s ~/dotfiles/vim  ~/.config/nvim
 ```
 
 Create necessary folders
@@ -22,7 +27,7 @@ To fix the white borders in gtk-3.0
     ln -s ~/dotfiles/vim/gtk.css ~/.config/gtk-3.0/
 ```
 
-To get an entry on dmenu:
+To get an entry on dmenu for neovim:
 ```
     sudo ln -s ~/dotfiles/vim/nvim.desktop /usr/share/applications/
 ```

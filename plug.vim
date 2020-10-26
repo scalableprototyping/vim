@@ -14,7 +14,7 @@ call plug#begin()
     " Buffer autoresizing
     "{{{
         " Plug 'camspiers/animate.vim'
-        Plug 'camspiers/lens.vim'
+        " Plug 'camspiers/lens.vim'
     "}}}
 
     " Smooth scrolling
@@ -43,8 +43,9 @@ call plug#begin()
     "{{{ Core extensions
 
         " Arpeggio for simultaneous key bindings
+        " Arpeggio is great, but the downside is that macros become unusable...
         "{{{
-             Plug 'kana/vim-arpeggio'
+            " Plug 'kana/vim-arpeggio'
             " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
         "}}}
 
@@ -82,8 +83,9 @@ call plug#begin()
         " Git integration
         "{{{
             Plug 'tpope/vim-fugitive'
-            " There doesn't seem to be a confortable way to switch branches in vim-fugitive
-            Plug 'idanarye/vim-merginal'
+            " There doesn't seem to be a confortable way to switch branches in vim-fugitive.
+            " Best approach seems to use the terminal, if not we can use this:
+            " Plug 'idanarye/vim-merginal'
         "}}}
 
         " Yank registers management
@@ -120,6 +122,8 @@ call plug#begin()
 
         " Infile diff
         " Allows to visually select text in one file and them compare it to a different selection
+        " Ussage: Select text and run Linediff
+        " when done, :LinediffReset
         "{{{
             Plug 'AndrewRadev/linediff.vim'
         "}}}
@@ -157,7 +161,7 @@ call plug#begin()
 
         " Create C/C++ header guards with :HeaderguardAdd
         "{{{
-            Plug 'drmikehenry/vim-headerguard'
+            " Plug 'drmikehenry/vim-headerguard'
         "}}}
 
     "}}}
@@ -247,12 +251,13 @@ call plug#begin()
         " Moving lines
     "}}}
 
+
     " Calculator and base converter
     " g= := go equal, replaces selection or text object with result of calculation
     " :Crunch command for expanded result
     "{{{
-        "Plug 'arecarn/vim-crunch'
-        Plug 'blasco/vim-crunch'
+        Plug 'arecarn/vim-crunch'
+        " Plug 'blasco/vim-crunch'
         Plug 'arecarn/vim-selection' " arecarn/vim-crunch dependency
     "}}}
 
@@ -285,8 +290,8 @@ call plug#begin()
     " cursor
     "{{{
         Plug 'glts/vim-magnum'
-        "Plug 'glts/vim-radical'
-        Plug 'blasco/vim-radical'
+        Plug 'glts/vim-radical'
+        " Plug 'blasco/vim-radical'
     "}}}
 
     " gws := (go web search) search in google

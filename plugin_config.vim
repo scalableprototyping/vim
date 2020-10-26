@@ -348,21 +348,49 @@ let g:EasyMotion_skipfoldedline = 0
 
 " Targeted f/t and search motions
 " <leader>s := search
-" map <Plug>(arpeggio-default:/) <plug>(easymotion-sn)
-silent map / <plug>(easymotion-sn)
-silent noremap <leader>/ /
+
+silent noremap <leader><leader>/ /
+" silent noremap <leader><leader>/ /\v
+
+" You can use other keymappings like <C-l> instead of <CR> if you want to
+" use these mappings as default search and sometimes want to move cursor with
+" EasyMotion.
+function! s:incsearch_config(...) abort
+  return incsearch#util#deepextend(deepcopy({
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {
+  \     "\<CR>": '<Over>(easymotion)'
+  \   },
+  \   'is_expr': 0
+  \ }), get(a:, 1, {}))
+endfunction
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzyword#converter()],
+  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+" noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+
 silent map <leader>sa <plug>(easymotion-sn)
 silent map <leader>sk <plug>(easymotion-k)
 silent map <leader>sj <plug>(easymotion-j)
-silent noremap <leader><leader>/ /\v
 
 "" find character
-map <Plug>(arpeggio-default:f) <Plug>(easymotion-fl)
+map f <Plug>(easymotion-fl)
 omap f <Plug>(easymotion-fl)
 xmap f <Plug>(easymotion-fl)
 map F <Plug>(easymotion-Fl)
-""" unTil character
-map <Plug>(arpeggio-default:t) <plug>(easymotion-tl)
+
+"" unTil character
+map t <plug>(easymotion-tl)
 omap t <Plug>(easymotion-tl)
 xmap t <Plug>(easymotion-tl)
 map T <Plug>(easymotion-Tl)
@@ -645,9 +673,6 @@ let g:asterisk#keeppos = 1
 " ------------------
 let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'nN'
-" TODO: breaks caw and other text objects
-" omap <expr> <plug>(arpeggio-default:a) targets#e('o', 'a', 'a')
-" xmap <expr> <plug>(arpeggio-default:a) targets#e('o', 'a', 'a')
 
 " ------------------
 " blasco/vim-textobj-line

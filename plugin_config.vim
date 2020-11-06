@@ -11,9 +11,9 @@ let g:caser_prefix = 'cr'
 " any-jump
 " ------------------
 " Normal mode: Jump to definition under cursore
-silent nnoremap <leader>ja :AnyJump<CR>
+nnoremap <silent> <leader>ja :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode
-silent xnoremap <leader>ja :AnyJumpVisual<CR>
+xnoremap <silent> <leader>ja :AnyJumpVisual<CR>
 " Normal mode: open previous opened file (after jump)
 nnoremap <leader>jb :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
@@ -22,7 +22,7 @@ nnoremap <leader>jl :AnyJumpLastResults<CR>
 " ------------------
 " tagbar
 " ------------------
-silent nmap <leader>to :TagbarToggle<CR>
+nmap <silent> <leader>to :TagbarToggle<CR>
 let g:tagbar_type_typescript = {                                                  
   \ 'ctagsbin' : 'tstags',                                                        
   \ 'ctagsargs' : '-f-',                                                           
@@ -59,19 +59,19 @@ let g:arpeggio_timeoutlen=125
 nnoremap <leader>wa :wa<CR>
 
 " Window Movement
-silent nnoremap <leader>wh :wincmd h<CR>
-silent nnoremap <leader>wj :wincmd j<CR>
-silent nnoremap <leader>wk :wincmd k<CR>
-silent nnoremap <leader>wl :wincmd l<CR>
-silent nnoremap <leader>wq :wincmd q<CR>
+nnoremap <silent> <leader>wh :wincmd h<CR>
+nnoremap <silent> <leader>wj :wincmd j<CR>
+nnoremap <silent> <leader>wk :wincmd k<CR>
+nnoremap <silent> <leader>wl :wincmd l<CR>
+nnoremap <silent> <leader>wq :wincmd q<CR>
 
 " Folds
-silent nnoremap <leader>zj zj
-silent nnoremap <leader>zk zk
-silent nnoremap <leader>zo zo
-silent nnoremap <leader>zc zc
-silent xnoremap <leader>zf zf
-silent xnoremap <leader>zd zd
+nnoremap <silent> <leader>zj zj
+nnoremap <silent> <leader>zk zk
+nnoremap <silent> <leader>zo zo
+nnoremap <silent> <leader>zc zc
+xnoremap <silent> <leader>zf zf
+xnoremap <silent> <leader>zd zd
 
 " ------------------
 " nanotech/jellybeans.vim
@@ -220,9 +220,9 @@ endif
 " touch .ctrlp where we want to set the project's search root
 let g:ctrlp_root_markers = ['.ctrlp']
 " ef:= expore recent
-silent nmap <leader>er :CtrlPMRUFiles<CR>
+nmap <silent> <leader>er :CtrlPMRUFiles<CR>
 " ep:= expore project
-silent nmap <leader>ep :CtrlP<CR>
+nmap <silent> <leader>ep :CtrlP<CR>
 
 " ------------------
 " dyng/ctrlsf.vim
@@ -236,11 +236,11 @@ let g:ctrlsf_auto_focus = {
 com! -n=1 CtrlSFindInFile CtrlSF <q-args> %
 
 " sp := search in project
-silent nmap <leader>sp <Plug>CtrlSFPrompt
+nmap <silent> <leader>sp <Plug>CtrlSFPrompt
 " sf := search in file
-silent nnoremap <leader>sf :CtrlSFindInFile 
+nnoremap <silent> <leader>sf :CtrlSFindInFile 
 " st := search menu open
-silent nnoremap <leader>so :CtrlSFToggle<CR>
+nnoremap <silent> <leader>so :CtrlSFToggle<CR>
 
 let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_default_root = 'project'
@@ -255,11 +255,11 @@ let g:ctrlsf_default_root = 'project'
 ""TODO: nnoremap doens't seem to be working with Arpeggio.
 let g:NERDTreeWinSize=45
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
-silent nnoremap <leader>xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 " xl := explorer locate file := find current opened file in explorer
-silent nnoremap <leader>xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
 " xp := explorer project := Change directory to root of the repository
-silent nnoremap <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
 
 let g:NERDTreeShowBookmarks=1
 " Change the NERDTree directory to the root node
@@ -338,7 +338,7 @@ nmap y= <Plug>(YoinkPostPasteToggleFormat)
 " ------------------
 " Undo history tree
 " uo: Undootree open
-silent nnoremap <leader>uo :UndotreeToggle<cr>
+nnoremap <silent> <leader>uo :UndotreeToggle<cr>
 let g:undotree_SetFocusWhenToggle = 1
 
 " ------------------
@@ -349,8 +349,8 @@ let g:EasyMotion_skipfoldedline = 0
 " Targeted f/t and search motions
 " <leader>s := search
 
-silent noremap <leader><leader>/ /
-" silent noremap <leader><leader>/ /\v
+noremap <silent> <leader><leader>/ /
+" noremap <silent> <leader><leader>/ /\v
 
 " You can use other keymappings like <C-l> instead of <CR> if you want to
 " use these mappings as default search and sometimes want to move cursor with
@@ -374,14 +374,14 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-" noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
+noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
 noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
 noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
 noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
-silent map <leader>sa <plug>(easymotion-sn)
-silent map <leader>sk <plug>(easymotion-k)
-silent map <leader>sj <plug>(easymotion-j)
+map <silent> <leader>sa <plug>(easymotion-sn)
+map <silent> <leader>sk <plug>(easymotion-k)
+map <silent> <leader>sj <plug>(easymotion-j)
 
 "" find character
 map f <Plug>(easymotion-fl)

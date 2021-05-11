@@ -6,9 +6,13 @@
 " {{{ Theme 
 set t_Co=256
 
+" Install the font from: 
+" https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
 if has("win64") || has("win32") || has("win16")
+    " Inconsolata Nerd Font Complete Mono Windows Compatible.otf
     set guifont=Inconsolata\ NF:h16
 elseif has("unix")
+    " Inconsolata Nerd Font Complete.otf
     set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
 endif
 " }}}

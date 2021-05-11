@@ -6,6 +6,11 @@
 " {{{ Theme 
 set t_Co=256
 
+" Clipboard for windows
+if has("win64") || has("win32") || has("win16")
+    set clipboard=unnamed
+endif
+
 " Install the font from: 
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
 if has("win64") || has("win32") || has("win16")

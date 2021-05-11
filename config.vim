@@ -5,7 +5,12 @@
 " ---------------
 " {{{ Theme 
 set t_Co=256
-set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
+
+if has("win64") || has("win32") || has("win16")
+    set guifont=Inconsolata\ NF:h16
+elseif has("unix")
+    set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
+endif
 " }}}
 " ---------------
 
@@ -45,8 +50,7 @@ set guioptions-=r
 set guioptions-=L
 
 " Disable Sound
-set noerrorbells
-set novisualbell
+set vb t_vb=
 
 " Visual
 set showmatch   " Show matching brackets.

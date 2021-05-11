@@ -74,6 +74,8 @@ call plug#begin()
 
         " Fuzzy file content search
         " Make sure you have ack, ag, pt or rg installed
+        " For rg (rip grep):
+        " https://github.com/BurntSushi/ripgrep#installation
         "{{{
             Plug 'dyng/ctrlsf.vim'
             " Search word under cursor

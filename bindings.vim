@@ -42,7 +42,6 @@ nnoremap <silent> <leader>zc zc
 xnoremap <silent> <leader>zf zf
 xnoremap <silent> <leader>zd zd
 
-
 " Escape terminal insert mode with Esc key
 tnoremap <Esc> <C-\><C-n>
 

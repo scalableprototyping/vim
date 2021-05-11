@@ -18,12 +18,12 @@ endif
 " {{{ Backups, Tmp Files, and Undo
 " Keep all this files in contained folders so the system's filesystem
 set backup
-set backupdir=~/.vim/.backup
+exec "set backupdir=" . g:vimHome . ".backup"
 " Persistent Undo
 set undofile
-set undodir=~/.vim/.undo
+exec "set undodir=" . g:vimHome . ".undo"
 " swapfiles
-set directory=~/.vim/.swap
+exec "set directory=" . g:vimHome . ".swap"
 
 " Change working directory to current directory
 set autochdir
@@ -50,7 +50,13 @@ set guioptions-=r
 set guioptions-=L
 
 " Disable Sound
-set vb t_vb=
+if has("win64") || has("win32") || has("win16")
+    set novisualbell
+    set belloff=all
+elseif has("unix")
+    set noerrorbells
+    set novisualbell
+endif
 
 " Visual
 set showmatch   " Show matching brackets.

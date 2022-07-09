@@ -56,23 +56,6 @@ let g:lens#width_resize_min = 20
 " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
 let g:arpeggio_timeoutlen=125
 
-nnoremap <leader>wa :wa<CR>
-
-" Window Movement
-nnoremap <silent> <leader>wh :wincmd h<CR>
-nnoremap <silent> <leader>wj :wincmd j<CR>
-nnoremap <silent> <leader>wk :wincmd k<CR>
-nnoremap <silent> <leader>wl :wincmd l<CR>
-nnoremap <silent> <leader>wq :wincmd q<CR>
-
-" Folds
-nnoremap <silent> <leader>zj zj
-nnoremap <silent> <leader>zk zk
-nnoremap <silent> <leader>zo zo
-nnoremap <silent> <leader>zc zc
-xnoremap <silent> <leader>zf zf
-xnoremap <silent> <leader>zd zd
-
 " ------------------
 " nanotech/jellybeans.vim
 " ------------------
@@ -277,6 +260,8 @@ set fillchars+=vert:\
 " tpope/vim-fugitive
 " ------------------
 " Git integration
+
+CommandCabbr git Git
 
 nmap <silent> <leader>gc :Gcommit<CR>
 nmap <silent> <leader>gm :Git checkout

@@ -1,20 +1,25 @@
+if has("win64") || has("win32") || has("win16")
+    let g:vimHome = "~/vimfiles/"
+elseif has("unix")
+    let g:vimHome = "~/.vim/"
+endif
+
 " Plugins installed with vim-plug
-source ~/.vim/plug.vim
+exec "source " . g:vimHome . "plug.vim"
 
 " Set ledaer key
 " Note: This line MUST come before any <leader> mappings 
 let mapleader=" "
 
 " All bindings that are not related to plugins
-source ~/.vim/bindings.vim
+exec "source " . g:vimHome . "bindings.vim"
 
 " User defined functions
-source ~/.vim/functions.vim
+exec "source " . g:vimHome . "functions.vim"
 
 " Plugin-specific configuration
-source ~/.vim/plugin_config.vim
-source ~/.vim/coc_config.vim
+exec "source " . g:vimHome . "plugin_config.vim"
+exec "source " . g:vimHome . "coc_config.vim"
 
 " Vim configuration
-source ~/.vim/config.vim
-
+exec "source " . g:vimHome . "config.vim"

@@ -5,7 +5,21 @@
 " ---------------
 " {{{ Theme 
 set t_Co=256
-set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
+
+" Clipboard for windows
+if has("win64") || has("win32") || has("win16")
+    set clipboard=unnamed
+endif
+
+" Install the font from: 
+" https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
+if has("win64") || has("win32") || has("win16")
+    " Inconsolata Nerd Font Complete Mono Windows Compatible.otf
+    set guifont=Inconsolata\ NF:h16
+elseif has("unix")
+    " Inconsolata Nerd Font Complete.otf
+    set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
+endif
 " }}}
 " ---------------
 
@@ -13,12 +27,12 @@ set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
 " {{{ Backups, Tmp Files, and Undo
 " Keep all this files in contained folders so the system's filesystem
 set backup
-set backupdir=~/.vim/.backup
+exec "set backupdir=" . g:vimHome . ".backup"
 " Persistent Undo
 set undofile
-set undodir=~/.vim/.undo
+exec "set undodir=" . g:vimHome . ".undo"
 " swapfiles
-set directory=~/.vim/.swap
+exec "set directory=" . g:vimHome . ".swap"
 
 " Change working directory to current directory
 set autochdir
@@ -45,8 +59,13 @@ set guioptions-=r
 set guioptions-=L
 
 " Disable Sound
-set noerrorbells
-set novisualbell
+if has("win64") || has("win32") || has("win16")
+    set novisualbell
+    set belloff=all
+elseif has("unix")
+    set noerrorbells
+    set novisualbell
+endif
 
 " Visual
 set showmatch   " Show matching brackets.

@@ -179,6 +179,7 @@ call plug#begin()
     Plug 'sudar/vim-arduino-syntax'
     Plug 'leafgarland/typescript-vim'
     Plug 'peterhoeg/vim-qml'
+    Plug 'http://git.oschina.net/qiuchangjie/ShaderHighLight'
 "}}}
 " -----------------
 

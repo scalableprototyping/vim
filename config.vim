@@ -98,6 +98,7 @@ set textwidth=60
 if has('nvim')
     set inccommand=nosplit  " Preview substitue changes on the fly
 endif
+set backspace=indent,eol,start
 
 " Add {count}[j|k] to the jump list
 nnoremap <expr> k (v:count > 1 ? "m`" . v:count : "") . "k"

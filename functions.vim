@@ -2,6 +2,11 @@
 " Functions
 " ---------------
 
+function! CommandCabbr(abbreviation, expansion)
+  execute 'cabbr ' . a:abbreviation . ' <c-r>=getcmdpos() == 1 && getcmdtype() == ":" ? "' . a:expansion . '" : "' . a:abbreviation . '"<CR>'
+endfunction
+command! -nargs=+ CommandCabbr call CommandCabbr(<f-args>)
+
 " Launch split terminal
 command! -nargs=* T split | resize 15 | terminal <args>
 

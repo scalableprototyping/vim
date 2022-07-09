@@ -27,6 +27,9 @@ To fix the white borders in gtk-3.0
     ln -s ~/dotfiles/vim/gtk.css ~/.config/gtk-3.0/
 ```
 
+Install rip grep:
+    https://github.com/BurntSushi/ripgrep
+
 To get an entry on dmenu for neovim:
 ```
     sudo ln -s ~/dotfiles/vim/nvim.desktop /usr/share/applications/

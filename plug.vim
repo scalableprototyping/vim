@@ -114,6 +114,10 @@ call plug#begin()
             " Add header guards with :HeaderguardAdd
         "}}}
 
+        "{{{
+            Plug 'github/copilot.vim'
+        "}}}
+
         " Undo history tree
         "{{{
             Plug 'mbbill/undotree'

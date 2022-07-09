@@ -261,6 +261,8 @@ set fillchars+=vert:\
 " ------------------
 " Git integration
 
+CommandCabbr git Git
+
 nmap <silent> <leader>gc :Gcommit<CR>
 nmap <silent> <leader>gm :Git checkout
 " Revert local changes

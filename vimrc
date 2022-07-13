@@ -7,7 +7,12 @@ endif
 " Plugins installed with vim-plug
 exec "source " . g:vimHome . "plug.vim"
 
-if filereadable(".vim_initialized")
+let $VIMHOME=expand('<sfile>:p:h')
+
+echom "Trying  to load: "
+echom $VIMHOME."/.vim_initialized"
+if filereadable($VIMHOME."/.vim_initialized")
+    echom "It worked!"
 
     " Set ledaer key
     " Note: This line MUST come before any <leader> mappings 

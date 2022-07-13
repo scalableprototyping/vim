@@ -1,14 +1,10 @@
-if has("win64") || has("win32") || has("win16")
-    let g:vimHome = "~/vimfiles/"
-elseif has("unix")
-    let g:vimHome = "~/.vim/"
-endif
+# Find vim home relative to vimrc file
+let g:vimHome=expand('<sfile>:p:h')
 
 " Plugins installed with vim-plug
 exec "source " . g:vimHome . "plug.vim"
 
-let $VIMHOME=expand('<sfile>:p:h')
-if filereadable($VIMHOME."/.vim_initialized")
+if filereadable(g:vimHome . "/.vim_initialized")
 
     " Set ledaer key
     " Note: This line MUST come before any <leader> mappings 

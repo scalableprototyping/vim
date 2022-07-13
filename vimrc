@@ -7,19 +7,23 @@ endif
 " Plugins installed with vim-plug
 exec "source " . g:vimHome . "plug.vim"
 
-" Set ledaer key
-" Note: This line MUST come before any <leader> mappings 
-let mapleader=" "
+if filereadable(".vim_initialized")
 
-" All bindings that are not related to plugins
-exec "source " . g:vimHome . "bindings.vim"
+    " Set ledaer key
+    " Note: This line MUST come before any <leader> mappings 
+    let mapleader=" "
 
-" User defined functions
-exec "source " . g:vimHome . "functions.vim"
+    " All bindings that are not related to plugins
+    exec "source " . g:vimHome . "bindings.vim"
 
-" Plugin-specific configuration
-exec "source " . g:vimHome . "plugin_config.vim"
-exec "source " . g:vimHome . "coc_config.vim"
+    " User defined functions
+    exec "source " . g:vimHome . "functions.vim"
 
-" Vim configuration
-exec "source " . g:vimHome . "config.vim"
+    " Plugin-specific configuration
+    exec "source " . g:vimHome . "plugin_config.vim"
+    exec "source " . g:vimHome . "coc_config.vim"
+
+    " Vim configuration
+    exec "source " . g:vimHome . "config.vim"
+
+endif

@@ -1,1 +1,0 @@
-/home/blasco/dotfiles/vim

@@ -8,11 +8,7 @@ endif
 exec "source " . g:vimHome . "plug.vim"
 
 let $VIMHOME=expand('<sfile>:p:h')
-
-echom "Trying  to load: "
-echom $VIMHOME."/.vim_initialized"
 if filereadable($VIMHOME."/.vim_initialized")
-    echom "It worked!"
 
     " Set ledaer key
     " Note: This line MUST come before any <leader> mappings 

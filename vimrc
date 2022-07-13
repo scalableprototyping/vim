@@ -1,10 +1,10 @@
-# Find vim home relative to vimrc file
-let g:vimHome=expand('<sfile>:p:h')
+" Find vim home relative to vimrc file
+let g:vimHome=expand('<sfile>:p:h') . "/"
 
 " Plugins installed with vim-plug
 exec "source " . g:vimHome . "plug.vim"
 
-if filereadable(g:vimHome . "/.vim_initialized")
+if filereadable(g:vimHome . ".vim_initialized")
 
     " Set ledaer key
     " Note: This line MUST come before any <leader> mappings 

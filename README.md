@@ -8,17 +8,18 @@ https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/co
 Create symbolic link for vim
 ```
 ~/.vim -> vim
+Linux:
     ln -s ~/dotfiles/vim ~/.vim
+Windows:
+    New-Item -ItemType SymbolicLink -Path ~/vimfiles -Target C:\Users\blasc\dotfiles\vim
 ```
 
 Create symbolic link for neovim:
 ```
+Linux:
     ln -s ~/dotfiles/vim  ~/.config/nvim
-```
-
-Create necessary folders
-```
-    mkdir ~/.vim/.backup ~/.vim/.undo ~/.vim/.swap
+Windows:
+    New-Item -ItemType SymbolicLink -Path ~/AppData/Local/nvim -Target C:\Users\blasc\dotfiles\vim
 ```
 
 To fix the white borders in gtk-3.0

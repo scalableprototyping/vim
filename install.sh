@@ -1,5 +1,4 @@
 # Gitpod install script
-pwd
 
 # Vim
 sudo add-apt-repository -y ppa:jonathonf/vim

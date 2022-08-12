@@ -16,6 +16,6 @@ wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.tar.
 tar xzvf nvim-linux64.tar.gz
 sudo ln -s ~/programs/neovim/nvim-linux64/bin/nvim /usr/bin/
 rm nvim-linux64.tar.gz
-mkdir ~/.config
+mkdir -p ~/.config
 ln -s ~/.dotfiles  ~/.config/nvim
 nvim +PlugInstall +qall

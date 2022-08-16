@@ -203,12 +203,10 @@ call plug#begin()
 
     " Targeted f/t and search motions
     "{{{
-    Plug 'easymotion/vim-easymotion'
-    Plug 'haya14busa/incsearch.vim'
-    Plug 'haya14busa/incsearch-fuzzy.vim'
-    Plug 'haya14busa/incsearch-easymotion.vim' 
-    " find character
-    " unTil character
+       Plug 'easymotion/vim-easymotion'
+       Plug 'haya14busa/incsearch.vim'
+       Plug 'haya14busa/incsearch-fuzzy.vim'
+       Plug 'haya14busa/incsearch-easymotion.vim' 
     "}}}
 
     " Improved * (star) and # motions.

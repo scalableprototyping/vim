@@ -63,10 +63,15 @@ let g:tagbar_type_typescript = {
 let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'vim-minimap']
 let g:lens#width_resize_max = 100
 let g:lens#width_resize_min = 20
+
 " ------------------
 " arzg/vim-corvine
 " ------------------
 " Corvine Theme
+set t_Co=256
+if exists('+termguicolors')
+  set termguicolors
+endif
 colorscheme corvine
 let g:corvine_italics = 0
 

@@ -7,7 +7,7 @@ call plug#begin()
 
     " Corvine Theme
     "{{{
-        "Plug 'arzg/vim-corvine'
+        " Plug 'arzg/vim-corvine'
         Plug 'blasco/vim-corvine'
     "}}}
 

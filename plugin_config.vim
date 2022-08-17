@@ -12,6 +12,10 @@ let g:which_key_map.w = {'name': '+ save (W)'}
 let g:which_key_map.w.a = 'save All'
 let g:which_key_map.w.q = 'save and Quit'
 
+let g:which_key_map.q = {'name': '+ Quit'}
+nnoremap <silent> <leader>qa :qa<CR>
+let g:which_key_map.q.a = 'quit All'
+
 " ------------------
 " vim-caser
 " ------------------

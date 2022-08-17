@@ -1,6 +1,16 @@
-"" Arpeggio is great, but the downside is that macros become unusable...
-"" Arpeggio needs to be loaded before first use
-" call arpeggio#load()
+" ------------------
+" liuchengxu/vim-which-key
+" ------------------
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+
+call which_key#register('<Space>', "g:which_key_map")
+let g:which_key_map =  {}
+let g:which_key_ignore_outside_mappings = 1
+
+let g:which_key_map.w = {'name': '+ save (W)'}
+let g:which_key_map.w.a = 'save All'
+let g:which_key_map.w.q = 'save and Quit'
 
 " ------------------
 " vim-caser
@@ -10,14 +20,15 @@ let g:caser_prefix = 'cr'
 " ------------------
 " any-jump
 " ------------------
-" Normal mode: Jump to definition under cursore
-nnoremap <silent> <leader>ja :AnyJump<CR>
-" Visual mode: jump to selected text in visual mode
-xnoremap <silent> <leader>ja :AnyJumpVisual<CR>
-" Normal mode: open previous opened file (after jump)
-nnoremap <leader>jb :AnyJumpBack<CR>
-" Normal mode: open last closed search window again
-nnoremap <leader>jl :AnyJumpLastResults<CR>
+
+" " Normal mode: Jump to definition under cursore
+" nnoremap <silent> <leader>ja :AnyJump<CR>
+" " Visual mode: jump to selected text in visual mode
+" xnoremap <silent> <leader>ja :AnyJumpVisual<CR>
+" " Normal mode: open previous opened file (after jump)
+" nnoremap <leader>jb :AnyJumpBack<CR>
+" " Normal mode: open last closed search window again
+" nnoremap <leader>jl :AnyJumpLastResults<CR>
 
 " ------------------
 " tagbar
@@ -48,21 +59,6 @@ let g:tagbar_type_typescript = {
 let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'vim-minimap']
 let g:lens#width_resize_max = 100
 let g:lens#width_resize_min = 20
-
-" ------------------
-"" kana/vim-arpeggio
-" ------------------
-"" Arpeggio for simultaneous key bindings
-" If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
-let g:arpeggio_timeoutlen=125
-
-" ------------------
-" nanotech/jellybeans.vim
-" ------------------
-" Jellybeans Theme
-let g:jellybeans_use_term_italics = 0
-let g:jellybeans_use_gui_italics = 0
-
 " ------------------
 " arzg/vim-corvine
 " ------------------
@@ -202,9 +198,17 @@ endif
 " git config --global core.excludesfile ~/.gitignore_global
 " touch .ctrlp where we want to set the project's search root
 let g:ctrlp_root_markers = ['.ctrlp']
+
+let g:which_key_map.e = { 'name' : '+ Edit' }
+
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+let g:which_key_map.e.v = 'edit Vim configuration'
+
 " ef:= expore recent
+let g:which_key_map.e.r = 'edit Recent files'
 nmap <silent> <leader>er :CtrlPMRUFiles<CR>
 " ep:= expore project
+let g:which_key_map.e.p = 'edit Project files'
 nmap <silent> <leader>ep :CtrlP<CR>
 
 " ------------------
@@ -218,11 +222,18 @@ let g:ctrlsf_auto_focus = {
 
 com! -n=1 CtrlSFindInFile CtrlSF <q-args> %
 
+
+let g:which_key_map.s = { 'name' : '+ Search' }
+
 " sp := search in project
+let g:which_key_map.s.p = 'search in Project'
 nmap <silent> <leader>sp <Plug>CtrlSFPrompt
 " sf := search in file
+let g:which_key_map.s.f = 'search in File'
 nnoremap <silent> <leader>sf :CtrlSFindInFile 
 " st := search menu open
+
+let g:which_key_map.s.o = 'Open/close search results'
 nnoremap <silent> <leader>so :CtrlSFToggle<CR>
 
 let g:ctrlsf_regex_pattern = 1
@@ -235,13 +246,21 @@ let g:ctrlsf_default_root = 'project'
 " x := explorer
 " Toggle file explorer
 " xo : = explorer open/close
-""TODO: nnoremap doens't seem to be working with Arpeggio.
+
+let g:which_key_map.x = { 'name' : '+ file eXplorer' }
+
 let g:NERDTreeWinSize=45
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
+
+let g:which_key_map.x.o = 'Open/close file explorer'
 nnoremap <silent> <leader>xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
+
 " xl := explorer locate file := find current opened file in explorer
+let g:which_key_map.x.l = 'Locate file in explorer'
 nnoremap <silent> <leader>xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
+
 " xp := explorer project := Change directory to root of the repository
+let g:which_key_map.x.p = 'change explorer location to Project root'
 nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
 
 let g:NERDTreeShowBookmarks=1
@@ -594,10 +613,10 @@ nmap ga <Plug>(OperatorAppend-first-invocation)
 " TODO: visual mode is missing!
 "Plug 'rjayatilleka/vim-operator-goto'
 "Plug 'blasco/vim-operator-goto'
-map <leader>e <plug>(operator-gotoend)
-map <leader>b <plug>(operator-gotostart)
-map ge <plug>(operator-gotoend)
-map gb <plug>(operator-gotostart)
+" map <leader>e <plug>(operator-gotoend)
+" map <leader>b <plug>(operator-gotostart)
+" map ge <plug>(operator-gotoend)
+" map gb <plug>(operator-gotostart)
 
 " ------------------
 " haya14busa/vim-asterisk

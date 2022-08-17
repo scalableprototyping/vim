@@ -89,7 +89,7 @@ set wildmenu            " Turn on WiLd menu. Allows completing :commands with ta
 set hidden              " Change buffer - without saving. This allows to open new files whithout having 
                         " to save the file we are leaving every time, which is quite bothering
 set history=1000        " Number of things to remember in history.
-set timeoutlen=1000     " Time to wait for a command (after leader for example).
+set timeoutlen=250     " Time to wait for a command (after leader for example).
 set formatoptions=crql
 set nostartofline       " Don't go to the start of the line after some commands
 "set formatoptions+=wt  " Auto format lines while typing

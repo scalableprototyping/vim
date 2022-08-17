@@ -42,13 +42,6 @@ call plug#begin()
 
     "{{{ Core extensions
 
-        " Arpeggio for simultaneous key bindings
-        " Arpeggio is great, but the downside is that macros become unusable...
-        "{{{
-            " Plug 'kana/vim-arpeggio'
-            " If the keys are pressed within less than 100 milliseconds they are conssidered to be arpeggiated
-        "}}}
-
         " File navigation and Most Recent Used files
         "{{{
             Plug 'ctrlpvim/ctrlp.vim'
@@ -122,6 +115,12 @@ call plug#begin()
         "{{{
             Plug 'mbbill/undotree'
         "}}}
+
+        " Which Key
+        "{{{
+            " Plug 'liuchengxu/vim-which-key', {'branch': 'release'}
+            Plug 'rene-descartes2021/vim-which-key', {'branch': 'only-desc-global'}
+        "}}}
     "}}}
 
     " {{{ Extra
@@ -142,7 +141,7 @@ call plug#begin()
 
         " Search definition and ocurrences 
         "{{{
-            Plug 'pechorin/any-jump.vim'
+            " Plug 'pechorin/any-jump.vim'
         "}}}
 
         " Color picker

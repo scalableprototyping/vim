@@ -22,6 +22,6 @@ sudo ln -s ~/programs/neovim/nvim-linux64/bin/nvim /usr/bin/
 rm -f nvim-linux64.tar.gz
 mkdir -p ~/.config
 ln -s ~/.dotfiles  ~/.config/nvim
-nvim +PlugInstall +qall
+/usr/bin/nvim +PlugInstall +qall
 
 touch ~/.dotfiles/.vim_initialized

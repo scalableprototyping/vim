@@ -136,8 +136,8 @@ call plug#begin()
         " Fzf integration.
         " Use :Lines to fuzzy search lines of current file
         "{{{
-            " Plug 'junegunn/fzf.vim'
             Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+            Plug 'junegunn/fzf.vim'
         "}}}
 
         " Search definition and ocurrences 

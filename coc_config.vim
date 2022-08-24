@@ -10,9 +10,6 @@ set updatetime=200
 " always show signcolumns
 set signcolumn=yes
 
-" Use enter to choose autocomplete option
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " jd := jump to definition
 " jc := jump to code
 silent nmap <leader>jd <Plug>(coc-definition)

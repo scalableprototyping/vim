@@ -17,10 +17,10 @@ if filereadable(g:vimHome . ".vim_initialized")
     exec "source " . g:vimHome . "functions.vim"
 
     " Plugin-specific configuration
-    "exec "source " . g:vimHome . "plugin_config.vim"
-    "exec "source " . g:vimHome . "coc_config.vim"
+    exec "source " . g:vimHome . "plugin_config.vim"
+    exec "source " . g:vimHome . "coc_config.vim"
 
     " Vim configuration
-    "exec "source " . g:vimHome . "config.vim"
+    exec "source " . g:vimHome . "config.vim"
 
 endif

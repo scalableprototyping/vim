@@ -5,6 +5,12 @@ Install patched fonts from:
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
 ```
 
+For windows we need to enable the fonts in the terminal
+options:
+```
+https://docs.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup
+```
+
 Create symbolic link for vim
 ```
 ~/.vim -> vim

@@ -7,15 +7,16 @@
 set t_Co=256
 
 " Clipboard for windows
-if has("win64") || has("win32") || has("win16")
+if has("win64") || has("win32")
     set clipboard=unnamed
 endif
 
 " Install the font from: 
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete
-if has("win64") || has("win32") || has("win16")
+if has("win64") || has("win32")
+    " Do not install Regular and Bold separately, use the complete version:
     " Inconsolata Nerd Font Complete Mono Windows Compatible.otf
-    set guifont=Inconsolata\ NF:h16
+    set guifont=Inconsolata\ NF:h15"
 elseif has("unix")
     " Inconsolata Nerd Font Complete.otf
     set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
@@ -130,6 +131,12 @@ hi IncSearch guibg=NONE guifg=SpringGreen2 gui=bold
 nnoremap <silent> <esc> :noh<return><esc>
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
   \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
+
+" Powershell in windows
+if has("win64") || has("win32")
+    set shell=powershell.exe
+endif
+
 " }}}
 " ---------------
 

@@ -1,5 +1,7 @@
 # Installation
 
+Ephemiral devs can now be used to install this configuration
+
 Install patched fonts from:
 ```
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata/complete

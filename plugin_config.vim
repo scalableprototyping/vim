@@ -3,6 +3,7 @@ exec "luafile " . g:vimHome . "plugin_config.lua"
 " ------------------
 " liuchengxu/vim-which-key
 " ------------------
+
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 

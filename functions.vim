@@ -2,6 +2,7 @@
 " Functions
 " ---------------
 
+" Function to define abreviations or typos
 function! CommandCabbr(abbreviation, expansion)
   execute 'cabbr ' . a:abbreviation . ' <c-r>=getcmdpos() == 1 && getcmdtype() == ":" ? "' . a:expansion . '" : "' . a:abbreviation . '"<CR>'
 endfunction
@@ -98,3 +99,19 @@ endfunc
 " Resume to cmdline-window
 nnoremap <expr> <Leader>: JJCmdWinResume()
 :autocmd CmdWinEnter * nnoremap <buffer> <Leader>: :let g:CmdWinCurPos = getpos('.')<CR>:q<CR>
+
+
+" Profiling Functions
+function! ProfilingStart()
+    execute "profile start " . g:vimHome . "/performance-profile.log"
+    execute "profile func *"
+    execute "profile file *"
+endfunc
+function! ProfilingStop()
+    call input('Performance profiling informnation has been saved to vim/performance-profile.log. Press any key to continue')
+    execute "profile pause"
+    execute "noautocmd qall!"
+endfunc
+
+command! ProfilingStart call ProfilingStart()
+command! ProfilingStop call ProfilingStop()

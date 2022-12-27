@@ -10,7 +10,7 @@ set updatetime=200
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " don't give |ins-completion-menu| messages.
 "set shortmess+=c
@@ -148,4 +148,10 @@ xmap ag <Plug>(coc-text-object-outer)
 silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
 autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
 
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-angular', 'coc-tsserver' ]
+let g:coc_global_extensions=[ 
+            \'coc-omnisharp', 
+            \'coc-angular', 
+            \'coc-tsserver', 
+            \'coc-eslint',
+            \'coc-yank'
+            \]

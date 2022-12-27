@@ -30,8 +30,9 @@ call plug#begin()
 
     " Tag bar
     "{{{
-        Plug 'majutsushi/tagbar'
+        " Plug 'majutsushi/tagbar'
      "}}}
+
 "}}}
 " -----------------
 
@@ -94,7 +95,7 @@ call plug#begin()
 
         "}}}
 
-        " Autocompletion with Language Server Processor
+        " Autocompletion with (LSP) Language Server Protocol
         "{{{
             Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -119,6 +120,12 @@ call plug#begin()
             " Plug 'liuchengxu/vim-which-key', {'branch': 'release'}
             Plug 'rene-descartes2021/vim-which-key', {'branch': 'only-desc-global'}
         "}}}
+
+        " Unix Like commands for Move, Copy, Delete, Rename, etc.
+        "{{{
+            Plug 'tpope/vim-eunuch'
+        "}}}
+            
     "}}}
 
     " {{{ Extra
@@ -418,30 +425,16 @@ call plug#begin()
 
     " c: comment
     "{{{
-    " TODO: target single line comments
-    Plug 'glts/vim-textobj-comment'
-    " if: in find between characters
-    " af: a find between characters
-
-    " in between text object
-    "{{{
-        " TODO: b from targets vim needs to be remaped to br (brackets)
-        " Plug 'thinca/vim-textobj-between'
-        " ibc := in between characters
-        " abc := around between characters
-        " let g:textobj_between_no_default_key_mappings=1
-        " omap ibc <Plug>(textobj-between-i)
-        " xmap ibc <Plug>(textobj-between-i)
-        " omap abc <Plug>(textobj-between-a)
-        " xmap abc <Plug>(textobj-between-a)
+        Plug 'glts/vim-textobj-comment'
     "}}}
 
     " iv: in variable segment
     " av: a variable segment
     "Plug 'Julian/vim-textobj-variable-segment'
-    Plug 'blasco/vim-textobj-variable-segment'
-
+    "{{{
+        Plug 'blasco/vim-textobj-variable-segment'
     "}}}
+
 "}}}
 " -----------------
 

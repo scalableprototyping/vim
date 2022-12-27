@@ -10,9 +10,13 @@ call which_key#register('<Space>', "g:which_key_map")
 let g:which_key_map =  {}
 let g:which_key_ignore_outside_mappings = 1
 
-let g:which_key_map.w = {'name': '+ save (W)'}
+let g:which_key_map.w = {'name': '+ Window'}
 let g:which_key_map.w.a = 'save All'
-let g:which_key_map.w.q = 'save and Quit'
+let g:which_key_map.w.q = 'Quit window'
+let g:which_key_map.w.h = 'Move window left'
+let g:which_key_map.w.j = 'Move window down'
+let g:which_key_map.w.k = 'Move window up'
+let g:which_key_map.w.l = 'Move window right'
 
 if !exists('*RestartVimConfig')
   function! RestartVimConfig()

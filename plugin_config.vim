@@ -14,6 +14,22 @@ let g:which_key_map.w = {'name': '+ save (W)'}
 let g:which_key_map.w.a = 'save All'
 let g:which_key_map.w.q = 'save and Quit'
 
+let g:which_key_map.w.q = 'save and Quit'
+
+if !exists('*RestartVimConfig')
+  function! RestartVimConfig()
+    source $MYVIMRC
+  endfunction
+  command! RestartVimConfig call RestartVimConfig()
+endif
+
+let g:which_key_map.v = {'name': '+ Vim'}
+let g:which_key_map.v.r = 'Reload Config'
+nnoremap <silent> <leader>vr :RestartVimConfig<CR>
+
+let g:which_key_map.v.e = 'Edit Config'
+nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
+
 let g:which_key_map.q = {'name': '+ Quit'}
 nnoremap <silent> <leader>qa :qa<CR>
 let g:which_key_map.q.a = 'quit All'
@@ -220,9 +236,6 @@ endif
 let g:ctrlp_root_markers = ['.ctrlp']
 
 let g:which_key_map.e = { 'name' : '+ Edit' }
-
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
-let g:which_key_map.e.v = 'edit Vim configuration'
 
 " ef:= expore recent
 let g:which_key_map.e.r = 'edit Recent files'
@@ -620,12 +633,10 @@ nmap ga <Plug>(OperatorAppend-first-invocation)
 "xmap ga  <Plug>(operator-insert-a)
 " nmap ga  <Plug>(operator-insert-a)
 
-" TODO: remaps for ge gb go end go begin
-" TODO: visual mode is missing!
 "Plug 'rjayatilleka/vim-operator-goto'
 "Plug 'blasco/vim-operator-goto'
-" map <leader>e <plug>(operator-gotoend)
-" map <leader>b <plug>(operator-gotostart)
+map <leader>e <plug>(operator-gotoend)
+map <leader>s <plug>(operator-gotostart)
 " map ge <plug>(operator-gotoend)
 " map gb <plug>(operator-gotostart)
 
@@ -715,6 +726,3 @@ autocmd Filetype vim,c,java omap if <Plug>(textobj-function-i)
 
 autocmd Filetype vim,c,java xmap Af <Plug>(textobj-function-A)
 autocmd Filetype vim,c,java omap Af <Plug>(textobj-function-A)
-
-autocmd Filetype vim,c,java xmap If <Plug>(textobj-function-I)
-autocmd Filetype vim,c,java omap If <Plug>(textobj-function-I)

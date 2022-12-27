@@ -1,5 +1,7 @@
 {
 
+  "typescript.updateImportsOnFileMove.enabled": true,
+
   "Lua.diagnostics.globals": ["vim"],
 
     "yank.highlight.duration": 250,

@@ -80,9 +80,6 @@ xmap ag <Plug>(coc-text-object-outer)
 silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
 autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
 
-let g:coc_global_extensions=[ 'coc-omnisharp', 'coc-angular', 'coc-tsserver' ]
-
-
 " always show signcolumns
 set signcolumn=yes
 

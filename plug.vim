@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin(g:vimHome . "plugged")
 
 " -----------------
 "{{{ UI Additions
@@ -44,6 +44,7 @@ call plug#begin()
         " File navigation and Most Recent Used files
         "{{{
             Plug 'ctrlpvim/ctrlp.vim'
+            Plug 'nvim-telescope/telescope.nvim'
             " Add .ctrlp to ~/.gitignore_global
             " git config --global core.excludesfile ~/.gitignore_global
             " touch .ctrlp where we want to set the project's search root

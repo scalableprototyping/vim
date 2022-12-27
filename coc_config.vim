@@ -153,5 +153,7 @@ let g:coc_global_extensions=[
             \'coc-angular', 
             \'coc-tsserver', 
             \'coc-eslint',
-            \'coc-yank'
+            \'coc-yank',
+            \'coc-vimlsp',
+            \'coc-lua'
             \]

@@ -1,6 +1,3 @@
-" Find vim home relative to vimrc file
-let g:vimHome=expand('<sfile>:p:h') . "/"
-
 " Plugins installed with vim-plug
 exec "source " . g:vimHome . "plug.vim"
 

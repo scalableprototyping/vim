@@ -1,3 +1,5 @@
+exec "luafile " . g:vimHome . "plugin_config.lua"
+
 " ------------------
 " liuchengxu/vim-which-key
 " ------------------
@@ -258,7 +260,7 @@ let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_default_root = 'project'
 
 " ------------------
-" scrooloose/nerdtree
+" File Explorer
 " ------------------
 " Navigation bar
 " x := explorer
@@ -271,24 +273,15 @@ let g:NERDTreeWinSize=45
 nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 
 let g:which_key_map.x.o = 'Open/close file explorer'
-nnoremap <silent> <leader>xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xo :NvimTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 
 " xl := explorer locate file := find current opened file in explorer
 let g:which_key_map.x.l = 'Locate file in explorer'
-nnoremap <silent> <leader>xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xl :NvimTreeFindFile<CR>:set relativenumber<CR>:set number<CR>
 
 " xp := explorer project := Change directory to root of the repository
 let g:which_key_map.x.p = 'change explorer location to Project root'
 nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
-
-let g:NERDTreeShowBookmarks=1
-" Change the NERDTree directory to the root node
-let g:NERDTreeChDirMode=2
-" Mappings
-let NERDTreeMapOpenSplit='<C-s>'
-let NERDTreeMapOpenVSplit='<C-v>'
-" '<C-e>' := edit
-let NERDTreeMapMenu='<C-e>'
 
 " Remove vertical | chars
 set fillchars+=vert:\

@@ -137,9 +137,9 @@ set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
 " {{{ Text Format
 
 " represent tabs with 4 white spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " always uses spaces instead of tab characters
 set expandtab

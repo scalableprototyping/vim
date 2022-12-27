@@ -53,8 +53,10 @@ call plug#begin()
 
         " File Explorer
         "{{{
-            Plug 'scrooloose/nerdtree'
+            " Plug 'scrooloose/nerdtree'
             " Plug 'tpope/vim-vinegar'
+            Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+            Plug 'nvim-tree/nvim-tree.lua'
             " x := explorer
             " Toggle file explorer
             " xo := explorer open/close

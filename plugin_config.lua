@@ -21,10 +21,12 @@ if (nvim_tree) then
   })
 end
 
-local builtin = prequire('telescope.builtin')
-if (builtin) then
-  vim.keymap.set('n', '<leader>xxx', builtin.find_files, {})
-  -- vim.keymap.set('n', '<leader>x', builtin.live_grep, {})
-  -- vim.keymap.set('n', '<leader>xfb', builtin.buffers, {})
-  -- vim.keymap.set('n', '<leader>xfh', builtin.help_tags, {})
-end
+-- TODO: recent files with https://github.com/nvim-telescope/telescope-frecency.nvim
+-- local telescope = prequire('telescope.builtin')
+-- if (telescope) then
+  -- vim.keymap.set('n', '<leader><leader>ex', telescope.find_files, {})
+  -- vim.keymap.set('n', '<leader><leader>ef', telescope.live_grep, {})
+  -- vim.keymap.set('n', '<leader><leader>eb', telescope.buffers, {})
+  -- vim.keymap.set('n', '<leader><leader>eh', telescope.help_tags, {})
+-- https://www.reddit.com/r/neovim/comments/qspemc/close_buffers_with_telescope/
+-- end

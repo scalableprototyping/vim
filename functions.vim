@@ -15,6 +15,7 @@ command! -nargs=* T split | resize 15 | terminal <args>
 " QFDo
 " ---------------
 " Populates the argument list with all of the files listed in the quickfix list:
+" TODO: why is this better than cdo
 
 " Define a command to make it easier to use
 command! -nargs=+ QFDo call QFDo(<q-args>)
@@ -42,6 +43,11 @@ function! QFDo(command)
         update
     endfor
 endfunction
+
+" Clear quickfix list
+command! ClearQuickfixList cexpr []
+nmap <leader>qfd :QFDo<space>normal!<space>
+nmap <leader>qfc :ClearQuickfixList<CR>
 
 " Clean vim registers
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

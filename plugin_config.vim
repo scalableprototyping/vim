@@ -14,8 +14,6 @@ let g:which_key_map.w = {'name': '+ save (W)'}
 let g:which_key_map.w.a = 'save All'
 let g:which_key_map.w.q = 'save and Quit'
 
-let g:which_key_map.w.q = 'save and Quit'
-
 if !exists('*RestartVimConfig')
   function! RestartVimConfig()
     source $MYVIMRC
@@ -31,8 +29,18 @@ let g:which_key_map.v.e = 'Edit Config'
 nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
 
 let g:which_key_map.q = {'name': '+ Quit'}
-nnoremap <silent> <leader>qa :qa<CR>
 let g:which_key_map.q.a = 'quit All'
+nnoremap <silent> <leader>qa :qa<CR>
+
+" " TODO
+" let g:which_key_map.l = {'name': '+ Lists'}
+" let g:which_key_map.l.q = {'name': '+ Quickfix'}
+" let g:which_key_map.l.l = {'name': '+ Local'}
+" let g:which_key_map.l.a = {'name': '+ Argument'}
+" let g:which_key_map.l.q.d = 'Quickfix Do'
+" let g:which_key_map.l.q.c = 'Quickfix clear'
+" let g:which_key_map.l.q.n = 'Quickfix next'
+" let g:which_key_map.l.q.p = 'Quickfix previous'
 
 " ------------------
 " vim-caser
@@ -282,19 +290,16 @@ let g:ctrlsf_default_root = 'project'
 
 let g:which_key_map.x = { 'name' : '+ file eXplorer' }
 
-let g:NERDTreeWinSize=45
-nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
-
-let g:which_key_map.x.o = 'Open/close file explorer'
+" let g:which_key_map.x.o = 'Open/close file explorer'
 nnoremap <silent> <leader>xo :NvimTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 
 " xl := explorer locate file := find current opened file in explorer
-let g:which_key_map.x.l = 'Locate file in explorer'
+" let g:which_key_map.x.l = 'Locate file in explorer'
 nnoremap <silent> <leader>xl :NvimTreeFindFile<CR>:set relativenumber<CR>:set number<CR>
 
-" xp := explorer project := Change directory to root of the repository
-let g:which_key_map.x.p = 'change explorer location to Project root'
-nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
+" " xp := explorer project := Change directory to root of the repository
+" let g:which_key_map.x.p = 'change explorer location to Project root'
+" nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
 
 " Remove vertical | chars
 set fillchars+=vert:\
@@ -633,12 +638,12 @@ nmap ga <Plug>(OperatorAppend-first-invocation)
 "xmap ga  <Plug>(operator-insert-a)
 " nmap ga  <Plug>(operator-insert-a)
 
-"Plug 'rjayatilleka/vim-operator-goto'
-"Plug 'blasco/vim-operator-goto'
-map <leader>e <plug>(operator-gotoend)
-map <leader>s <plug>(operator-gotostart)
-" map ge <plug>(operator-gotoend)
-" map gb <plug>(operator-gotostart)
+""Plug 'rjayatilleka/vim-operator-goto'
+""Plug 'blasco/vim-operator-goto'
+"map <leader>e <plug>(operator-gotoend)
+"map <leader>s <plug>(operator-gotostart)
+"" map ge <plug>(operator-gotoend)
+"" map gb <plug>(operator-gotostart)
 
 " ------------------
 " haya14busa/vim-asterisk

@@ -44,6 +44,7 @@ call plug#begin(g:vimHome . "plugged")
         " File navigation and Most Recent Used files
         "{{{
             Plug 'ctrlpvim/ctrlp.vim'
+            Plug 'nvim-lua/plenary.nvim'
             Plug 'nvim-telescope/telescope.nvim'
             " Add .ctrlp to ~/.gitignore_global
             " git config --global core.excludesfile ~/.gitignore_global

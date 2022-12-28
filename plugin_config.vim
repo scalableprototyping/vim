@@ -19,19 +19,21 @@ let g:which_key_map.w.j = 'Move window down'
 let g:which_key_map.w.k = 'Move window up'
 let g:which_key_map.w.l = 'Move window right'
 
-if !exists('*RestartVimConfig')
-  function! RestartVimConfig()
-    source $MYVIMRC
-  endfunction
-  command! RestartVimConfig call RestartVimConfig()
-endif
-
 let g:which_key_map.v = {'name': '+ Vim'}
-let g:which_key_map.v.r = 'Reload Config'
-nnoremap <silent> <leader>vr :RestartVimConfig<CR>
 
 let g:which_key_map.v.e = 'Edit Config'
 nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
+
+function! UpdateVim()
+  call system("cd " . g:vimHome . "&& " .
+        \"git checkout -- . && " .
+        \"git clean -fd && " .
+        \"git pull")
+endfunction
+command! UpdateVim call UpdateVim()
+
+let g:which_key_map.v.u = 'Update vim'
+nnoremap <silent> <leader>vu :UpdateVim<CR>
 
 let g:which_key_map.q = {'name': '+ Quit'}
 let g:which_key_map.q.a = 'quit All'
@@ -295,11 +297,11 @@ let g:ctrlsf_default_root = 'project'
 
 let g:which_key_map.x = { 'name' : '+ file eXplorer' }
 
-" let g:which_key_map.x.o = 'Open/close file explorer'
+let g:which_key_map.x.o = 'Open/close file explorer'
 nnoremap <silent> <leader>xo :NvimTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 
 " xl := explorer locate file := find current opened file in explorer
-" let g:which_key_map.x.l = 'Locate file in explorer'
+let g:which_key_map.x.l = 'Locate file in explorer'
 nnoremap <silent> <leader>xl :NvimTreeFindFile<CR>:set relativenumber<CR>:set number<CR>
 
 " " xp := explorer project := Change directory to root of the repository

@@ -25,10 +25,11 @@ let g:which_key_map.v.e = 'Edit Config'
 nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
 
 function! UpdateVim()
-  call system("cd " . g:vimHome . "&& " .
-        \"git checkout -- . && " .
+  exe 'cd' "~/dotfiles/vim"
+  call system("git checkout -- . && " .
         \"git clean -fd && " .
         \"git pull")
+  call input("dotfiles/vim updated. Press ENTER to continue")
 endfunction
 command! UpdateVim call UpdateVim()
 

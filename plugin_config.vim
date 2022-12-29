@@ -27,11 +27,13 @@ nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
 
 function! UpdateVim()
   exe 'cd' "~/dotfiles/vim"
+  call input("Updating dotfiles/vim git repository. Press ENTER to continue")
   call system("git checkout -- . && " .
         \"git clean -fd && " .
         \"git pull")
-  call input("dotfiles/vim updated. Press ENTER to continue")
+  call input("Cleaning old plugins. Press ENTER to continue")
   execute "PlugClean"
+  call input("Installing plugins. Press ENTER to continue")
   execute "PlugInstall"
 endfunction
 command! UpdateVim call UpdateVim()

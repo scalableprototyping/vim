@@ -1,15 +1,16 @@
 exec "luafile " . g:vimHome . "plugin_config.lua"
 
-" ------------------
-" liuchengxu/vim-which-key
-" ------------------
+let g:which_key_map =  {}
+let g:which_key_ignore_outside_mappings = 1
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
-call which_key#register('<Space>', "g:which_key_map")
-let g:which_key_map =  {}
-let g:which_key_ignore_outside_mappings = 1
+autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+
+" ------------------
+" liuchengxu/vim-which-key
+" ------------------
 
 let g:which_key_map.w = {'name': '+ Window'}
 let g:which_key_map.w.a = 'save All'
@@ -30,6 +31,8 @@ function! UpdateVim()
         \"git clean -fd && " .
         \"git pull")
   call input("dotfiles/vim updated. Press ENTER to continue")
+  execute "PlugClean"
+  execute "PlugInstall"
 endfunction
 command! UpdateVim call UpdateVim()
 
@@ -150,32 +153,6 @@ set laststatus=2   " Always show the statusline
 let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
 
-" Buffer navigation top bar.
-let s:buffer_navigation=0
-    if s:buffer_navigation
-        " Provides a buffer bar on top with a small number that
-        " indicates that we can jump to pressing the space bar and the buffer number
-        let g:airline#extensions#tabline#enabled = 1
-        let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-        let g:airline#extensions#tabline#show_tab_nr = 1
-        let g:airline#extensions#tabline#formatter = 'default'
-        let g:airline#extensions#tabline#buffer_nr_show = 1
-        let g:airline#extensions#tabline#fnametruncate = 16
-        let g:airline#extensions#tabline#fnamecollapse = 2
-        let g:airline#extensions#tabline#buffer_idx_mode = 1
-
-        nmap <leader>1 <Plug>AirlineSelectTab1
-        nmap <leader>2 <Plug>AirlineSelectTab2
-        nmap <leader>3 <Plug>AirlineSelectTab3
-        nmap <leader>4 <Plug>AirlineSelectTab4
-        nmap <leader>5 <Plug>AirlineSelectTab5
-        nmap <leader>6 <Plug>AirlineSelectTab6
-        nmap <leader>7 <Plug>AirlineSelectTab7
-        nmap <leader>8 <Plug>AirlineSelectTab8
-        nmap <leader>9 <Plug>AirlineSelectTab9
-    endif
-
-
 " ------------------
 " tpope/vim-ragtag
 " ------------------
@@ -273,17 +250,34 @@ function! SearchInProject()
 endfunction
 command! SearchInProject call SearchInProject()
 
+function! SearchInFile()
+  let search_input = input("Search REGEX in file: ")
+
+  " exit if escape is pressed
+  if search_input ==# ''
+    return
+  endif
+
+  redraw
+  execute "CtrlSFindInFile " . search_input
+endfunction
+command! SearchInFile call SearchInFile()
+
 " sp := search in project
 let g:which_key_map.s.p = 'search in Project'
 nmap <silent> <leader>sp :SearchInProject<CR>
 " sf := search in file
 let g:which_key_map.s.f = 'search in File'
-nnoremap <silent> <leader>sf :CtrlSFindInFile 
+nnoremap <silent> <leader>sf :SearchInFile<CR>
 " st := search menu open
 
 " sb := search buffer
 let g:which_key_map.s.b = 'search in Buffer'
-" Implemented in plugin_config.lua with telescope
+nnoremap <silent> <leader>sb :Telescope buffers<CR>
+
+" sg := current path using grep
+let g:which_key_map.s.g = 'search current path with live grep'
+nnoremap <silent> <leader>sg :Telescope live_grep<CR>
 
 let g:which_key_map.s.o = 'Open/close search results'
 nnoremap <silent> <leader>so :CtrlSFToggle<CR>

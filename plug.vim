@@ -121,13 +121,7 @@ call plug#begin(g:vimHome . "plugged")
 
         " Which Key
         "{{{
-            " Plug 'liuchengxu/vim-which-key', {'branch': 'release'}
-            Plug 'rene-descartes2021/vim-which-key', {'branch': 'only-desc-global'}
-        "}}}
-
-        " Unix Like commands for Move, Copy, Delete, Rename, etc.
-        "{{{
-            Plug 'tpope/vim-eunuch'
+            Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
         "}}}
             
     "}}}
@@ -165,7 +159,7 @@ call plug#begin(g:vimHome . "plugged")
     "{{{ Language dependent extensions
 
         " C# Language support
-        Plug 'OmniSharp/omnisharp-vim'
+        " Plug 'OmniSharp/omnisharp-vim'
 
         " XML tags autocompletion
         "{{{
@@ -189,10 +183,10 @@ call plug#begin(g:vimHome . "plugged")
 
 " -----------------
 "{{{ Syntax Hihgliht
-    Plug 'sudar/vim-arduino-syntax'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'peterhoeg/vim-qml'
-    Plug 'http://git.oschina.net/qiuchangjie/ShaderHighLight'
+    " Plug 'sudar/vim-arduino-syntax'
+    " Plug 'leafgarland/typescript-vim'
+    " Plug 'peterhoeg/vim-qml'
+    " Plug 'http://git.oschina.net/qiuchangjie/ShaderHighLight'
 "}}}
 " -----------------
 

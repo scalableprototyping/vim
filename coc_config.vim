@@ -4,9 +4,6 @@
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
-" don't give |ins-completion-menu| messages.
-"set shortmess+=c
-
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
@@ -24,9 +21,6 @@ imap <C-s> <Plug>(coc-snippets-expand)
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-" imap <C-s> <Plug>(coc-snippets-expand-jump)
 
 " ------------------
 " neoclide/coc-yank
@@ -71,20 +65,11 @@ nmap ]g <Plug>(coc-git-nextchunk)
 " navigate conflicts of current buffer
 nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
-" show chunk diff at current position
-let g:which_key_map.g.i = 'modified git line Info'
-nmap gi <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-let g:which_key_map.g.c = 'show Commit associated to current line'
-nmap gc <Plug>(coc-git-commit)
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
-
-silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
-autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
 
 let g:coc_global_extensions=[ 
             \'coc-omnisharp', 

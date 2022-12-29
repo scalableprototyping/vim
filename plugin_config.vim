@@ -325,14 +325,13 @@ nnoremap <silent> <leader>gp :Git push<CR>
 let g:which_key_map.g.u = 'git Update (pull)'
 nnoremap <silent> <leader>gu :Git pull<CR>
 let g:which_key_map.g.b = 'git change Branch'
-nmap <silent> <leader>gb :Git checkout
+nmap <silent> <leader>gb :Git checkout 
 let g:which_key_map.g.l = 'git current file Log'
 nmap <silent> <leader>gl :0GlLog<CR>
-" Revert local changes
 let g:which_key_map.g.r = 'git Revert file changes'
 nmap <silent> <leader>gr :Git checkout .<CR>
 let g:which_key_map.g.w = 'git Write (save) and stage current file'
-nmap <silent> <leader>gw :Gwrite<CR> :Gstatus<CR>
+nmap <silent> <leader>gw :Gwrite<CR>:Git<CR>
 let g:which_key_map.g.u = 'git Difference'
 nmap <silent> <leader>gd :Gdiff<CR>
 set diffopt+=vertical

@@ -15,6 +15,7 @@ if (nvim_tree) then
           { key = "U", action = "dir_up" },
           { key = "C", action = "cd" },
           { key = "x", action = "close_node" },
+          { key = "<C-s>", action = "split" },
         },
       },
     },

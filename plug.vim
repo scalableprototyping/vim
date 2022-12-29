@@ -123,6 +123,11 @@ call plug#begin(g:vimHome . "plugged")
         "{{{
             Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
         "}}}
+
+        " Lua Scratchpad
+        "{{{
+            Plug 'rafcamlet/nvim-luapad'
+        "}}}
             
     "}}}
 

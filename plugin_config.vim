@@ -267,12 +267,24 @@ let g:ctrlsf_auto_focus = {
 
 com! -n=1 CtrlSFindInFile CtrlSF <q-args> %
 
-
 let g:which_key_map.s = { 'name' : '+ Search' }
+
+function! SearchInProject()
+  let search_input = input("Search REGEX in project: ")
+
+  " exit if escape is pressed
+  if search_input ==# ''
+    return
+  endif
+
+  redraw
+  execute "CtrlSF " . search_input
+endfunction
+command! SearchInProject call SearchInProject()
 
 " sp := search in project
 let g:which_key_map.s.p = 'search in Project'
-nmap <silent> <leader>sp <Plug>CtrlSFPrompt
+nmap <silent> <leader>sp :SearchInProject<CR>
 " sf := search in file
 let g:which_key_map.s.f = 'search in File'
 nnoremap <silent> <leader>sf :CtrlSFindInFile 

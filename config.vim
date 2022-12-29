@@ -134,7 +134,7 @@ set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
 " ---------------
 
 " ---------------
-" {{{ Text Format
+" {{{ Text Formatting
 
 " represent tabs with 4 white spaces
 set tabstop=2
@@ -144,22 +144,9 @@ set softtabstop=2
 " always uses spaces instead of tab characters
 set expandtab
 
-" C++ indentation
-autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
-
 " Web development indentation
 autocmd Filetype html,css,scss,typescript,json setlocal tabstop=2
 autocmd Filetype html,css,scss,typescript,json setlocal shiftwidth=2
 autocmd Filetype html,css,scss,typescript,json setlocal softtabstop=2
-
-" Latex
-let g:tex_flavor = "latex"
-autocmd FileType latex,tex,md,markdown setlocal spell
 " }}}
-" ---------------
-
-" ---------------
-" {{{ Syntax
-" Jsonc
-autocmd FileType json syntax match Comment +\/\/.\+$+
 " ---------------

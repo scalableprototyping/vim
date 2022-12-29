@@ -78,6 +78,7 @@
         "offsetColumnEnd": 1,
         "formatLines": 1
       }
-    }
+    },
+    "snippets.ultisnips.pythonPrompt": false
 
 }

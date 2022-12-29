@@ -60,23 +60,8 @@ let g:coc_snippet_prev = '<c-k>'
 " imap <C-s> <Plug>(coc-snippets-expand-jump)
 
 " ------------------
-" neoclide/coc-git
+" neoclide/coc-yank
 " ------------------
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-
-" show chunk diff at current position
-nmap <leader>gs <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-nmap <leader>gc <Plug>(coc-git-commit)
-" TODO: is this correct? it is not working
-" create text object for git chunks
-omap ig <Plug>(coc-text-object-inner)
-xmap ig <Plug>(coc-text-object-inner)
-omap ag <Plug>(coc-text-object-outer)
-xmap ag <Plug>(coc-text-object-outer)
-
 silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
 autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
 
@@ -130,17 +115,20 @@ let g:coc_snippet_prev = '<c-k>'
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
-
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
 " show chunk diff at current position
-nmap <leader>gs <Plug>(coc-git-chunkinfo)
+let g:which_key_map.g.i = 'modified git line Info'
+nmap gi <Plug>(coc-git-chunkinfo)
 " show commit contains current position
-nmap <leader>gc <Plug>(coc-git-commit)
-" TODO: is this correct? it is not working
+let g:which_key_map.g.c = 'Commit associated to current line'
+nmap gc <Plug>(coc-git-commit)
 " create text object for git chunks
-omap ig <Plug>(coc-text-object-inner)
-xmap ig <Plug>(coc-text-object-inner)
-omap ag <Plug>(coc-text-object-outer)
-xmap ag <Plug>(coc-text-object-outer)
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
 autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
@@ -152,5 +140,7 @@ let g:coc_global_extensions=[
             \'coc-eslint',
             \'coc-yank',
             \'coc-vimlsp',
-            \'coc-lua'
+            \'coc-lua',
+            \'coc-git',
+            \'coc-snippets',
             \]

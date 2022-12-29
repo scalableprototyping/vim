@@ -1,6 +1,5 @@
 exec "luafile " . g:vimHome . "plugin_config.lua"
 
-let g:which_key_map =  {}
 let g:which_key_ignore_outside_mappings = 1
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -318,15 +317,23 @@ set fillchars+=vert:\
 
 CommandCabbr git Git
 
-nmap <silent> <leader>gc :Gcommit<CR>
-nmap <silent> <leader>gm :Git checkout
+let g:which_key_map.g = {'name': '+ Git'}
+let g:which_key_map.g.s = 'git Status'
+nnoremap <silent> <leader>gs :Git<CR>
+let g:which_key_map.g.p = 'git Push'
+nnoremap <silent> <leader>gp :Git push<CR>
+let g:which_key_map.g.u = 'git Update (pull)'
+nnoremap <silent> <leader>gu :Git pull<CR>
+let g:which_key_map.g.b = 'git change Branch'
+nmap <silent> <leader>gb :Git checkout
+let g:which_key_map.g.l = 'git current file Log'
+nmap <silent> <leader>gl :0GlLog<CR>
 " Revert local changes
+let g:which_key_map.g.r = 'git Revert file changes'
 nmap <silent> <leader>gr :Git checkout .<CR>
+let g:which_key_map.g.w = 'git Write (save) and stage current file'
 nmap <silent> <leader>gw :Gwrite<CR> :Gstatus<CR>
-nmap <silent> <leader>gs :Gstatus<CR>
-nmap <silent> <leader>gp :Git push<CR>
-" Mnemonic, gu = Git Update
-nmap <silent> <leader>gu :Git pull<CR>
+let g:which_key_map.g.u = 'git Difference'
 nmap <silent> <leader>gd :Gdiff<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"

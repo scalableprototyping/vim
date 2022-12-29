@@ -233,25 +233,33 @@ CommandCabbr git Git
 let g:which_key_map.g = {'name': '+ Git'}
 let g:which_key_map.g.s = 'git Status'
 nnoremap <silent> <leader>gs :Git<CR>
+
 let g:which_key_map.g.p = 'git Push'
 command! GitFugitivePush call GitFugitivePush()
 function! GitFugitivePush()
   echo "Pushing to remote..."
   execute "Git push"
 endfunction
-nnoremap <silent> <leader>gp GitFugitivePush<CR>
+nnoremap <leader>gp :GitFugitivePush<CR>
+
 let g:which_key_map.g.u = 'git Update (pull)'
-nnoremap <silent> <leader>gu :Git pull<CR>
+command! GitFugitivePull call GitFugitivePull()
+function! GitFugitivePull()
+  echo "Pulling from remote..."
+  execute "Git push"
+endfunction
+nnoremap <leader>gu :GitFugitivePull<CR>
+
 let g:which_key_map.g.b = 'git change Branch'
-nmap <silent> <leader>gb :Git checkout 
+nmap <leader>gb :Git checkout 
 let g:which_key_map.g.l = 'git current file Log'
-nmap <silent> <leader>gl :0GlLog<CR>
+nmap <leader>gl :0GlLog<CR>
 let g:which_key_map.g.r = 'git Revert file changes'
-nmap <silent> <leader>gr :Git checkout .<CR>
+nmap <leader>gr :Git checkout .<CR>
 let g:which_key_map.g.w = 'git Write (save) and stage current file'
-nmap <silent> <leader>gw :Gwrite<CR>:Git<CR>
+nmap <leader>gw :Gwrite<CR>:Git<CR>
 let g:which_key_map.g.u = 'git Difference'
-nmap <silent> <leader>gd :Gdiff<CR>
+nmap <leader>gd :Gdiff<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
 

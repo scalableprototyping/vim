@@ -258,8 +258,8 @@ let g:which_key_map.g.r = 'git Revert file changes'
 nmap <leader>gr :Git checkout .<CR>
 let g:which_key_map.g.w = 'git Write (save) and stage current file'
 nmap <leader>gw :Gwrite<CR>:Git<CR>
-let g:which_key_map.g.u = 'git Difference'
-nmap <leader>gd :Gdiff<CR>
+let g:which_key_map.g.d = 'git Difference'
+nmap <leader>gd :Gdiffsplit<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
 

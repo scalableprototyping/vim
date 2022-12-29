@@ -23,10 +23,9 @@ set signcolumn=yes
 silent nmap <leader>jd <Plug>(coc-definition)
 silent nmap <leader>jc <Plug>(coc-implementation)
 
-silent nmap <leader>gd <Plug>(coc-definition)
-silent nmap <leader>gt <Plug>(coc-type-definition)
-silent nmap <leader>gi <Plug>(coc-implementation)
-silent nmap <leader>gr <Plug>(coc-references)
+silent nmap <leader>jt <Plug>(coc-type-definition)
+silent nmap <leader>ji <Plug>(coc-implementation)
+silent nmap <leader>jr <Plug>(coc-references)
 
 " Remap for rename current word
 silent nmap <leader>rn <Plug>(coc-rename)

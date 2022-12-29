@@ -48,3 +48,5 @@ tnoremap <Esc> <C-\><C-n>
 " Maximize windows
 nnoremap <space>wf <c-w>_ \| <c-w>\|
 nnoremap <space>wr <c-w>=
+
+nnoremap <space>qa :qa<CR>

@@ -62,7 +62,7 @@ let g:coc_snippet_prev = '<c-k>'
 " ------------------
 " neoclide/coc-yank
 " ------------------
-silent nnoremap <space>y  :<C-u>CocList -A yank<cr>
+silent nnoremap <space>p  :<C-u>CocList -A yank<cr>
 autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
 
 " always show signcolumns

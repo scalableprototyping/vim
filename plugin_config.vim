@@ -56,49 +56,6 @@ nnoremap <silent> <leader>vu :UpdateVim<CR>
 let g:caser_prefix = 'cr'
 
 " ------------------
-" any-jump
-" ------------------
-
-" " Normal mode: Jump to definition under cursore
-" nnoremap <silent> <leader>ja :AnyJump<CR>
-" " Visual mode: jump to selected text in visual mode
-" xnoremap <silent> <leader>ja :AnyJumpVisual<CR>
-" " Normal mode: open previous opened file (after jump)
-" nnoremap <leader>jb :AnyJumpBack<CR>
-" " Normal mode: open last closed search window again
-" nnoremap <leader>jl :AnyJumpLastResults<CR>
-
-" ------------------
-" tagbar
-" ------------------
-nmap <silent> <leader>to :TagbarToggle<CR>
-let g:tagbar_type_typescript = {                                                  
-  \ 'ctagsbin' : 'tstags',                                                        
-  \ 'ctagsargs' : '-f-',                                                           
-  \ 'kinds': [                                                                     
-    \ 'e:enums:0:1',                                                               
-    \ 'f:function:0:1',                                                            
-    \ 't:typealias:0:1',                                                           
-    \ 'M:Module:0:1',                                                              
-    \ 'I:import:0:1',                                                              
-    \ 'i:interface:0:1',                                                           
-    \ 'C:class:0:1',                                                               
-    \ 'm:method:0:1',                                                              
-    \ 'p:property:0:1',                                                            
-    \ 'v:variable:0:1',                                                            
-    \ 'c:const:0:1',                                                              
-  \ ],                                                                            
-  \ 'sort' : 0                                                                    
-\ } 
-
-" ------------------
-" lens.vim
-" ------------------
-let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'vim-minimap']
-let g:lens#width_resize_max = 100
-let g:lens#width_resize_min = 20
-
-" ------------------
 " arzg/vim-corvine
 " ------------------
 " Corvine Theme
@@ -119,19 +76,6 @@ nmap <silent> <leader>-  <Plug>FontsizeDec
 nmap <silent> <leader>0  <Plug>FontsizeDefault
 
 " ------------------
-" junegunn/vim-peekaboo
-" ------------------
-" Vim registers previewer
-
-let g:peekaboo_window  = 'vert bo 30new'
-let g:peekaboo_compact = 0
-
-" ------------------
-" terryma/vim-smooth-scroll
-" ------------------
-" Smooth scrolling
-"
-" ------------------
 " yuttie/comfortable-motion.vim
 " ------------------
 let g:comfortable_motion_scroll_down_key = "j"
@@ -143,8 +87,6 @@ let g:comfortable_motion_friction = 0.0
 let g:comfortable_motion_air_drag = 10.0
 nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-" nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 5)<CR>
-" nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -5)<CR>
 
 " ------------------
 " vim-airline/vim-airline
@@ -155,38 +97,9 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
 
 " ------------------
-" tpope/vim-ragtag
-" ------------------
-" XML tags autocompletion
-
-let g:ragtag_global_maps = 1
-
-" The mappings apply in insert mode. Interesting are the following:
-" <C-X><Space>  <foo>^</foo>          *ragtag-CTRL-X_<Space>*
-" <C-X><CR>     <foo>\n^\n</foo>      *ragtag-CTRL-X_<CR>*
-" <C-X>/        Last HTML tag closed  *ragtag-CTRL-X_/*
-
-" ------------------
 " neoclide/coc.nvim, {'branch': 'release'}
 " ------------------
 " Configuration in coc_config.vim
-
-" ------------------
-" gu-fan/colorv.vim
-" ------------------
-" Color picker
-" cp: Color Picker
-nmap <leader>cp :ColorVEdit<CR>:ColorVPicker<CR>
-" nmap <leader>ce :ColorVEdit<CR>:ColorVPicker<CR>
-" <leader>ce: color edit
-" Within the edit dialog :ColorVPicker for a picker dialog box
-" <leader>cii : color insert
-" <leader>cir : color insert rgb
-
-" ------------------
-" Olical/vim-enmasse
-" ------------------
-" Makes quickfix window editable
 
 " ------------------
 " dyng/ctrlsf.vim
@@ -352,12 +265,8 @@ function! UnnamedplusToggle()
         echo 'Visual block copy/paste disabled. System clipboard enable.'
     endif
 endfunction
-nmap <leader>p :UnnamedplusToggle<cr>
 
 let g:yoinkAutoFormatPaste=0
-let g:yoinkIncludeDeleteOperations=1
-nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
-nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
 let g:yoinkIncludeDeleteOperations=1
 nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
 nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
@@ -376,8 +285,6 @@ xnoremap P Pgvy
 
 nmap [y <Plug>(YoinkRotateBack)
 nmap ]y <Plug>(YoinkRotateForward)
-
-nmap y= <Plug>(YoinkPostPasteToggleFormat)
 
 " ------------------
 " mbbill/undotree
@@ -515,7 +422,6 @@ nmap crb <Plug>RadicalCoerceToBinary
 " Substitute motion 
 " s  := substitute 
 " gr := replace in range 
-" TODO: 'griwiw' not working, it takes the whole line
 
 nmap gs  <Plug>(SubversiveSubstitute)
 " one line
@@ -525,23 +431,13 @@ nmap gS  <Plug>(SubversiveSubstituteToEndOfLine)
 " visual
 xmap gs <Plug>(SubversiveSubstitute)
 
-" TODO: motion 2 is taken as whole line
 " gr<motion1><motion2> := replace <motion1> in <motion2>
 nmap gr <Plug>(SubversiveSubstituteRange)
 xmap gr <Plug>(SubversiveSubstituteRange)
-" gr<right><right> := rll := replace one character
 
 " gr?<motion1><motion2> := replace with confirmation <motion1> in <motion2>
 nmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
 xmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
-
-" ------------------
-" kana/vim-wwwsearch
-" ------------------
-" gwww := search in google
-
-nmap gws <Plug>(operator-wwwsearch)
-let g:wwwsearch_command_to_open_uri = 'google-chrome {uri}'
 
 " ------------------
 " machakann/vim-operator-jerk
@@ -567,17 +463,6 @@ xmap g<p <Plug>(operator-jerk-backward-partial)
 
 nmap g>pp <Plug>(operator-jerk-forward-partial)iw
 nmap g<pp <Plug>(operator-jerk-backward-partial)iw
-
-
-" ------------------
-" lambdalisue/vim-operator-breakline
-" ------------------
-" gfh := go format here
-" gfnc := go format n characters
-
-map gF <Plug>(operator-breakline-textwidth)
-" go format n characters
-map gFn <Plug>(operator-breakline-manual)
 
 " ------------------
 " tommcdo/vim-exchange
@@ -637,26 +522,6 @@ nmap <leader>kk vil<Plug>SendUpV
 nmap <leader>j <Plug>SendDown
 xmap <leader>j <Plug>SendDownV
 xmap <leader>jj vil<Plug>SendDownV
-
-" ------------------
-" deris/vim-operator-insert
-" ------------------
-nmap gi <Plug>(OperatorInsert-first-invocation)
-nmap ga <Plug>(OperatorAppend-first-invocation)
-" gi: go insert
-
-"xmap gi  <Plug>(operator-insert-i)
-" nmap gi  <Plug>(operator-insert-i)
-
-"xmap ga  <Plug>(operator-insert-a)
-" nmap ga  <Plug>(operator-insert-a)
-
-""Plug 'rjayatilleka/vim-operator-goto'
-""Plug 'blasco/vim-operator-goto'
-"map <leader>e <plug>(operator-gotoend)
-"map <leader>s <plug>(operator-gotostart)
-"" map ge <plug>(operator-gotoend)
-"" map gb <plug>(operator-gotostart)
 
 " ------------------
 " haya14busa/vim-asterisk

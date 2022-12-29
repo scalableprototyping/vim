@@ -28,11 +28,6 @@ call plug#begin(g:vimHome . "plugged")
         Plug 'ryanoasis/vim-devicons'
     "}}}
 
-    " Tag bar
-    "{{{
-        " Plug 'majutsushi/tagbar'
-     "}}}
-
 "}}}
 " -----------------
 
@@ -128,7 +123,7 @@ call plug#begin(g:vimHome . "plugged")
         "{{{
             Plug 'rafcamlet/nvim-luapad'
         "}}}
-            
+
     "}}}
 
     " {{{ Extra
@@ -280,15 +275,6 @@ call plug#begin(g:vimHome . "plugged")
         Plug 'arecarn/vim-selection' " arecarn/vim-crunch dependency
     "}}}
 
-    " ga: go append
-    " gi: go insert
-    "{{{
-        "TODO: Is not repeatable
-        Plug 'bagohart/vim-operator-insert-append'
-        " Plug 'mwgkgk/vim-operator-append'
-        " Plug 'deris/vim-operator-insert'
-    "}}}
-
     " :S for smart substitution and coercion:
     " coerce operator: = cr[
     "     s:= snake_case,
@@ -311,11 +297,6 @@ call plug#begin(g:vimHome . "plugged")
         Plug 'glts/vim-magnum'
         Plug 'glts/vim-radical'
         " Plug 'blasco/vim-radical'
-    "}}}
-
-    " gws := (go web search) search in google
-    "{{{
-        Plug 'kana/vim-wwwsearch'
     "}}}
 
     " g[>,<] := go [>,<]

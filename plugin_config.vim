@@ -234,7 +234,12 @@ let g:which_key_map.g = {'name': '+ Git'}
 let g:which_key_map.g.s = 'git Status'
 nnoremap <silent> <leader>gs :Git<CR>
 let g:which_key_map.g.p = 'git Push'
-nnoremap <silent> <leader>gp :Git push<CR>
+command! GitFugitivePush call GitFugitivePush()
+function! GitFugitivePush()
+  echo "Pushing to remote..."
+  execute "Git push"
+endfunction
+nnoremap <silent> <leader>gp GitFugitivePush<CR>
 let g:which_key_map.g.u = 'git Update (pull)'
 nnoremap <silent> <leader>gu :Git pull<CR>
 let g:which_key_map.g.b = 'git change Branch'

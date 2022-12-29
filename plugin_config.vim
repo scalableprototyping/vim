@@ -3,14 +3,13 @@ exec "luafile " . g:vimHome . "plugin_config.lua"
 let g:which_key_ignore_outside_mappings = 1
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+" vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 " ------------------
 " liuchengxu/vim-which-key
 " ------------------
-
 let g:which_key_map.w = {'name': '+ Window'}
 let g:which_key_map.w.a = 'save All'
 let g:which_key_map.w.q = 'Quit window'
@@ -177,22 +176,14 @@ function! SearchInFile()
 endfunction
 command! SearchInFile call SearchInFile()
 
-" sp := search in project
 let g:which_key_map.s.p = 'search in Project'
 nmap <silent> <leader>sp :SearchInProject<CR>
-" sf := search in file
 let g:which_key_map.s.f = 'search in File'
 nnoremap <silent> <leader>sf :SearchInFile<CR>
-" st := search menu open
-
-" sb := search buffer
 let g:which_key_map.s.b = 'search in Buffer'
 nnoremap <silent> <leader>sb :Telescope buffers<CR>
-
-" sg := current path using grep
 let g:which_key_map.s.g = 'search current path with live grep'
 nnoremap <silent> <leader>sg :Telescope live_grep<CR>
-
 let g:which_key_map.s.o = 'Open/close search results'
 nnoremap <silent> <leader>so :CtrlSFToggle<CR>
 
@@ -212,7 +203,6 @@ let g:which_key_map.x = { 'name' : '+ file eXplorer' }
 let g:which_key_map.x.o = 'Open/close file explorer'
 nnoremap <silent> <leader>xo :NvimTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 
-" xl := explorer locate file := find current opened file in explorer
 let g:which_key_map.x.l = 'Locate file in explorer'
 nnoremap <silent> <leader>xl :NvimTreeFindFile<CR>:set relativenumber<CR>:set number<CR>
 
@@ -227,7 +217,6 @@ set fillchars+=vert:\
 " tpope/vim-fugitive
 " ------------------
 " Git integration
-
 CommandCabbr git Git
 
 let g:which_key_map.g = {'name': '+ Git'}

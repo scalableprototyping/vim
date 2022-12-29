@@ -248,13 +248,6 @@ call plug#begin(g:vimHome . "plugged")
         Plug 'tommcdo/vim-exchange'
     "}}}
 
-    " go: go order
-    "{{{
-        Plug 'christoomey/vim-sort-motion'
-        " Allow sorting from visual block
-        Plug 'yaroot/vissort'
-    "}}}
-
     " m: move (cut), d: delete
     "{{{
         Plug 'svermeulen/vim-cutlass'
@@ -264,7 +257,6 @@ call plug#begin(g:vimHome . "plugged")
         " set marks with <leader>m
         " Moving lines
     "}}}
-
 
     " Calculator and base converter
     " g= := go equal, replaces selection or text object with result of calculation
@@ -400,11 +392,6 @@ call plug#begin(g:vimHome . "plugged")
     " x: xml attribute
     "{{{
         Plug 'whatyouhide/vim-textobj-xmlattr'
-    "}}}
-
-    " f: function object for c, java, vim. When a language server is available we us coc instead
-    "{{{
-        Plug 'kana/vim-textobj-function'
     "}}}
 
     " c: comment

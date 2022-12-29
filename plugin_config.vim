@@ -361,16 +361,6 @@ hi link EasyMotionMoveHL IncSearch
 hi link EasyMotionIncSearch IncSearch
 
 " ------------------
-" yaroot/vissort
-" ------------------
-" go: go order
-let g:sort_motion = 'go'
-let g:sort_motion_lines = 'goo'
-let g:sort_motion_visual = 'go'
-" Allow sorting from visual block
-let g:sort_motion_visual_block_command = "Vissort"
-
-" ------------------
 " svermeulen/vim-cutlass
 " ------------------
 " m: move (cut), d: delete
@@ -599,15 +589,15 @@ omap il <Plug>(textobj-line-i)
 xmap Il <Plug>(textobj-line-I)
 omap Il <Plug>(textobj-line-I)
 
-" ------------------
-" kana/vim-textobj-function
-" ------------------
-" f: function object for c, java, vim. When a language server is available we us coc instead
-autocmd Filetype vim,c,java xmap af <Plug>(textobj-function-a)
-autocmd Filetype vim,c,java omap af <Plug>(textobj-function-a)
+" " ------------------
+" " kana/vim-textobj-function
+" " ------------------
+" " f: function object for c, java, vim. When a language server is available we us coc instead
+" autocmd Filetype vim,c,java xmap af <Plug>(textobj-function-a)
+" autocmd Filetype vim,c,java omap af <Plug>(textobj-function-a)
 
-autocmd Filetype vim,c,java xmap if <Plug>(textobj-function-i)
-autocmd Filetype vim,c,java omap if <Plug>(textobj-function-i)
+" autocmd Filetype vim,c,java xmap if <Plug>(textobj-function-i)
+" autocmd Filetype vim,c,java omap if <Plug>(textobj-function-i)
 
-autocmd Filetype vim,c,java xmap Af <Plug>(textobj-function-A)
-autocmd Filetype vim,c,java omap Af <Plug>(textobj-function-A)
+" autocmd Filetype vim,c,java xmap Af <Plug>(textobj-function-A)
+" autocmd Filetype vim,c,java omap Af <Plug>(textobj-function-A)

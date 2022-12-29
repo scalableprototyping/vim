@@ -94,15 +94,6 @@ let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'vim-minimap']
 let g:lens#width_resize_max = 100
 let g:lens#width_resize_min = 20
 
-" " ------------------
-" " junegunn/fzf.vim
-" " ------------------
-" let g:which_key_map.b = {'name': '+ Buffers'}
-" nnoremap <silent> <leader>bf :Buffers<CR>
-" let g:which_key_map.b.f = 'Find buffer'
-" nnoremap <silent> <leader>bd :bd<CR>
-" let g:which_key_map.b.d = 'Delete buffer'
-
 " ------------------
 " arzg/vim-corvine
 " ------------------
@@ -289,6 +280,10 @@ nmap <silent> <leader>sp :SearchInProject<CR>
 let g:which_key_map.s.f = 'search in File'
 nnoremap <silent> <leader>sf :CtrlSFindInFile 
 " st := search menu open
+
+" sb := search buffer
+let g:which_key_map.s.b = 'search in Buffer'
+" Implemented in plugin_config.lua with telescope
 
 let g:which_key_map.s.o = 'Open/close search results'
 nnoremap <silent> <leader>so :CtrlSFToggle<CR>

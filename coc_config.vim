@@ -122,7 +122,7 @@ nmap ]c <Plug>(coc-git-nextconflict)
 let g:which_key_map.g.i = 'modified git line Info'
 nmap gi <Plug>(coc-git-chunkinfo)
 " show commit contains current position
-let g:which_key_map.g.c = 'Commit associated to current line'
+let g:which_key_map.g.c = 'show Commit associated to current line'
 nmap gc <Plug>(coc-git-commit)
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)

@@ -3,7 +3,6 @@ exec "luafile " . g:vimHome . "plugin_config.lua"
 let g:which_key_ignore_outside_mappings = 1
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-" vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
@@ -240,12 +239,8 @@ nnoremap <leader>gu :GitFugitivePull<CR>
 " nmap <leader>gb :Git checkout 
 let g:which_key_map.g.l = 'git Log of curent file'
 nmap <leader>gl :0GlLog<CR>
-let g:which_key_map.g.r = 'git Revert file changes'
+let g:which_key_map.g.r = 'git Revert (discard) file changes'
 nmap <leader>gr :Git checkout .<CR>
-let g:which_key_map.g.w = 'git Write (save) and stage current file'
-nmap <leader>gw :Gwrite<CR>:Git<CR>
-let g:which_key_map.g.d = 'git Difference'
-nmap <leader>gd :Gdiffsplit<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
 

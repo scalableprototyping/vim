@@ -124,6 +124,11 @@ call plug#begin(g:vimHome . "plugged")
             Plug 'rafcamlet/nvim-luapad'
         "}}}
 
+        " BufOnly, delete all other buffers
+        "{{{
+            Plug 'vim-scripts/BufOnly.vim'
+        "}}}
+
     "}}}
 
     " {{{ Extra

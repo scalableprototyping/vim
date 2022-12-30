@@ -101,14 +101,6 @@ let g:airline_theme='deus'
 " Configuration in coc_config.vim
 
 " ------------------
-" dyng/ctrlsf.vim
-" ------------------
-let g:ctrlsf_mapping = {
-    \ "split"   : "<C-s>",
-    \ "vsplit": "<C-v>",
-    \ }
-
-" ------------------
 " ctrlpvim/ctrlp.vim
 " ------------------
 " Fuzzy file explorer and most recent used files
@@ -141,6 +133,11 @@ nmap <silent> <leader>ep :CtrlP<CR>
 " dyng/ctrlsf.vim
 " ------------------
 " Fuzzy file content explorer
+let g:ctrlsf_mapping = {
+    \ "split"   : "<C-s>",
+    \ "vsplit": "<C-v>",
+    \ }
+
 let g:ctrlsf_auto_focus = {
     \ "at": "start",
     \ "duration_less_than": 1000
@@ -272,6 +269,10 @@ let g:yoinkAutoFormatPaste=0
 let g:yoinkIncludeDeleteOperations=1
 nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
 nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
+
+" ------------------
+" svermeulen/vim-yoink
+" ------------------
 
 " Only one clipboard
 set clipboard=unnamedplus  " Yanks go to clipboard (typically Ctrl+C).
@@ -497,7 +498,6 @@ xmap gfah <Plug>VLionRight
 " ------------------
 " KKPMW/vim-sendtowindow
 " ------------------
-
 let g:sendtowindow_use_defaults=0
 nmap <leader>l <Plug>SendRight
 xmap <leader>l <Plug>SendRightV
@@ -519,16 +519,6 @@ xmap <leader>jj vil<Plug>SendDownV
 " haya14busa/vim-asterisk
 " ------------------
 " Improved star motion, keeps cursor position.
-" map *   <Plug>(asterisk-*)
-" map #   <Plug>(asterisk-#)
-" map g*  <Plug>(asterisk-g*)
-" map g#  <Plug>(asterisk-g#)
-" map z*  <Plug>(asterisk-z*)
-" map gz* <Plug>(asterisk-gz*)
-" map z#  <Plug>(asterisk-z#)
-" map gz# <Plug>(asterisk-gz#)
-
-"If you want to set "z" (stay) behavior as default
 map *  <Plug>(asterisk-gz*)
 map #  <Plug>(asterisk-gz#)
 map g* <Plug>(asterisk-z*)
@@ -536,17 +526,9 @@ map g# <Plug>(asterisk-z#)
 
 let g:asterisk#keeppos = 1
 
-" -----------------
-" Additional Text Objects
-" -----------------
-
-" i: indent
-"Plug 'michaeljsmith/vim-indent-object'
-
 " ------------------
-" blasco/vim-indent-object
+" wellle/targets.vim
 " ------------------
-
 " Pair, quote, separator, and arguments text object
 " Pair text objects:
 " ( ) (work on parentheses)
@@ -569,9 +551,6 @@ let g:asterisk#keeppos = 1
 " a: Argument text objects
 " na, Na: Next and last arguments text objects
 
-" ------------------
-" wellle/targets.vim
-" ------------------
 let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'nN'
 
@@ -588,16 +567,3 @@ omap il <Plug>(textobj-line-i)
 
 xmap Il <Plug>(textobj-line-I)
 omap Il <Plug>(textobj-line-I)
-
-" " ------------------
-" " kana/vim-textobj-function
-" " ------------------
-" " f: function object for c, java, vim. When a language server is available we us coc instead
-" autocmd Filetype vim,c,java xmap af <Plug>(textobj-function-a)
-" autocmd Filetype vim,c,java omap af <Plug>(textobj-function-a)
-
-" autocmd Filetype vim,c,java xmap if <Plug>(textobj-function-i)
-" autocmd Filetype vim,c,java omap if <Plug>(textobj-function-i)
-
-" autocmd Filetype vim,c,java xmap Af <Plug>(textobj-function-A)
-" autocmd Filetype vim,c,java omap Af <Plug>(textobj-function-A)

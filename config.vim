@@ -1,9 +1,11 @@
 " ---------------------------------------------
-" Regular Vim Configuration (No Plugins)
+" Vim Configuration (No Plugins)
 " ---------------------------------------------
 
 " ---------------
-" {{{ Theme 
+" Theme 
+" ---------------
+" {{{ 
 set t_Co=256
 
 " Clipboard for windows
@@ -21,10 +23,11 @@ elseif has("unix")
     set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
 endif
 " }}}
-" ---------------
 
 " -----------------
-" {{{ Backups, Tmp Files, and Undo
+" Backups, Tmp Files, and Undo
+" -----------------
+" {{{ 
 " Keep all this files in contained folders so the system's filesystem
 set backup
 exec "set backupdir=" . g:vimHome . ".backup"
@@ -40,15 +43,15 @@ set autochdir
 " Disable existing swap file warning message
 set shortmess+=A
 "}}}
-" -----------------
 
 " ---------------
-" {{{ UI
+" UI
+" ---------------
+" {{{ 
 set shortmess+=I   " Disable Intro Message
 set ruler          " Ruler on
 set number         " Line numbers on
 set relativenumber " Line RelativeNumvers on
-"set cmdheight=2   " Make the command area two lines high
 set encoding=UTF-8
 set previewheight=25
 
@@ -79,10 +82,11 @@ set listchars=tab:▸\ ,eol:¬
 set mousehide  " Hide mouse after chars typed
 set mouse=a    " Mouse in all modes
 "}}}
-" ---------------
 
 " ---------------
-" {{{ Behaviors
+" Behaviors
+" ---------------
+" {{{ 
 syntax enable
 set autoread            " Automatically reload changes if detected
 set wildmenu            " Turn on WiLd menu. Allows completing :commands with tab
@@ -100,7 +104,7 @@ if has('nvim')
 endif
 set backspace=indent,eol,start
 
-" Add {count}[j|k] to the jump list
+" Add {count}[j|k] to the jump list, so that we can <c-o> and <c-i> to jump back and forth
 nnoremap <expr> k (v:count > 1 ? "m`" . v:count : "") . "k"
 nnoremap <expr> j (v:count > 1 ? "m`" . v:count : "") . "j"
 nnoremap <expr> h "h"
@@ -131,10 +135,11 @@ nnoremap <silent> <esc> :noh<return><esc>
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
   \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
 " }}}
-" ---------------
 
 " ---------------
-" {{{ Text Formatting
+" Text Formatting
+" ---------------
+" {{{ 
 
 " represent tabs with 4 white spaces
 set tabstop=2
@@ -143,10 +148,4 @@ set softtabstop=2
 
 " always uses spaces instead of tab characters
 set expandtab
-
-" Web development indentation
-autocmd Filetype html,css,scss,typescript,json setlocal tabstop=2
-autocmd Filetype html,css,scss,typescript,json setlocal shiftwidth=2
-autocmd Filetype html,css,scss,typescript,json setlocal softtabstop=2
 " }}}
-" ---------------

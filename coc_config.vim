@@ -9,25 +9,6 @@ set updatetime=300
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" ------------------
-" neoclide/coc-snippets
-" ------------------
-" Use <C-s> for trigger snippet expand.
-" Use <C-j> for select text for visual placeholder of snippet.
-imap <C-s> <Plug>(coc-snippets-expand)
-" vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-
-" ------------------
-" neoclide/coc-yank
-" ------------------
-silent nnoremap <space>p  :<C-u>CocList -A yank<cr>
-autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
-
 " always show signcolumns
 set signcolumn=yes
 
@@ -55,6 +36,28 @@ autocmd Filetype cpp,typescript,javascript omap af <Plug>(coc-funcobj-a)
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+nmap [f <Plug>(coc-diagnostic-next)
+nmap ]f <Plug>(coc-diagnostic-prev)
+
+" ------------------
+" neoclide/coc-snippets
+" ------------------
+" Use <C-s> for trigger snippet expand.
+" Use <C-j> for select text for visual placeholder of snippet.
+imap <C-s> <Plug>(coc-snippets-expand)
+" vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+
+" ------------------
+" neoclide/coc-yank
+" ------------------
+silent nnoremap <space>p  :<C-u>CocList -A yank<cr>
+autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
 
 " ------------------
 " neoclide/coc-git

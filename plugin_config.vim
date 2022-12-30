@@ -244,6 +244,12 @@ nmap <leader>gr :Git checkout .<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
 
+" ------------------
+" svermeulen/vim-yoink
+" ------------------
+
+let g:which_key_map.p = 'Paste history'
+
 " Change from using system clipboard to vim clipboard, which has a special
 " formatting that allows to paste visual blocks
 let g:unnamedplusToggleFlag = 1
@@ -265,9 +271,6 @@ let g:yoinkIncludeDeleteOperations=1
 nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
 nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
 
-" ------------------
-" svermeulen/vim-yoink
-" ------------------
 
 " Only one clipboard
 set clipboard=unnamedplus  " Yanks go to clipboard (typically Ctrl+C).

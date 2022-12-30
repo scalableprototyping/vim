@@ -236,9 +236,9 @@ function! GitFugitivePull()
 endfunction
 nnoremap <leader>gu :GitFugitivePull<CR>
 
-let g:which_key_map.g.b = 'git change Branch'
-nmap <leader>gb :Git checkout 
-let g:which_key_map.g.l = 'git current file Log'
+" let g:which_key_map.g.b = 'git change Branch'
+" nmap <leader>gb :Git checkout 
+let g:which_key_map.g.l = 'git Log of curent file'
 nmap <leader>gl :0GlLog<CR>
 let g:which_key_map.g.r = 'git Revert file changes'
 nmap <leader>gr :Git checkout .<CR>

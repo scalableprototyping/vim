@@ -73,6 +73,7 @@ endif
 " Visual
 set showmatch   " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
+let &fillchars ..= ',eob: ' " hide tilde char at end of buffer
 
 " Hide invisible characters
 set nolist

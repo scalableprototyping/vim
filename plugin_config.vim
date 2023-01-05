@@ -1,77 +1,57 @@
+exec "luafile " . g:vimHome . "plugin_config.lua"
+
+let g:which_key_ignore_outside_mappings = 1
+
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+
+autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+
 " ------------------
 " liuchengxu/vim-which-key
 " ------------------
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
-
-call which_key#register('<Space>', "g:which_key_map")
-let g:which_key_map =  {}
-let g:which_key_ignore_outside_mappings = 1
-
-let g:which_key_map.w = {'name': '+ save (W)'}
+let g:which_key_map.w = {'name': '+ Window'}
 let g:which_key_map.w.a = 'save All'
-let g:which_key_map.w.q = 'save and Quit'
+let g:which_key_map.w.q = 'Quit window'
+let g:which_key_map.w.h = 'Move window left'
+let g:which_key_map.w.j = 'Move window down'
+let g:which_key_map.w.k = 'Move window up'
+let g:which_key_map.w.l = 'Move window right'
 
-let g:which_key_map.q = {'name': '+ Quit'}
-nnoremap <silent> <leader>qa :qa<CR>
-let g:which_key_map.q.a = 'quit All'
+let g:which_key_map.v = {'name': '+ Vim'}
+
+let g:which_key_map.v.e = 'Edit Config'
+nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
+
+function! UpdateVim()
+  exe 'cd' "~/dotfiles/vim"
+  call input("Updating dotfiles/vim git repository. Press ENTER to continue")
+  call system("git checkout -- . && " .
+        \"git clean -fd && " .
+        \"git pull")
+  call input("Cleaning old plugins. Press ENTER to continue")
+  execute "PlugClean"
+  call input("Installing plugins. Press ENTER to continue")
+  execute "PlugInstall"
+endfunction
+command! UpdateVim call UpdateVim()
+
+let g:which_key_map.v.u = 'Update vim'
+nnoremap <silent> <leader>vu :UpdateVim<CR>
+
+" " TODO
+" let g:which_key_map.l = {'name': '+ Lists'}
+" let g:which_key_map.l.q = {'name': '+ Quickfix'}
+" let g:which_key_map.l.l = {'name': '+ Local'}
+" let g:which_key_map.l.a = {'name': '+ Argument'}
+" let g:which_key_map.l.q.d = 'Quickfix Do'
+" let g:which_key_map.l.q.c = 'Quickfix clear'
+" let g:which_key_map.l.q.n = 'Quickfix next'
+" let g:which_key_map.l.q.p = 'Quickfix previous'
 
 " ------------------
 " vim-caser
 " ------------------
 let g:caser_prefix = 'cr'
-
-" ------------------
-" any-jump
-" ------------------
-
-" " Normal mode: Jump to definition under cursore
-" nnoremap <silent> <leader>ja :AnyJump<CR>
-" " Visual mode: jump to selected text in visual mode
-" xnoremap <silent> <leader>ja :AnyJumpVisual<CR>
-" " Normal mode: open previous opened file (after jump)
-" nnoremap <leader>jb :AnyJumpBack<CR>
-" " Normal mode: open last closed search window again
-" nnoremap <leader>jl :AnyJumpLastResults<CR>
-
-" ------------------
-" tagbar
-" ------------------
-nmap <silent> <leader>to :TagbarToggle<CR>
-let g:tagbar_type_typescript = {                                                  
-  \ 'ctagsbin' : 'tstags',                                                        
-  \ 'ctagsargs' : '-f-',                                                           
-  \ 'kinds': [                                                                     
-    \ 'e:enums:0:1',                                                               
-    \ 'f:function:0:1',                                                            
-    \ 't:typealias:0:1',                                                           
-    \ 'M:Module:0:1',                                                              
-    \ 'I:import:0:1',                                                              
-    \ 'i:interface:0:1',                                                           
-    \ 'C:class:0:1',                                                               
-    \ 'm:method:0:1',                                                              
-    \ 'p:property:0:1',                                                            
-    \ 'v:variable:0:1',                                                            
-    \ 'c:const:0:1',                                                              
-  \ ],                                                                            
-  \ 'sort' : 0                                                                    
-\ } 
-
-" ------------------
-" lens.vim
-" ------------------
-let g:lens#disabled_filetypes = ['nerdtree', 'fzf', 'vim-minimap']
-let g:lens#width_resize_max = 100
-let g:lens#width_resize_min = 20
-
-" ------------------
-" junegunn/fzf.vim
-" ------------------
-let g:which_key_map.b = {'name': '+ Buffers'}
-nnoremap <silent> <leader>bf :Buffers<CR>
-let g:which_key_map.b.f = 'Find buffer'
-nnoremap <silent> <leader>bd :bd<CR>
-let g:which_key_map.b.d = 'Delete buffer'
 
 " ------------------
 " arzg/vim-corvine
@@ -94,19 +74,6 @@ nmap <silent> <leader>-  <Plug>FontsizeDec
 nmap <silent> <leader>0  <Plug>FontsizeDefault
 
 " ------------------
-" junegunn/vim-peekaboo
-" ------------------
-" Vim registers previewer
-
-let g:peekaboo_window  = 'vert bo 30new'
-let g:peekaboo_compact = 0
-
-" ------------------
-" terryma/vim-smooth-scroll
-" ------------------
-" Smooth scrolling
-"
-" ------------------
 " yuttie/comfortable-motion.vim
 " ------------------
 let g:comfortable_motion_scroll_down_key = "j"
@@ -118,8 +85,6 @@ let g:comfortable_motion_friction = 0.0
 let g:comfortable_motion_air_drag = 10.0
 nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-" nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 5)<CR>
-" nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -5)<CR>
 
 " ------------------
 " vim-airline/vim-airline
@@ -129,73 +94,10 @@ set laststatus=2   " Always show the statusline
 let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
 
-" Buffer navigation top bar.
-let s:buffer_navigation=0
-    if s:buffer_navigation
-        " Provides a buffer bar on top with a small number that
-        " indicates that we can jump to pressing the space bar and the buffer number
-        let g:airline#extensions#tabline#enabled = 1
-        let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
-        let g:airline#extensions#tabline#show_tab_nr = 1
-        let g:airline#extensions#tabline#formatter = 'default'
-        let g:airline#extensions#tabline#buffer_nr_show = 1
-        let g:airline#extensions#tabline#fnametruncate = 16
-        let g:airline#extensions#tabline#fnamecollapse = 2
-        let g:airline#extensions#tabline#buffer_idx_mode = 1
-
-        nmap <leader>1 <Plug>AirlineSelectTab1
-        nmap <leader>2 <Plug>AirlineSelectTab2
-        nmap <leader>3 <Plug>AirlineSelectTab3
-        nmap <leader>4 <Plug>AirlineSelectTab4
-        nmap <leader>5 <Plug>AirlineSelectTab5
-        nmap <leader>6 <Plug>AirlineSelectTab6
-        nmap <leader>7 <Plug>AirlineSelectTab7
-        nmap <leader>8 <Plug>AirlineSelectTab8
-        nmap <leader>9 <Plug>AirlineSelectTab9
-    endif
-
-
-" ------------------
-" tpope/vim-ragtag
-" ------------------
-" XML tags autocompletion
-
-let g:ragtag_global_maps = 1
-
-" The mappings apply in insert mode. Interesting are the following:
-" <C-X><Space>  <foo>^</foo>          *ragtag-CTRL-X_<Space>*
-" <C-X><CR>     <foo>\n^\n</foo>      *ragtag-CTRL-X_<CR>*
-" <C-X>/        Last HTML tag closed  *ragtag-CTRL-X_/*
-
 " ------------------
 " neoclide/coc.nvim, {'branch': 'release'}
 " ------------------
 " Configuration in coc_config.vim
-
-" ------------------
-" gu-fan/colorv.vim
-" ------------------
-" Color picker
-" cp: Color Picker
-nmap <leader>cp :ColorVEdit<CR>:ColorVPicker<CR>
-" nmap <leader>ce :ColorVEdit<CR>:ColorVPicker<CR>
-" <leader>ce: color edit
-" Within the edit dialog :ColorVPicker for a picker dialog box
-" <leader>cii : color insert
-" <leader>cir : color insert rgb
-
-" ------------------
-" Olical/vim-enmasse
-" ------------------
-" Makes quickfix window editable
-
-" ------------------
-" dyng/ctrlsf.vim
-" ------------------
-let g:ctrlsf_mapping = {
-    \ "split"   : "<C-s>",
-    \ "vsplit": "<C-v>",
-    \ }
 
 " ------------------
 " ctrlpvim/ctrlp.vim
@@ -219,9 +121,6 @@ let g:ctrlp_root_markers = ['.ctrlp']
 
 let g:which_key_map.e = { 'name' : '+ Edit' }
 
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
-let g:which_key_map.e.v = 'edit Vim configuration'
-
 " ef:= expore recent
 let g:which_key_map.e.r = 'edit Recent files'
 nmap <silent> <leader>er :CtrlPMRUFiles<CR>
@@ -233,6 +132,11 @@ nmap <silent> <leader>ep :CtrlP<CR>
 " dyng/ctrlsf.vim
 " ------------------
 " Fuzzy file content explorer
+let g:ctrlsf_mapping = {
+    \ "split"   : "<C-s>",
+    \ "vsplit": "<C-v>",
+    \ }
+
 let g:ctrlsf_auto_focus = {
     \ "at": "start",
     \ "duration_less_than": 1000
@@ -240,17 +144,42 @@ let g:ctrlsf_auto_focus = {
 
 com! -n=1 CtrlSFindInFile CtrlSF <q-args> %
 
-
 let g:which_key_map.s = { 'name' : '+ Search' }
 
-" sp := search in project
-let g:which_key_map.s.p = 'search in Project'
-nmap <silent> <leader>sp <Plug>CtrlSFPrompt
-" sf := search in file
-let g:which_key_map.s.f = 'search in File'
-nnoremap <silent> <leader>sf :CtrlSFindInFile 
-" st := search menu open
+function! SearchInProject()
+  let search_input = input("Search REGEX in project: ")
 
+  " exit if escape is pressed
+  if search_input ==# ''
+    return
+  endif
+
+  redraw
+  execute "CtrlSF " . search_input
+endfunction
+command! SearchInProject call SearchInProject()
+
+function! SearchInFile()
+  let search_input = input("Search REGEX in file: ")
+
+  " exit if escape is pressed
+  if search_input ==# ''
+    return
+  endif
+
+  redraw
+  execute "CtrlSFindInFile " . search_input
+endfunction
+command! SearchInFile call SearchInFile()
+
+let g:which_key_map.s.p = 'search in Project'
+nmap <silent> <leader>sp :SearchInProject<CR>
+let g:which_key_map.s.f = 'search in File'
+nnoremap <silent> <leader>sf :SearchInFile<CR>
+let g:which_key_map.s.b = 'search in Buffer'
+nnoremap <silent> <leader>sb :Telescope buffers<CR>
+let g:which_key_map.s.g = 'search current path with live grep'
+nnoremap <silent> <leader>sg :Telescope live_grep<CR>
 let g:which_key_map.s.o = 'Open/close search results'
 nnoremap <silent> <leader>so :CtrlSFToggle<CR>
 
@@ -258,7 +187,7 @@ let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_default_root = 'project'
 
 " ------------------
-" scrooloose/nerdtree
+" File Explorer
 " ------------------
 " Navigation bar
 " x := explorer
@@ -267,28 +196,15 @@ let g:ctrlsf_default_root = 'project'
 
 let g:which_key_map.x = { 'name' : '+ file eXplorer' }
 
-let g:NERDTreeWinSize=45
-nnoremap <C-t> :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
-
 let g:which_key_map.x.o = 'Open/close file explorer'
-nnoremap <silent> <leader>xo :NERDTreeToggle<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xo :NvimTreeToggle<CR>:set relativenumber<CR>:set number<CR>
 
-" xl := explorer locate file := find current opened file in explorer
 let g:which_key_map.x.l = 'Locate file in explorer'
-nnoremap <silent> <leader>xl :NERDTreeFind<CR>:set relativenumber<CR>:set number<CR>
+nnoremap <silent> <leader>xl :NvimTreeFindFile<CR>:set relativenumber<CR>:set number<CR>
 
-" xp := explorer project := Change directory to root of the repository
-let g:which_key_map.x.p = 'change explorer location to Project root'
-nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
-
-let g:NERDTreeShowBookmarks=1
-" Change the NERDTree directory to the root node
-let g:NERDTreeChDirMode=2
-" Mappings
-let NERDTreeMapOpenSplit='<C-s>'
-let NERDTreeMapOpenVSplit='<C-v>'
-" '<C-e>' := edit
-let NERDTreeMapMenu='<C-e>'
+" " xp := explorer project := Change directory to root of the repository
+" let g:which_key_map.x.p = 'change explorer location to Project root'
+" nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
 
 " Remove vertical | chars
 set fillchars+=vert:\
@@ -297,21 +213,42 @@ set fillchars+=vert:\
 " tpope/vim-fugitive
 " ------------------
 " Git integration
-
 CommandCabbr git Git
 
-nmap <silent> <leader>gc :Gcommit<CR>
-nmap <silent> <leader>gm :Git checkout
-" Revert local changes
-nmap <silent> <leader>gr :Git checkout .<CR>
-nmap <silent> <leader>gw :Gwrite<CR> :Gstatus<CR>
-nmap <silent> <leader>gs :Gstatus<CR>
-nmap <silent> <leader>gp :Git push<CR>
-" Mnemonic, gu = Git Update
-nmap <silent> <leader>gu :Git pull<CR>
-nmap <silent> <leader>gd :Gdiff<CR>
+let g:which_key_map.g = {'name': '+ Git'}
+let g:which_key_map.g.s = 'git Status'
+nnoremap <silent> <leader>gs :Git<CR>
+
+let g:which_key_map.g.p = 'git Push'
+command! GitFugitivePush call GitFugitivePush()
+function! GitFugitivePush()
+  echo "Pushing to remote..."
+  execute "Git push"
+endfunction
+nnoremap <leader>gp :GitFugitivePush<CR>
+
+let g:which_key_map.g.u = 'git Update (pull)'
+command! GitFugitivePull call GitFugitivePull()
+function! GitFugitivePull()
+  echo "Pulling from remote..."
+  execute "Git push"
+endfunction
+nnoremap <leader>gu :GitFugitivePull<CR>
+
+" let g:which_key_map.g.b = 'git change Branch'
+" nmap <leader>gb :Git checkout 
+let g:which_key_map.g.l = 'git Log of curent file'
+nmap <leader>gl :0GlLog<CR>
+let g:which_key_map.g.r = 'git Revert (discard) file changes'
+nmap <leader>gr :Git checkout .<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
+
+" ------------------
+" svermeulen/vim-yoink
+" ------------------
+
+let g:which_key_map.p = 'Paste history'
 
 " Change from using system clipboard to vim clipboard, which has a special
 " formatting that allows to paste visual blocks
@@ -328,15 +265,12 @@ function! UnnamedplusToggle()
         echo 'Visual block copy/paste disabled. System clipboard enable.'
     endif
 endfunction
-nmap <leader>p :UnnamedplusToggle<cr>
 
 let g:yoinkAutoFormatPaste=0
 let g:yoinkIncludeDeleteOperations=1
 nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
 nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
-let g:yoinkIncludeDeleteOperations=1
-nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
-nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
+
 
 " Only one clipboard
 set clipboard=unnamedplus  " Yanks go to clipboard (typically Ctrl+C).
@@ -352,8 +286,6 @@ xnoremap P Pgvy
 
 nmap [y <Plug>(YoinkRotateBack)
 nmap ]y <Plug>(YoinkRotateForward)
-
-nmap y= <Plug>(YoinkPostPasteToggleFormat)
 
 " ------------------
 " mbbill/undotree
@@ -428,16 +360,6 @@ hi link EasyMotionMoveHL IncSearch
 hi link EasyMotionIncSearch IncSearch
 
 " ------------------
-" yaroot/vissort
-" ------------------
-" go: go order
-let g:sort_motion = 'go'
-let g:sort_motion_lines = 'goo'
-let g:sort_motion_visual = 'go'
-" Allow sorting from visual block
-let g:sort_motion_visual_block_command = "Vissort"
-
-" ------------------
 " svermeulen/vim-cutlass
 " ------------------
 " m: move (cut), d: delete
@@ -491,7 +413,6 @@ nmap crb <Plug>RadicalCoerceToBinary
 " Substitute motion 
 " s  := substitute 
 " gr := replace in range 
-" TODO: 'griwiw' not working, it takes the whole line
 
 nmap gs  <Plug>(SubversiveSubstitute)
 " one line
@@ -501,23 +422,13 @@ nmap gS  <Plug>(SubversiveSubstituteToEndOfLine)
 " visual
 xmap gs <Plug>(SubversiveSubstitute)
 
-" TODO: motion 2 is taken as whole line
 " gr<motion1><motion2> := replace <motion1> in <motion2>
 nmap gr <Plug>(SubversiveSubstituteRange)
 xmap gr <Plug>(SubversiveSubstituteRange)
-" gr<right><right> := rll := replace one character
 
 " gr?<motion1><motion2> := replace with confirmation <motion1> in <motion2>
 nmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
 xmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
-
-" ------------------
-" kana/vim-wwwsearch
-" ------------------
-" gwww := search in google
-
-nmap gws <Plug>(operator-wwwsearch)
-let g:wwwsearch_command_to_open_uri = 'google-chrome {uri}'
 
 " ------------------
 " machakann/vim-operator-jerk
@@ -543,17 +454,6 @@ xmap g<p <Plug>(operator-jerk-backward-partial)
 
 nmap g>pp <Plug>(operator-jerk-forward-partial)iw
 nmap g<pp <Plug>(operator-jerk-backward-partial)iw
-
-
-" ------------------
-" lambdalisue/vim-operator-breakline
-" ------------------
-" gfh := go format here
-" gfnc := go format n characters
-
-map gF <Plug>(operator-breakline-textwidth)
-" go format n characters
-map gFn <Plug>(operator-breakline-manual)
 
 " ------------------
 " tommcdo/vim-exchange
@@ -596,7 +496,6 @@ xmap gfah <Plug>VLionRight
 " ------------------
 " KKPMW/vim-sendtowindow
 " ------------------
-
 let g:sendtowindow_use_defaults=0
 nmap <leader>l <Plug>SendRight
 xmap <leader>l <Plug>SendRightV
@@ -615,41 +514,9 @@ xmap <leader>j <Plug>SendDownV
 xmap <leader>jj vil<Plug>SendDownV
 
 " ------------------
-" deris/vim-operator-insert
-" ------------------
-nmap gi <Plug>(OperatorInsert-first-invocation)
-nmap ga <Plug>(OperatorAppend-first-invocation)
-" gi: go insert
-
-"xmap gi  <Plug>(operator-insert-i)
-" nmap gi  <Plug>(operator-insert-i)
-
-"xmap ga  <Plug>(operator-insert-a)
-" nmap ga  <Plug>(operator-insert-a)
-
-" TODO: remaps for ge gb go end go begin
-" TODO: visual mode is missing!
-"Plug 'rjayatilleka/vim-operator-goto'
-"Plug 'blasco/vim-operator-goto'
-" map <leader>e <plug>(operator-gotoend)
-" map <leader>b <plug>(operator-gotostart)
-" map ge <plug>(operator-gotoend)
-" map gb <plug>(operator-gotostart)
-
-" ------------------
 " haya14busa/vim-asterisk
 " ------------------
 " Improved star motion, keeps cursor position.
-" map *   <Plug>(asterisk-*)
-" map #   <Plug>(asterisk-#)
-" map g*  <Plug>(asterisk-g*)
-" map g#  <Plug>(asterisk-g#)
-" map z*  <Plug>(asterisk-z*)
-" map gz* <Plug>(asterisk-gz*)
-" map z#  <Plug>(asterisk-z#)
-" map gz# <Plug>(asterisk-gz#)
-
-"If you want to set "z" (stay) behavior as default
 map *  <Plug>(asterisk-gz*)
 map #  <Plug>(asterisk-gz#)
 map g* <Plug>(asterisk-z*)
@@ -657,17 +524,9 @@ map g# <Plug>(asterisk-z#)
 
 let g:asterisk#keeppos = 1
 
-" -----------------
-" Additional Text Objects
-" -----------------
-
-" i: indent
-"Plug 'michaeljsmith/vim-indent-object'
-
 " ------------------
-" blasco/vim-indent-object
+" wellle/targets.vim
 " ------------------
-
 " Pair, quote, separator, and arguments text object
 " Pair text objects:
 " ( ) (work on parentheses)
@@ -690,9 +549,6 @@ let g:asterisk#keeppos = 1
 " a: Argument text objects
 " na, Na: Next and last arguments text objects
 
-" ------------------
-" wellle/targets.vim
-" ------------------
 let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'nN'
 
@@ -709,19 +565,3 @@ omap il <Plug>(textobj-line-i)
 
 xmap Il <Plug>(textobj-line-I)
 omap Il <Plug>(textobj-line-I)
-
-" ------------------
-" kana/vim-textobj-function
-" ------------------
-" f: function object for c, java, vim. When a language server is available we us coc instead
-autocmd Filetype vim,c,java xmap af <Plug>(textobj-function-a)
-autocmd Filetype vim,c,java omap af <Plug>(textobj-function-a)
-
-autocmd Filetype vim,c,java xmap if <Plug>(textobj-function-i)
-autocmd Filetype vim,c,java omap if <Plug>(textobj-function-i)
-
-autocmd Filetype vim,c,java xmap Af <Plug>(textobj-function-A)
-autocmd Filetype vim,c,java omap Af <Plug>(textobj-function-A)
-
-autocmd Filetype vim,c,java xmap If <Plug>(textobj-function-I)
-autocmd Filetype vim,c,java omap If <Plug>(textobj-function-I)

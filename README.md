@@ -1,3 +1,8 @@
+# TODO:
+
+* Better which key with (allows hints for operators and text objects)
+  https://github.com/folke/which-key.nvim
+
 # Installation
 
 Ephemiral devs can now be used to install this configuration

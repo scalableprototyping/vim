@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin(g:vimHome . "plugged")
 
 " -----------------
 "{{{ UI Additions
@@ -28,10 +28,6 @@ call plug#begin()
         Plug 'ryanoasis/vim-devicons'
     "}}}
 
-    " Tag bar
-    "{{{
-        Plug 'majutsushi/tagbar'
-     "}}}
 "}}}
 " -----------------
 
@@ -43,6 +39,8 @@ call plug#begin()
         " File navigation and Most Recent Used files
         "{{{
             Plug 'ctrlpvim/ctrlp.vim'
+            Plug 'nvim-lua/plenary.nvim'
+            Plug 'nvim-telescope/telescope.nvim'
             " Add .ctrlp to ~/.gitignore_global
             " git config --global core.excludesfile ~/.gitignore_global
             " touch .ctrlp where we want to set the project's search root
@@ -52,8 +50,10 @@ call plug#begin()
 
         " File Explorer
         "{{{
-            Plug 'scrooloose/nerdtree'
+            " Plug 'scrooloose/nerdtree'
             " Plug 'tpope/vim-vinegar'
+            Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+            Plug 'nvim-tree/nvim-tree.lua'
             " x := explorer
             " Toggle file explorer
             " xo := explorer open/close
@@ -94,7 +94,7 @@ call plug#begin()
 
         "}}}
 
-        " Autocompletion with Language Server Processor
+        " Autocompletion with (LSP) Language Server Protocol
         "{{{
             Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -116,9 +116,19 @@ call plug#begin()
 
         " Which Key
         "{{{
-            " Plug 'liuchengxu/vim-which-key', {'branch': 'release'}
-            Plug 'rene-descartes2021/vim-which-key', {'branch': 'only-desc-global'}
+            Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
         "}}}
+
+        " Lua Scratchpad
+        "{{{
+            Plug 'rafcamlet/nvim-luapad'
+        "}}}
+
+        " BufOnly, delete all other buffers
+        "{{{
+            Plug 'vim-scripts/BufOnly.vim'
+        "}}}
+
     "}}}
 
     " {{{ Extra
@@ -154,7 +164,7 @@ call plug#begin()
     "{{{ Language dependent extensions
 
         " C# Language support
-        Plug 'OmniSharp/omnisharp-vim'
+        " Plug 'OmniSharp/omnisharp-vim'
 
         " XML tags autocompletion
         "{{{
@@ -178,10 +188,10 @@ call plug#begin()
 
 " -----------------
 "{{{ Syntax Hihgliht
-    Plug 'sudar/vim-arduino-syntax'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'peterhoeg/vim-qml'
-    Plug 'http://git.oschina.net/qiuchangjie/ShaderHighLight'
+    " Plug 'sudar/vim-arduino-syntax'
+    " Plug 'leafgarland/typescript-vim'
+    " Plug 'peterhoeg/vim-qml'
+    " Plug 'http://git.oschina.net/qiuchangjie/ShaderHighLight'
 "}}}
 " -----------------
 
@@ -243,13 +253,6 @@ call plug#begin()
         Plug 'tommcdo/vim-exchange'
     "}}}
 
-    " go: go order
-    "{{{
-        Plug 'christoomey/vim-sort-motion'
-        " Allow sorting from visual block
-        Plug 'yaroot/vissort'
-    "}}}
-
     " m: move (cut), d: delete
     "{{{
         Plug 'svermeulen/vim-cutlass'
@@ -260,7 +263,6 @@ call plug#begin()
         " Moving lines
     "}}}
 
-
     " Calculator and base converter
     " g= := go equal, replaces selection or text object with result of calculation
     " :Crunch command for expanded result
@@ -268,15 +270,6 @@ call plug#begin()
         Plug 'arecarn/vim-crunch'
         " Plug 'blasco/vim-crunch'
         Plug 'arecarn/vim-selection' " arecarn/vim-crunch dependency
-    "}}}
-
-    " ga: go append
-    " gi: go insert
-    "{{{
-        "TODO: Is not repeatable
-        Plug 'bagohart/vim-operator-insert-append'
-        " Plug 'mwgkgk/vim-operator-append'
-        " Plug 'deris/vim-operator-insert'
     "}}}
 
     " :S for smart substitution and coercion:
@@ -301,11 +294,6 @@ call plug#begin()
         Plug 'glts/vim-magnum'
         Plug 'glts/vim-radical'
         " Plug 'blasco/vim-radical'
-    "}}}
-
-    " gws := (go web search) search in google
-    "{{{
-        Plug 'kana/vim-wwwsearch'
     "}}}
 
     " g[>,<] := go [>,<]
@@ -411,37 +399,18 @@ call plug#begin()
         Plug 'whatyouhide/vim-textobj-xmlattr'
     "}}}
 
-    " f: function object for c, java, vim. When a language server is available we us coc instead
-    "{{{
-        Plug 'kana/vim-textobj-function'
-    "}}}
-
     " c: comment
     "{{{
-    " TODO: target single line comments
-    Plug 'glts/vim-textobj-comment'
-    " if: in find between characters
-    " af: a find between characters
-
-    " in between text object
-    "{{{
-        " TODO: b from targets vim needs to be remaped to br (brackets)
-        " Plug 'thinca/vim-textobj-between'
-        " ibc := in between characters
-        " abc := around between characters
-        " let g:textobj_between_no_default_key_mappings=1
-        " omap ibc <Plug>(textobj-between-i)
-        " xmap ibc <Plug>(textobj-between-i)
-        " omap abc <Plug>(textobj-between-a)
-        " xmap abc <Plug>(textobj-between-a)
+        Plug 'glts/vim-textobj-comment'
     "}}}
 
     " iv: in variable segment
     " av: a variable segment
     "Plug 'Julian/vim-textobj-variable-segment'
-    Plug 'blasco/vim-textobj-variable-segment'
-
+    "{{{
+        Plug 'blasco/vim-textobj-variable-segment'
     "}}}
+
 "}}}
 " -----------------
 

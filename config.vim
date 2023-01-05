@@ -1,9 +1,11 @@
 " ---------------------------------------------
-" Regular Vim Configuration (No Plugins)
+" Vim Configuration (No Plugins)
 " ---------------------------------------------
 
 " ---------------
-" {{{ Theme 
+" Theme 
+" ---------------
+" {{{ 
 set t_Co=256
 
 " Clipboard for windows
@@ -22,10 +24,11 @@ elseif has("unix")
     set guifont=Inconsolata\ Nerd\ Font\ Mono\ 16"
 endif
 " }}}
-" ---------------
 
 " -----------------
-" {{{ Backups, Tmp Files, and Undo
+" Backups, Tmp Files, and Undo
+" -----------------
+" {{{ 
 " Keep all this files in contained folders so the system's filesystem
 set backup
 exec "set backupdir=" . g:vimHome . ".backup"
@@ -41,15 +44,15 @@ set autochdir
 " Disable existing swap file warning message
 set shortmess+=A
 "}}}
-" -----------------
 
 " ---------------
-" {{{ UI
+" UI
+" ---------------
+" {{{ 
 set shortmess+=I   " Disable Intro Message
 set ruler          " Ruler on
 set number         " Line numbers on
 set relativenumber " Line RelativeNumvers on
-"set cmdheight=2   " Make the command area two lines high
 set encoding=UTF-8
 set previewheight=25
 
@@ -71,6 +74,7 @@ endif
 " Visual
 set showmatch   " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
+let &fillchars ..= ',eob: ' " hide tilde char at end of buffer
 
 " Hide invisible characters
 set nolist
@@ -80,10 +84,11 @@ set listchars=tab:▸\ ,eol:¬
 set mousehide  " Hide mouse after chars typed
 set mouse=a    " Mouse in all modes
 "}}}
-" ---------------
 
 " ---------------
-" {{{ Behaviors
+" Behaviors
+" ---------------
+" {{{ 
 syntax enable
 set autoread            " Automatically reload changes if detected
 set wildmenu            " Turn on WiLd menu. Allows completing :commands with tab
@@ -101,7 +106,7 @@ if has('nvim')
 endif
 set backspace=indent,eol,start
 
-" Add {count}[j|k] to the jump list
+" Add {count}[j|k] to the jump list, so that we can <c-o> and <c-i> to jump back and forth
 nnoremap <expr> k (v:count > 1 ? "m`" . v:count : "") . "k"
 nnoremap <expr> j (v:count > 1 ? "m`" . v:count : "") . "j"
 nnoremap <expr> h "h"
@@ -138,35 +143,17 @@ if has("win64") || has("win32")
 endif
 
 " }}}
-" ---------------
 
 " ---------------
-" {{{ Text Format
+" Text Formatting
+" ---------------
+" {{{ 
 
 " represent tabs with 4 white spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " always uses spaces instead of tab characters
 set expandtab
-
-" C++ indentation
-autocmd BufEnter *.cpp :setlocal cindent cino=j1,(0,ws,Ws
-
-" Web development indentation
-autocmd Filetype html,css,scss,typescript,json setlocal tabstop=2
-autocmd Filetype html,css,scss,typescript,json setlocal shiftwidth=2
-autocmd Filetype html,css,scss,typescript,json setlocal softtabstop=2
-
-" Latex
-let g:tex_flavor = "latex"
-autocmd FileType latex,tex,md,markdown setlocal spell
 " }}}
-" ---------------
-
-" ---------------
-" {{{ Syntax
-" Jsonc
-autocmd FileType json syntax match Comment +\/\/.\+$+
-" ---------------

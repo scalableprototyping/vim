@@ -163,9 +163,6 @@ call plug#begin(g:vimHome . "plugged")
 
     "{{{ Language dependent extensions
 
-        " C# Language support
-        " Plug 'OmniSharp/omnisharp-vim'
-
         " XML tags autocompletion
         "{{{
             " Conficts with coc-vim

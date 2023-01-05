@@ -137,11 +137,6 @@ nnoremap <silent> <esc> :noh<return><esc>
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
   \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
 
-" Powershell in windows
-if has("win64") || has("win32")
-    set shell=powershell.exe
-endif
-
 " }}}
 
 " ---------------

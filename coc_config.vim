@@ -75,7 +75,6 @@ omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 
 let g:coc_global_extensions=[ 
-            \'coc-omnisharp', 
             \'coc-angular', 
             \'coc-tsserver', 
             \'coc-eslint',

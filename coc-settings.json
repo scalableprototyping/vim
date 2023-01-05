@@ -4,81 +4,15 @@
 
   "Lua.diagnostics.globals": ["vim"],
 
-    "yank.highlight.duration": 250,
-    "clangd.path": "/home/blasco/.config/coc/extensions/coc-clangd-data/install/10.0.0/clangd_10.0.0/bin/clangd",
+  "yank.highlight.duration": 250,
 
-    // Add one of the server language providers the
-    // coc-settings.json file at project .vim/ for project base configuration
-    //"languageserver": {
-    //    "clangd": {
-    //        "command": "clangd",
-    //        "args": ["--background-index"],
-    //        "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-    //        "filetypes": ["c", "cpp", "objc", "objcpp"]
-    //    },
-    //    "cmake": {
-    //        "command": "cmake-language-server",
-    //        "filetypes": ["cmake"],
-    //        "rootPatterns": [
-    //            "build/"
-    //        ],
-    //        "initializationOptions": {
-    //            "buildDirectory": "build"
-    //        }
-    //    },
-    //    "ccls": {
-    //        "command": "ccls",
-    //        "filetypes": ["c", "cpp", "objc", "objcpp"],
-    //        "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-    //        "initializationOptions": {
-    //            "cache": {
-    //                "directory": "/tmp/ccls"
-    //            }
-    //        }
-    //    }
-    //}
-
-    "diagnostic-languageserver.filetypes": {
-      "python": "pylint"
-    },
-    "diagnostic-languageserver.linters": {
-      "pylint": {
-        "sourceName": "pylint",
-        "command": "pylint",
-        "debounce": 100,
-        "args": [
-          "--output-format",
-          "text",
-          "--score",
-          "no",
-          "--msg-template",
-          "'{line}:{column}:{category}:{msg} ({msg_id}:{symbol})'",
-          "%file"
-        ],
-        "formatPattern": [
-          "^(\\d+?):(\\d+?):([a-z]+?):(.*)$",
-          {
-            "line": 1,
-            "column": 2,
-            "endColumn": 2,
-            "security": 3,
-            "message": 4
-          }
-        ],
-        "rootPatterns": ["pyproject.toml", "setup.py", ".git"],
-        "securities": {
-          "informational": "hint",
-          "refactor": "info",
-          "convention": "info",
-          "warning": "warning",
-          "error": "error",
-          "fatal": "error"
-        },
-        "offsetColumn": 1,
-        "offsetColumnEnd": 1,
-        "formatLines": 1
-      }
-    },
-    "snippets.ultisnips.pythonPrompt": false
+  "languageserver": {
+    "csharp-ls": {
+      "command": "csharp-ls",
+      "filetypes": ["cs"],
+      "rootPatterns": ["*.csproj", ".vim/", ".git/"]
+    }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 
 }

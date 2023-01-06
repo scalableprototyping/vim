@@ -1,6 +1,7 @@
-" ----------------------------------------
+" ------------------
 " Bindings
-" ----------------------------------------
+" ------------------
+
 " Instead of stumbling into ex mode, repeat the last macro used.
 nnoremap Q @@
 
@@ -11,6 +12,13 @@ nnoremap Q @@
 noremap <c-h> ^
 noremap <c-l> $
 
+" Paragraph movement
+" Mnemonic: like j and k but with Ctrl, which is the same
+" modifier for moving with bigger motion brushes like up,
+" down, forward, backward. 
+noremap <C-k> {
+noremap <C-j> }
+
 " Make Y behave like other capital commands.
 nnoremap Y y$
 
@@ -18,13 +26,6 @@ nnoremap Y y$
 nnoremap <leader>wa :wa<CR>
 " Quit all
 nnoremap <space>qa :qa<CR>
-
-" Paragraph movement
-" Mnemonic: like j and k but with Ctrl, which is the same
-" modifier for moving with bigger motion brushes like up,
-" down, forward, backward. 
-noremap <C-k> {
-noremap <C-j> }
 
 " Window Movement
 nnoremap <silent> <leader>wh :wincmd h<CR>
@@ -38,3 +39,12 @@ nnoremap <space>wr <c-w>=
 
 " Escape terminal insert mode with Esc key
 tnoremap <Esc> <C-\><C-n>
+
+" Format text Operator
+" gf := go format
+" gfs := go format syntax
+nnoremap gf  gw
+nnoremap gfs =
+
+" Jump to file (originally go to file but used by go format)
+nnoremap <leader>jf gf

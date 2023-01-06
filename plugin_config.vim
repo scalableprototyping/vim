@@ -22,19 +22,6 @@ let g:which_key_map.v = {'name': '+ Vim'}
 let g:which_key_map.v.e = 'Edit Config'
 nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
 
-function! UpdateVim()
-  exe 'cd' "~/dotfiles/vim"
-  call input("Updating dotfiles/vim git repository. Press ENTER to continue")
-  call system("git checkout -- . && " .
-        \"git clean -fd && " .
-        \"git pull")
-  call input("Cleaning old plugins. Press ENTER to continue")
-  execute "PlugClean"
-  call input("Installing plugins. Press ENTER to continue")
-  execute "PlugInstall"
-endfunction
-command! UpdateVim call UpdateVim()
-
 let g:which_key_map.v.u = 'Update vim'
 nnoremap <silent> <leader>vu :UpdateVim<CR>
 
@@ -49,11 +36,6 @@ nnoremap <silent> <leader>vu :UpdateVim<CR>
 " let g:which_key_map.l.q.p = 'Quickfix previous'
 
 " ------------------
-" vim-caser
-" ------------------
-let g:caser_prefix = 'cr'
-
-" ------------------
 " arzg/vim-corvine
 " ------------------
 " Corvine Theme
@@ -63,15 +45,6 @@ if exists('+termguicolors')
 endif
 colorscheme corvine
 let g:corvine_italics = 0
-
-" ------------------
-" drmikehenry/vim-fontsize
-" ------------------
-" Change font size with <leader><leader>+
-nmap <silent> <leader>=  <Plug>FontsizeBegin
-nmap <silent> <leader>+  <Plug>FontsizeInc
-nmap <silent> <leader>-  <Plug>FontsizeDec
-nmap <silent> <leader>0  <Plug>FontsizeDefault
 
 " ------------------
 " yuttie/comfortable-motion.vim
@@ -95,15 +68,9 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='deus'
 
 " ------------------
-" neoclide/coc.nvim, {'branch': 'release'}
-" ------------------
-" Configuration in coc_config.vim
-
-" ------------------
 " ctrlpvim/ctrlp.vim
 " ------------------
 " Fuzzy file explorer and most recent used files
-
 let g:ctrlp_mruf_max = 1000
 let g:ctrlp_map = ''
 let g:ctrlp_cmd = 'CtrlP'
@@ -187,7 +154,7 @@ let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_default_root = 'project'
 
 " ------------------
-" File Explorer
+" nvim-tree/nvim-tree.lua
 " ------------------
 " Navigation bar
 " x := explorer
@@ -202,17 +169,12 @@ nnoremap <silent> <leader>xo :NvimTreeToggle<CR>:set relativenumber<CR>:set numb
 let g:which_key_map.x.l = 'Locate file in explorer'
 nnoremap <silent> <leader>xl :NvimTreeFindFile<CR>:set relativenumber<CR>:set number<CR>
 
-" " xp := explorer project := Change directory to root of the repository
-" let g:which_key_map.x.p = 'change explorer location to Project root'
-" nnoremap <silent> <leader>xp :NERDTreeVCS<CR>:set relativenumber<CR>:set number<CR>
-
-" Remove vertical | chars
-set fillchars+=vert:\
-
 " ------------------
 " tpope/vim-fugitive
 " ------------------
 " Git integration
+
+" alias git to Git
 CommandCabbr git Git
 
 let g:which_key_map.g = {'name': '+ Git'}
@@ -247,7 +209,6 @@ let g:fugitive_summary_format = "%h %cd %an %s"
 " ------------------
 " svermeulen/vim-yoink
 " ------------------
-
 let g:which_key_map.p = 'Paste history'
 
 " Change from using system clipboard to vim clipboard, which has a special
@@ -271,11 +232,6 @@ let g:yoinkIncludeDeleteOperations=1
 nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
 nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
 
-
-" Only one clipboard
-set clipboard=unnamedplus  " Yanks go to clipboard (typically Ctrl+C).
-" Persistent clipboard on leave: Install parcellite and set it to launch in startup
-
 nmap p <Plug>(YoinkPaste_p)
 nmap P <Plug>(YoinkPaste_P)
 
@@ -284,14 +240,11 @@ nmap P <Plug>(YoinkPaste_P)
 xnoremap p pgvy
 xnoremap P Pgvy
 
-nmap [y <Plug>(YoinkRotateBack)
-nmap ]y <Plug>(YoinkRotateForward)
-
 " ------------------
 " mbbill/undotree
 " ------------------
 " Undo history tree
-" uo: Undootree open
+" uo: Undo tree Open
 nnoremap <silent> <leader>uo :UndotreeToggle<cr>
 let g:undotree_SetFocusWhenToggle = 1
 
@@ -378,8 +331,6 @@ nnoremap <leader>m m
 " Calculator and base converter
 " g= := go equal, replaces selection or text object with result of calculation
 " :Crunch command for exmpanded result
-"Plug 'blasco/vim-crunch'
-"Plug 'arecarn/vim-selection' " arecarn/vim-crunch dependency
 
 nmap g= <Plug>(crunch-operator)
 xmap g= <Plug>(visual-crunch-operator)
@@ -390,22 +341,6 @@ nmap g== <Plug>(crunch-operator-line)
 " ------------------
 " Comment operator | gc  := go comment
 autocmd Filetype c,cpp setlocal commentstring=//\ %s
-
-" ------------------
-" tpope/vim-abolish
-" ------------------
-map cr <Plug>(abolish-coerce)
-
-" ------------------
-" blasco/vim-radical
-" ------------------
-let g:radical_no_mappings=1
-nmap cra <Plug>RadicalView
-xmap cra <Plug>RadicalView
-nmap crd <Plug>RadicalCoerceToDecimal
-nmap crx <Plug>RadicalCoerceToHex
-nmap cro <Plug>RadicalCoerceToOctal
-nmap crb <Plug>RadicalCoerceToBinary
 
 " ------------------
 " svermeulen/vim-subversive
@@ -431,31 +366,6 @@ nmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
 xmap gr? <Plug>(SubversiveSubstituteRangeConfirm)
 
 " ------------------
-" machakann/vim-operator-jerk
-" ------------------
-" g[>,<] := go [>,<]
-" g[>,<]p := go [>,<] partial
-
-xmap g> <Plug>(operator-jerk-forward)
-nmap g> <Plug>(operator-jerk-forward)
-
-xmap g< <Plug>(operator-jerk-backward)
-nmap g< <Plug>(operator-jerk-backward)
-
-nmap g>> <Plug>(operator-jerk-forward)l
-nmap g<< <Plug>(operator-jerk-backward)l
-
-" go shift partial
-nmap g>p <Plug>(operator-jerk-forward-partial)
-xmap g>p <Plug>(operator-jerk-forward-partial)
-
-nmap g<p <Plug>(operator-jerk-backward-partial)
-xmap g<p <Plug>(operator-jerk-backward-partial)
-
-nmap g>pp <Plug>(operator-jerk-forward-partial)iw
-nmap g<pp <Plug>(operator-jerk-backward-partial)iw
-
-" ------------------
 " tommcdo/vim-exchange
 " ------------------
 " gx := go exchange
@@ -464,34 +374,6 @@ let g:exchange_no_mappings=1
 nmap gx  <Plug>(Exchange)
 nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
-
-" ------------------
-" junegunn/vim-easy-align
-" ------------------
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" Builtin format Operator
-" gf := go format
-" gfs := go format syntax
-" jf: = jump to file (originaly gf goto file, but used by go format
-nnoremap <leader>jf gf
-nnoremap gf  gw
-nnoremap gfs =
-
-let g:lion_create_maps=0
-let g:lion_squeeze_spaces=0
-
-" TODO: LionRight("="), so it doesn't ask and a mapping like gfae (go format align equation) can be created
-" TODO: gfa{char}{motion} is more natural than gfa{motion}{char}
-nmap gfa  <Plug>LionRight
-xmap gfa  <Plug>VLionRight
-
-nmap gfal <Plug>LionLeft
-xmap gfal <Plug>VLionLeft
-
-nmap gfah <Plug>LionRight
-xmap gfah <Plug>VLionRight
 
 " ------------------
 " KKPMW/vim-sendtowindow

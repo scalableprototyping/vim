@@ -15,6 +15,20 @@ else
   command! -nargs=* T split | resize 15 | terminal <args>
 endif
 
+" Update Vim from dotfiles
+function! UpdateVim()
+  exe 'cd' "~/dotfiles/vim"
+  call input("Updating dotfiles/vim git repository. Press ENTER to continue")
+  call system("git checkout -- . && " .
+        \"git clean -fd && " .
+        \"git pull")
+  call input("Cleaning old plugins. Press ENTER to continue")
+  execute "PlugClean"
+  call input("Installing plugins. Press ENTER to continue")
+  execute "PlugInstall"
+endfunction
+command! UpdateVim call UpdateVim()
+
 " Profiling Functions
 function! ProfilingStart()
     execute "profile start " . g:vimHome . "/performance-profile.log"

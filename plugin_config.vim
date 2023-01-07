@@ -1,4 +1,4 @@
-exec "luafile " . g:vimHome . "plugin_config.lua"
+exec "luafile " . g:vimHome . "lua/plugin_config.lua"
 
 " let g:which_key_ignore_outside_mappings = 1
 

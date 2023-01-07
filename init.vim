@@ -6,7 +6,7 @@ let &packpath=&runtimepath
 let g:vimHome=expand('<sfile>:p:h') . "/"
 
 " Load lua files
-lua package.path =  package.path .. ';' .. vim.g.vimHome .. '/?.lua'
+" lua package.path =  package.path .. ';' .. vim.g.vimHome .. '/?.lua'
 
 if has("win64") || has("win32")
     source ~/vimfiles/vimrc

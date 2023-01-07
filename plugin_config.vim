@@ -206,39 +206,39 @@ nmap <leader>gr :Git checkout .<CR>
 set diffopt+=vertical
 let g:fugitive_summary_format = "%h %cd %an %s"
 
-" ------------------
-" svermeulen/vim-yoink
-" ------------------
-let g:which_key_map.p = 'Paste history'
+" " ------------------
+" " svermeulen/vim-yoink
+" " ------------------
+" let g:which_key_map.p = 'Paste history'
 
-" Change from using system clipboard to vim clipboard, which has a special
-" formatting that allows to paste visual blocks
-let g:unnamedplusToggleFlag = 1
-command! UnnamedplusToggle call UnnamedplusToggle()
-function! UnnamedplusToggle()
-    if (g:unnamedplusToggleFlag == 1)
-        exec 'set clipboard='
-        let g:unnamedplusToggleFlag = 0
-        echo 'Visual block copy/paste enabled. System clipboard disabled.'
-    else
-        exec 'set clipboard=unnamedplus'
-        let g:unnamedplusToggleFlag = 1
-        echo 'Visual block copy/paste disabled. System clipboard enable.'
-    endif
-endfunction
+" " Change from using system clipboard to vim clipboard, which has a special
+" " formatting that allows to paste visual blocks
+" let g:unnamedplusToggleFlag = 1
+" command! UnnamedplusToggle call UnnamedplusToggle()
+" function! UnnamedplusToggle()
+"     if (g:unnamedplusToggleFlag == 1)
+"         exec 'set clipboard='
+"         let g:unnamedplusToggleFlag = 0
+"         echo 'Visual block copy/paste enabled. System clipboard disabled.'
+"     else
+"         exec 'set clipboard=unnamedplus'
+"         let g:unnamedplusToggleFlag = 1
+"         echo 'Visual block copy/paste disabled. System clipboard enable.'
+"     endif
+" endfunction
 
-let g:yoinkAutoFormatPaste=0
-let g:yoinkIncludeDeleteOperations=1
-nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
-nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
+" let g:yoinkAutoFormatPaste=0
+" let g:yoinkIncludeDeleteOperations=1
+" nmap <c-n> <Plug>(YoinkPostPasteSwapForward)
+" nmap <c-p> <Plug>(YoinkPostPasteSwapBack)
 
-nmap p <Plug>(YoinkPaste_p)
-nmap P <Plug>(YoinkPaste_P)
+" nmap p <Plug>(YoinkPaste_p)
+" nmap P <Plug>(YoinkPaste_P)
 
-" Yoink doesn't work in visual mode
-" Paste in visual mode without copying
-xnoremap p pgvy
-xnoremap P Pgvy
+" " Yoink doesn't work in visual mode
+" " Paste in visual mode without copying
+" xnoremap p pgvy
+" xnoremap P Pgvy
 
 " ------------------
 " mbbill/undotree

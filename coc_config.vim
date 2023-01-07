@@ -9,8 +9,8 @@ set updatetime=300
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" always show signcolumns
-set signcolumn=yes
+" " always show signcolumns
+" set signcolumn=yes
 
 " jd := jump to definition
 " jc := jump to code
@@ -40,46 +40,12 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 nmap [f <Plug>(coc-diagnostic-next)
 nmap ]f <Plug>(coc-diagnostic-prev)
 
-" ------------------
-" neoclide/coc-snippets
-" ------------------
-" Use <C-s> for trigger snippet expand.
-" Use <C-j> for select text for visual placeholder of snippet.
-imap <C-s> <Plug>(coc-snippets-expand)
-" vmap <C-j> <Plug>(coc-snippets-select)
+" let g:coc_global_extensions=[ 
+"             \]
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-
-" ------------------
-" neoclide/coc-yank
-" ------------------
-silent nnoremap <space>p  :<C-u>CocList -A yank<cr>
-autocmd VimEnter * execute "hi HighlightedyankRegion gui=NONE guibg=#005f87 term=NONE ctermbg=24"
-
-" ------------------
-" neoclide/coc-git
-" ------------------
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-" navigate conflicts of current buffer
-nmap [c <Plug>(coc-git-prevconflict)
-nmap ]c <Plug>(coc-git-nextconflict)
-" create text object for git chunks
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
-
-let g:coc_global_extensions=[ 
-            \'coc-yank',
-            \'coc-git',
-            \'coc-snippets',
-            \]
-
+" \'coc-yank',
+" \'coc-git',
+" \'coc-snippets',
 " \'coc-angular', 
 " \'coc-tsserver', 
 " \'coc-eslint',

@@ -4,4 +4,3 @@ function prequire(...)
     --Library failed to load, so perhaps return `nil` or something?
     return nil
 end
-

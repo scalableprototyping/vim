@@ -1,3 +1,6 @@
+" TODO: move to packer so that plugin config and plugin installation can be merged together 
+" https://github.com/wbthomason/packer.nvim
+
 call plug#begin(g:vimHome . "plugged")
 
 " -----------------
@@ -45,10 +48,12 @@ Plug 'dyng/ctrlsf.vim'
 
 " Git integration
 Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Yank registers management
 " C-n(ext) and C-p(revious) after pasting to go through the yank ring
-Plug 'svermeulen/vim-yoink'
+" Plug 'svermeulen/vim-yoink'
+Plug 'gbprod/yanky.nvim' 
 
 " Autocompletion with (LSP) Language Server Protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

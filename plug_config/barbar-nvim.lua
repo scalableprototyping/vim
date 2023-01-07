@@ -37,7 +37,10 @@ if (bufferline) then
     },
 
     -- Excludes buffers from the tabline
-    -- exclude_ft = {'javascript'},
+    exclude_ft = {
+      'fugitive',
+      'gitcommit',
+    },
     -- exclude_name = {'package.json'},
 
     -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.

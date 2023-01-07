@@ -1,10 +1,10 @@
 exec "luafile " . g:vimHome . "plugin_config.lua"
 
-let g:which_key_ignore_outside_mappings = 1
+" let g:which_key_ignore_outside_mappings = 1
 
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+" nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 
-autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+" autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 " ------------------
 " liuchengxu/vim-which-key

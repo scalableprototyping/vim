@@ -15,6 +15,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'blasco/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
+" Tab bar
+Plug 'romgrk/barbar.nvim'
+
 " -----------------
 " Extesions
 " -----------------
@@ -51,11 +54,25 @@ Plug 'svermeulen/vim-yoink'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" LSP installer manager
+Plug 'williamboman/mason.nvim'
+
+" C Sharp
+Plug 'Decodetalkers/csharpls-extended-lsp.nvim'
+
 " Undo history tree
 Plug 'mbbill/undotree'
 
 " Which Key
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'folke/which-key.nvim'
 
 " BufOnly, delete all other buffers (similar to builtin :tabonly but for buffers)
 Plug 'vim-scripts/BufOnly.vim'
@@ -159,11 +176,5 @@ Plug 'glts/vim-textobj-comment'
 " av: a variable segment
 "Plug 'Julian/vim-textobj-variable-segment'
 Plug 'blasco/vim-textobj-variable-segment'
-
-" -----------------
-" Language Specific
-" -----------------
-" C Sharp
-Plug 'Decodetalkers/csharpls-extended-lsp.nvim'
 
 call plug#end()

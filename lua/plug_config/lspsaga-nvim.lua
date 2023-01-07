@@ -1,11 +1,12 @@
 require('functions')
 
-local keymap = vim.keymap.set
 local saga = prequire('lspsaga')
 
 if (not saga) then
   return
 end
+
+local keymap = vim.keymap.set
 
 saga.init_lsp_saga()
 

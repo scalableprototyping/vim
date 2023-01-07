@@ -1,5 +1,10 @@
 require("functions")
 
+local lsp_config = prequire('lspconfig')
+if (not lsp_config) then
+  return
+end
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 function setup_lsp_keymaps()
@@ -29,28 +34,23 @@ function setup_lsp_keymaps()
   vim.keymap.set('n', '<space>ldl', vim.diagnostic.setloclist, opts)
 end
 
-local lsp_config = prequire('lspconfig')
-if (lsp_config) then
-
-  local on_attach_csharp_ls = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-    setup_lsp_keymaps()
-  end
-
-  -- Autocompletion
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-  lsp_config.csharp_ls.setup {
-    cmd = { "csharp-ls" },
-    filetypes = { "cs" },
-    on_attach = on_attach_csharp_ls,
-    init_options = {
-      AutomaticWorkspaceInit = true
-    },
-    handlers = {
-      ["textDocument/definition"] = require('csharpls_extended').handler,
-    },
-    capabilities = capabilities
-  }
-
+local on_attach_csharp_ls = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  setup_lsp_keymaps()
 end
+
+-- Autocompletion
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+lsp_config.csharp_ls.setup {
+  cmd = { "csharp-ls" },
+  filetypes = { "cs" },
+  on_attach = on_attach_csharp_ls,
+  init_options = {
+    AutomaticWorkspaceInit = true
+  },
+  handlers = {
+    ["textDocument/definition"] = require('csharpls_extended').handler,
+  },
+  capabilities = capabilities
+}

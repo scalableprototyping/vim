@@ -56,19 +56,23 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'gbprod/yanky.nvim' 
 
 " Autocompletion with (LSP) Language Server Protocol
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 
+" LSP installer manager
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 
+" LSP auto completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" LSP installer manager
-Plug 'williamboman/mason.nvim'
+" LSP Code Actions and other useful UI elements
+Plug 'glepnir/lspsaga.nvim'
 
 " C Sharp
 Plug 'Decodetalkers/csharpls-extended-lsp.nvim'

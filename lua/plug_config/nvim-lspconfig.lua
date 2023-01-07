@@ -2,10 +2,7 @@ require("functions")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach_csharp_ls = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
+function setup_lsp_keymaps()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -30,14 +27,19 @@ local on_attach_csharp_ls = function(client, bufnr)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
   vim.keymap.set('n', '<space>ldl', vim.diagnostic.setloclist, opts)
-
 end
-
--- Autocompletion
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp_config = prequire('lspconfig')
 if (lsp_config) then
+
+  local on_attach_csharp_ls = function(client, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    setup_lsp_keymaps()
+  end
+
+  -- Autocompletion
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
   lsp_config.csharp_ls.setup {
     cmd = { "csharp-ls" },
     filetypes = { "cs" },
@@ -50,4 +52,5 @@ if (lsp_config) then
     },
     capabilities = capabilities
   }
+
 end

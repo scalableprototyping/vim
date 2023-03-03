@@ -10,6 +10,12 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 nvim_tree.setup({
   sort_by = "case_sensitive",
+  filters = {
+    -- Hide Unity files
+    custom = {
+      ".meta$"
+    }
+  },
   view = {
     adaptive_size = true,
     mappings = {

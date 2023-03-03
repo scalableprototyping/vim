@@ -1,5 +1,11 @@
 # TODO:
 
+* Review configuration from:
+https://github.com/nvim-lua/kickstart.nvim
+
+source: 
+https://www.youtube.com/watch?v=stqUbv-5u2s
+
 * Better which key with (allows hints for operators and text objects)
   https://github.com/folke/which-key.nvim
 

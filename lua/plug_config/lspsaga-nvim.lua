@@ -6,6 +6,8 @@ if (not saga) then
   return
 end
 
+saga.setup({})
+
 local keymap = vim.keymap.set
 
 -- Lsp finder find the symbol definition implement reference

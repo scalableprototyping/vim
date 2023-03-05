@@ -7,7 +7,7 @@ end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local function setup_lsp_keymaps()
+function setup_lsp_keymaps()
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -23,7 +23,7 @@ local function setup_lsp_keymaps()
   vim.keymap.set('n', '<space>lwr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>lwl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
+    end, bufopts)
   vim.keymap.set('n', '<space>lr', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>la', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
@@ -52,5 +52,15 @@ lsp_config.csharp_ls.setup {
   handlers = {
     ["textDocument/definition"] = require('csharpls_extended').handler,
   },
+  capabilities = capabilities
+}
+
+local on_attach_tsserver_ls = function(client, bufnr)
+  setup_lsp_keymaps()
+end
+
+lsp_config.tsserver.setup{
+  filetypes = { "ts" },
+  on_attach = on_attach_tsserver_ls,
   capabilities = capabilities
 }

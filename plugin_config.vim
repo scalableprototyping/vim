@@ -251,66 +251,70 @@ let g:undotree_SetFocusWhenToggle = 1
 " ------------------
 " easymotion/vim-easymotion
 " ------------------
-let g:EasyMotion_skipfoldedline = 0
+if !exists('g:vscode')
 
-" Targeted f/t and search motions
-" <leader>s := search
+  let g:EasyMotion_skipfoldedline = 0
 
-noremap <silent> <leader><leader>/ /
-" noremap <silent> <leader><leader>/ /\v
+  " Targeted f/t and search motions
+  " <leader>s := search
 
-" You can use other keymappings like <C-l> instead of <CR> if you want to
-" use these mappings as default search and sometimes want to move cursor with
-" EasyMotion.
-function! s:incsearch_config(...) abort
-  return incsearch#util#deepextend(deepcopy({
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {
-  \     "\<CR>": '<Over>(easymotion)'
-  \   },
-  \   'is_expr': 0
-  \ }), get(a:, 1, {}))
-endfunction
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
+  noremap <silent> <leader><leader>/ /
+  " noremap <silent> <leader><leader>/ /\v
 
-noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
-noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
+  " You can use other keymappings like <C-l> instead of <CR> if you want to
+  " use these mappings as default search and sometimes want to move cursor with
+  " EasyMotion.
+  function! s:incsearch_config(...) abort
+    return incsearch#util#deepextend(deepcopy({
+    \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+    \   'keymap': {
+    \     "\<CR>": '<Over>(easymotion)'
+    \   },
+    \   'is_expr': 0
+    \ }), get(a:, 1, {}))
+  endfunction
+  function! s:config_easyfuzzymotion(...) abort
+    return extend(copy({
+    \   'converters': [incsearch#config#fuzzyword#converter()],
+    \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+    \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+    \   'is_expr': 0,
+    \   'is_stay': 1
+    \ }), get(a:, 1, {}))
+  endfunction
 
-map <silent> <leader>sa <plug>(easymotion-sn)
-map <silent> <leader>sk <plug>(easymotion-k)
-map <silent> <leader>sj <plug>(easymotion-j)
+  noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
+  noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+  noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+  noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 
-"" find character
-map f <Plug>(easymotion-fl)
-omap f <Plug>(easymotion-fl)
-xmap f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
+  map <silent> <leader>sa <plug>(easymotion-sn)
+  map <silent> <leader>sk <plug>(easymotion-k)
+  map <silent> <leader>sj <plug>(easymotion-j)
 
-"" unTil character
-map t <plug>(easymotion-tl)
-omap t <Plug>(easymotion-tl)
-xmap t <Plug>(easymotion-tl)
-map T <Plug>(easymotion-Tl)
+  "" find character
+  map f <Plug>(easymotion-fl)
+  omap f <Plug>(easymotion-fl)
+  xmap f <Plug>(easymotion-fl)
+  map F <Plug>(easymotion-Fl)
 
-""let g:EasyMotion_move_highlight=0
-map ; <Plug>(easymotion-next)
-map , <Plug>(easymotion-prev)
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_landing_highlight = 0
-let g:EasyMotion_move_highlight = 0
+  "" unTil character
+  map t <plug>(easymotion-tl)
+  omap t <Plug>(easymotion-tl)
+  xmap t <Plug>(easymotion-tl)
+  map T <Plug>(easymotion-Tl)
 
-hi link EasyMotionMoveHL IncSearch
-hi link EasyMotionIncSearch IncSearch
+  ""let g:EasyMotion_move_highlight=0
+  map ; <Plug>(easymotion-next)
+  map , <Plug>(easymotion-prev)
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_landing_highlight = 0
+  let g:EasyMotion_move_highlight = 0
+
+  hi link EasyMotionMoveHL IncSearch
+  hi link EasyMotionIncSearch IncSearch
+
+endif
 
 " ------------------
 " svermeulen/vim-cutlass

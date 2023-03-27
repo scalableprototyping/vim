@@ -19,7 +19,7 @@ Plug 'blasco/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
 " Tab bar
-Plug 'romgrk/barbar.nvim'
+" Plug 'romgrk/barbar.nvim'
 
 " -----------------
 " Extesions
@@ -103,6 +103,8 @@ Plug 'tpope/vim-repeat'
 Plug 'kana/vim-operator-user'
 
 " Targeted f/t and search motions
+" hop is used in vscode while easymotion is used in terminal
+Plug 'phaazon/hop.nvim'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'

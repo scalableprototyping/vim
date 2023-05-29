@@ -18,9 +18,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'blasco/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
-" Tab bar
-" Plug 'romgrk/barbar.nvim'
-
 " -----------------
 " Extesions
 " -----------------
@@ -102,13 +99,13 @@ Plug 'tpope/vim-repeat'
 " user defined operators boiler plate.
 Plug 'kana/vim-operator-user'
 
-" Targeted f/t and search motions
-" hop is used in vscode while easymotion is used in terminal
-Plug 'phaazon/hop.nvim'
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim' 
+" Targeted f/t and search motions, they don't seem to work well in VSCode
+if !exists('g:vscode')
+  Plug 'easymotion/vim-easymotion'
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-fuzzy.vim'
+  Plug 'haya14busa/incsearch-easymotion.vim' 
+endif
 
 " Improved * (star) and # motions.
 Plug 'haya14busa/vim-asterisk'

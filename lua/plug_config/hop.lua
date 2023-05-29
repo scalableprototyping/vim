@@ -11,13 +11,13 @@ hop.setup{}
 
 -- Set keymap silent
 
-vim.keymap.set('', '?', function()
-  hop.hint_patterns({ direction = directions.BEFORE_CURSOR })
-end, {remap=true})
+-- vim.keymap.set('', '<space>?', function()
+--   hop.hint_patterns({ direction = directions.BEFORE_CURSOR })
+-- end, {remap=true})
 
-vim.keymap.set('', '/', function()
-  hop.hint_patterns({ direction = directions.AFTER_CURSOR })
-end, {remap=true})
+-- vim.keymap.set('', '/', function()
+--   hop.hint_patterns()
+-- end, {remap=true})
 
 vim.keymap.set('', 'f', function()
   hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })

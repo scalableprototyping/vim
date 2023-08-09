@@ -22,4 +22,7 @@ if filereadable(g:vimHome . ".vim_initialized")
     " Vim configuration
     exec "source " . g:vimHome . "config.vim"
 
+    " Lua plugins
+    exec "luafile " . g:vimHome . "lua/plugin_config.lua"
+
 endif

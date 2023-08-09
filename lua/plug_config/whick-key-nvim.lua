@@ -84,10 +84,5 @@ which_key.setup {
 -- ----------------------
 -- -- Keys Configuration
 -- ----------------------
-which_key.register({
-  f = {
-    name = "file", -- optional group name
-    n = { "New File" }, -- just a label. don't create any mapping
-  },
-}, { prefix = "<leader>" })
+which_key.register(vim.g.which_key_map, { prefix = "<leader>" })
 

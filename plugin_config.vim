@@ -1,9 +1,6 @@
-exec "luafile " . g:vimHome . "lua/plugin_config.lua"
-
 " let g:which_key_ignore_outside_mappings = 1
 
 " nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-
 " autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 " ------------------
@@ -39,12 +36,14 @@ nnoremap <silent> <leader>vu :UpdateVim<CR>
 " arzg/vim-corvine
 " ------------------
 " Corvine Theme
-set t_Co=256
-if exists('+termguicolors')
-  set termguicolors
+if !exists('g:vscode')
+  set t_Co=256
+  if exists('+termguicolors')
+    set termguicolors
+  endif
+  colorscheme corvine
+  let g:corvine_italics = 0
 endif
-colorscheme corvine
-let g:corvine_italics = 0
 
 " ------------------
 " yuttie/comfortable-motion.vim
@@ -77,9 +76,9 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode ='ra'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 if executable('rg')
-    set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = ['.git/', 'rg %s --files --color=never --glob ""']
-    let g:ctrlp_use_caching = 0
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = ['.git/', 'rg %s --files --color=never --glob ""']
+  let g:ctrlp_use_caching = 0
 endif
 " Add .ctrlp to ~/.gitignore_global
 " git config --global core.excludesfile ~/.gitignore_global
@@ -100,14 +99,14 @@ nmap <silent> <leader>ep :CtrlP<CR>
 " ------------------
 " Fuzzy file content explorer
 let g:ctrlsf_mapping = {
-    \ "split"   : "<C-s>",
-    \ "vsplit": "<C-v>",
-    \ }
+      \ "split"   : "<C-s>",
+      \ "vsplit": "<C-v>",
+      \ }
 
 let g:ctrlsf_auto_focus = {
-    \ "at": "start",
-    \ "duration_less_than": 1000
-    \ }
+      \ "at": "start",
+      \ "duration_less_than": 1000
+      \ }
 
 com! -n=1 CtrlSFindInFile CtrlSF <q-args> %
 
@@ -266,21 +265,21 @@ if !exists('g:vscode')
   " EasyMotion.
   function! s:incsearch_config(...) abort
     return incsearch#util#deepextend(deepcopy({
-    \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-    \   'keymap': {
-    \     "\<CR>": '<Over>(easymotion)'
-    \   },
-    \   'is_expr': 0
-    \ }), get(a:, 1, {}))
+          \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+          \   'keymap': {
+          \     "\<CR>": '<Over>(easymotion)'
+          \   },
+          \   'is_expr': 0
+          \ }), get(a:, 1, {}))
   endfunction
   function! s:config_easyfuzzymotion(...) abort
     return extend(copy({
-    \   'converters': [incsearch#config#fuzzyword#converter()],
-    \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-    \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-    \   'is_expr': 0,
-    \   'is_stay': 1
-    \ }), get(a:, 1, {}))
+          \   'converters': [incsearch#config#fuzzyword#converter()],
+          \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+          \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+          \   'is_expr': 0,
+          \   'is_stay': 1
+          \ }), get(a:, 1, {}))
   endfunction
 
   noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())

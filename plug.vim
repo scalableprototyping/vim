@@ -118,9 +118,6 @@ if !exists('g:vscode')
   Plug 'arecarn/vim-crunch'
   Plug 'arecarn/vim-selection'
 
-  " <leader>[h,j,k,l] send to window (useful with repl or terimal)
-  Plug 'KKPMW/vim-sendtowindow'
-
   " Many additional mappings, check `:map [` for more details
   Plug 'tpope/vim-unimpaired'
 

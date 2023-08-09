@@ -9,5 +9,4 @@ if not vim.g.vscode then
   require("plug_config.nvim-cmp")
   require("plug_config.mason")
 else
-  --require("plug_config.hop")
 end

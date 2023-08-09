@@ -40,7 +40,15 @@ local on_attach_csharp_ls = function(client, bufnr)
 end
 
 -- Autocompletion
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = prequire('cmp_nvim_lsp').default_capabilities()
+if (not capabilities) then
+  return
+end
+
+local csharpls_extended = prequire('csharpls_extended')
+if (not csharpls_extended) then
+  return
+end
 
 lsp_config.csharp_ls.setup {
   cmd = { "csharp-ls" },
@@ -50,7 +58,7 @@ lsp_config.csharp_ls.setup {
     AutomaticWorkspaceInit = true
   },
   handlers = {
-    ["textDocument/definition"] = require('csharpls_extended').handler,
+    ["textDocument/definition"] = csharpls_extended.handler,
   },
   capabilities = capabilities
 }

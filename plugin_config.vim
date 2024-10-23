@@ -1,6 +1,5 @@
 exec "source " . g:vimHome . "plugin_config/file_navigation.vim"
 exec "source " . g:vimHome . "plugin_config/git.vim"
-exec "source " . g:vimHome . "plugin_config/lsp.vim"
 exec "source " . g:vimHome . "plugin_config/operators.vim"
 exec "source " . g:vimHome . "plugin_config/ui.vim"
 exec "source " . g:vimHome . "plugin_config/which_key.vim"

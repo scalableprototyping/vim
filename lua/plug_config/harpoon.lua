@@ -1,4 +1,10 @@
-local harpoon = require("harpoon")
+require('functions')
+
+local harpoon = prequire("harpoon")
+if (not harpoon) then
+   -- vim.notify("Harpoon not found", vim.log.levels.ERROR)
+  return
+end
 
 harpoon:setup()
 
@@ -12,8 +18,15 @@ vim.keymap.set("n", "<leader>e4", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<leader>eu", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<leader>ed", function() harpoon:list():next() end)
 
--- basic telescope configuration
-local conf = require("telescope.config").values
+
+local telescope = require("telescope.config")
+if (not telescope) then
+  vim.notify("Telescope not found", vim.log.levels.ERROR)
+  return
+end
+
+local conf = telescope.values
+
 local function toggle_telescope(harpoon_files)
     local file_paths = {}
     for _, item in ipairs(harpoon_files.items) do

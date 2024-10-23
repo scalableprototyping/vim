@@ -63,12 +63,12 @@ lsp_config.csharp_ls.setup {
   capabilities = capabilities
 }
 
-local on_attach_tsserver_ls = function(client, bufnr)
-  setup_lsp_keymaps()
-end
+-- local on_attach_tsserver_ls = function(client, bufnr)
+--   setup_lsp_keymaps()
+-- end
 
-lsp_config.tsserver.setup{
-  filetypes = { "ts" },
-  on_attach = on_attach_tsserver_ls,
-  capabilities = capabilities
-}
+-- lsp_config.tsserver.setup{
+--   filetypes = { "ts" },
+--   on_attach = on_attach_tsserver_ls,
+--   capabilities = capabilities
+-- }

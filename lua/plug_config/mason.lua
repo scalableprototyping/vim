@@ -19,15 +19,15 @@ local on_attach = function()
   setup_lsp_keymaps()
 end
 
-require("lspconfig")["angularls"].setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+-- require("lspconfig")["angularls"].setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
 
-require("lspconfig")["tsserver"].setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+-- require("lspconfig")["tsserver"].setup({
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- })
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")

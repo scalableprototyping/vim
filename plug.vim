@@ -25,44 +25,22 @@ endif
 " -----------------
 
 if !exists('g:vscode')
-  " Infile diff
-  " Allows to visually select text in one file and them compare it to a different selection
-  " Ussage: Select text and run Linediff
-  " when done, :LinediffReset
-  Plug 'AndrewRadev/linediff.vim'
-
   " BufOnly, delete all other buffers (similar to builtin :tabonly but for buffers)
   Plug 'vim-scripts/BufOnly.vim'
 
-  " File navigation and Most Recent Used files
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter'
+  " File navigation
   Plug 'nvim-telescope/telescope.nvim'
-  " Add .ctrlp to ~/.gitignore_global
-  " git config --global core.excludesfile ~/.gitignore_global
-  " touch .ctrlp where we want to set the project's search root
-  " <leader>+of:= edit file
-  " <leader>+or:= edit recent
+  Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
+  " plenary is a telescope and harpoon dependency
+  Plug 'nvim-lua/plenary.nvim'
 
   " File Explorer
   Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
   Plug 'nvim-tree/nvim-tree.lua'
 
-  " Fuzzy file content search (search in project) that allows to edit the search buffer
-  " Make sure you have ack, ag, pt or rg installed
-  " For rg (rip grep):
-  " https://github.com/BurntSushi/ripgrep#installation
-  Plug 'dyng/ctrlsf.vim'
-
   " Git integration
   Plug 'tpope/vim-fugitive'
-  Plug 'lewis6991/gitsigns.nvim'
-
-  " Yank registers management
-  " C-n(ext) and C-p(revious) after pasting to go through the yank ring
-  " Plug 'svermeulen/vim-yoink'
-  Plug 'gbprod/yanky.nvim' 
+  Plug 'lewis6991/gitsigns.nvim' " dependency
 
   " Autocompletion with (LSP) Language Server Protocol
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -83,13 +61,14 @@ if !exists('g:vscode')
   " LSP Code Actions and other useful UI elements
   Plug 'glepnir/lspsaga.nvim'
 
-  " Undo history tree
-  Plug 'mbbill/undotree'
-
   " Which Key
   Plug 'folke/which-key.nvim'
-
+  Plug 'echasnovski/mini.icons' " dependency
 endif
+
+" Yank registers management
+" C-n(ext) and C-p(revious) after pasting to go through the yank ring
+Plug 'gbprod/yanky.nvim' 
 
 " -----------------
 " Additional Operators
@@ -98,16 +77,10 @@ endif
 " Allows to repeat plugin operators with `dot`
 Plug 'tpope/vim-repeat'
 
-" user defined operators boiler plate.
+" User defined operators boiler plate.
 Plug 'kana/vim-operator-user'
 
 if !exists('g:vscode')
-
-  " Targeted f/t and search motions, they don't seem to work well in VSCode
-  Plug 'easymotion/vim-easymotion'
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'haya14busa/incsearch-fuzzy.vim'
-  Plug 'haya14busa/incsearch-easymotion.vim' 
 
   " Comment operator | gc  := go comment
   Plug 'tpope/vim-commentary'

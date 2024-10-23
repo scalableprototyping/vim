@@ -1,6 +1,6 @@
 if not vim.g.vscode then
-  require("plug_config.yanky-nvim")
   require("plug_config.telescope")
+  require("plug_config.harpoon")
   require("plug_config.gitsigns-nvim")
   require("plug_config.lspsaga-nvim")
   require("plug_config.nvim-lspconfig")
@@ -9,4 +9,5 @@ if not vim.g.vscode then
   require("plug_config.nvim-cmp")
   require("plug_config.mason")
 else
+  require("plug_config.yanky-nvim")
 end

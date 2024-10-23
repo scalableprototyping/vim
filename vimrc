@@ -3,7 +3,7 @@ exec "source " . g:vimHome . "plug.vim"
 
 if filereadable(g:vimHome . ".vim_initialized")
 
-    " Set ledaer key
+    " Set leader key
     " Note: This line MUST come before any <leader> mappings 
     let mapleader=" "
 

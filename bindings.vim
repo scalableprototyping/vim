@@ -45,6 +45,3 @@ tnoremap <Esc> <C-\><C-n>
 " gfs := go format syntax
 nnoremap gf  gw
 nnoremap gfs =
-
-" Jump to file (originally go to file but used by go format)
-nnoremap <leader>jf gf

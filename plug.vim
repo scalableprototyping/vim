@@ -18,6 +18,9 @@ if !exists('g:vscode')
   Plug 'vim-airline/vim-airline'
   Plug 'blasco/vim-airline-themes'
   Plug 'ryanoasis/vim-devicons'
+
+  " Improved * (star) and # motions.
+  "Plug 'haya14busa/vim-asterisk'
 endif
 
 " -----------------
@@ -95,9 +98,6 @@ if !exists('g:vscode')
   Plug 'tpope/vim-unimpaired'
 
 endif
-
-" Improved * (star) and # motions.
-Plug 'haya14busa/vim-asterisk'
 
 " Surround with quotes and braces
 Plug 'tpope/vim-surround'
